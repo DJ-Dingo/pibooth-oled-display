@@ -129,3 +129,26 @@ You need to provide the name of the screen that you use.
 but most common are the sh1106 or ssd1306
   
 The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**. 
+
+
+
+
+
+
+.. --- Links ------------------------------------------------------------------
+
+.. _`pibooth`: https://pypi.org/project/pibooth
+.. _`pibooth_oled_i2c`: https://pypi.org/project/pibooth-lcd-i2c/
+
+.. |PythonVersions| image:: https://img.shields.io/badge/python-3.6+-red.svg
+   :target: https://www.python.org/downloads
+   :alt: Python 3.6+
+
+.. |PypiPackage| image:: 
+   :target: 
+   :alt: PyPi package
+
+.. |Downloads| image:: 
+   :target: 
+   :alt: PyPi downloads
+
