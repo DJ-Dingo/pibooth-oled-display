@@ -131,6 +131,14 @@ but most common are the sh1106 or ssd1306
 The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**. 
 
 
+Circuit diagram
+---------------
+
+Here is the diagram for hardware connections.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
+   :align: center
+   :alt:  OLED Electronic sketch
 
 
 
