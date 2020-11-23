@@ -179,33 +179,33 @@ How to setup Oled_I2C in config.cfg
 
 [OLED_I2C] 
 
-# Choose OLED chip - **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
+# Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
-lcd_chip = **ssd1306** 
-
-# Change the I2C port number 0, 1 or 2 - (Default = 1) 
-
-lcd_port = **1** 
+oled_devices = **sh1106**
 
 # Change Port Address 0x3C(Default) 
 
-lcd_port_address = **0x3C** 
+oled_port_address = **0x3C**
 
-# Screen width (128 = Default) 
+# Change the I2C port number 0, 1 or 2 - (Default = 1) 
 
-lcd_cols = **128** 
+oled_port = **1**
 
-# Screen height (64 = Default) 
+# Change screen WIDTH 128(Default)
 
-lcd_rows = **64** 
+oled_width = **128**
 
-# Color mode (1 = default)
+# Change screen HEIGHT 32, 64(Default)
 
-- **1** **RGB** **RGBA**
+oled_height = **64**
 
-# Rotate screen 0 up = default or 2 down
+# Color mode 1 (Default = 1), RGB, RGBA
 
-- **0** **2**
+oled_color_mode = **1**
+
+# Rotate screen up/down (Default = 0), 2
+
+oled_rotate = **0**
 
 Show a logo instead of text or counter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,37 +213,86 @@ Show a logo instead of text or counter
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x64 or 128x32
 
 If you are using OLED screens with other dimention you need to make a new photo and put in the OLED logo folder.
-"/home/pi/.config/pibooth/logo", (more on that later)
+"/home/pi/.config/pibooth/logo"
 
-# Show logo instead of text (Yes / NO)
+-------------------------------------------------------------------------------------
 
-- **Yes**
+# Choose a logo instead of text on the display (**WILL OVERWRITES TEXT ON SCREEN**)
 
-# Choose logo file to show on the screen.
+oled_showlogo = **No**
 
-- **pibooth_logo_64.png**
+# Pictures/Logo path
+
+oled_logo_path = **/home/pi/.config/pibooth/logo/**
+
+# Choose what picture/logo file to show on the screen
+
+oled_logos = **pibooth_logo_64.png**
 
 # Show state pictures (Yes / NO), Show a images for each state when taking photos
 
-- **Yes** 
+oled_states_pictures = **Yes**
 
-# Choose the font for Text 1
+# fonts path
 
-- **DejaVuSans.ttf**
+oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
 
+# Text-1 font 
+
+oled_font_1 = **DejaVuSans-Bold.ttf**
 
 Counter Type
 ^^^^^^^^^^^^
 
-# Choose the counter type to be showing or **Text_Only** = Default
+# Text-1 counter type - Could be either numbers of Taken_Photo, Printed, Forgotten, Remaining_Duplicates or Text_Only
 
-- **Text_Only**
+oled_counter_type1 = **Text_Only**
 
+Write your own text 1 on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Write your own text 1 on the display 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Text-1
 
-# Text 1
+oled_text_1 = **" Pibooth"**
+
+# Text-1 size
+
+oled_size_1 = **"26"**
+
+# Text-1 - Move text-1 to the **right** on the screen
+
+oled_text1_right = **0**
+
+# Text-1 Move text-1 **down** on the screen
+
+oled_text1_down = **"0"**
+
+# Text-2 font
+
+oled_font_2 = **DejaVuSans-Bold.ttf***
+
+# Text-2 counter type - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Text_Only
+
+oled_counter_type2 = **Text_Only**
+
+Write your own text 1 on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# Text-2
+
+oled_text_2 = **"Photos"**
+
+# Text-2 size
+
+oled_size_2 = **28**
+
+# Text-2 Move text-2 to the **right** on the screen
+
+oled_text2_right = **16**
+
+# Text-2 Move text-1 **down** on the screen
+
+oled_text2_down = **"28"**
 
 
 Circuit diagram
