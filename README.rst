@@ -1,5 +1,3 @@
-THE README FILE IS STILL UNDER DEVELOPMENT
-
 ================
 pibooth-oled-i2c
 ================
@@ -12,6 +10,7 @@ pibooth-oled-i2c
    :align: center
    :alt: OLED screen
 
+THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
 Add a small **COOL** OLED-screen etc, 128x32 or 120x64 connected Through I2c.
 
