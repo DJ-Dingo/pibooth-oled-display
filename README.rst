@@ -1,8 +1,8 @@
 THE README FILE IS STILL UNDER DEVELOPMENT
 
-====================
+================
 pibooth-oled-i2c
-====================
+================
 
 |PythonVersions| |PypiPackage| |Downloads|
 
@@ -32,7 +32,7 @@ Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd
 
 * I2c port address (**Default 0x3C**)
 
-**All changes can be made in the pibooth.cfg, and most of the allso in the pibooth menu**
+All changes can be made in the pibooth.cfg, and most of them in the pibooth menu
 
 
 .. contents::
