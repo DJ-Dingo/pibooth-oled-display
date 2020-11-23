@@ -215,11 +215,11 @@ You can provide your own logo to the screen. Default is the Pibooth logo in 128x
 If you are using OLED screens with other dimention you need to make a new photo and put in the OLED logo folder.
 "/home/pi/.config/pibooth/logo"
 
--------------------------------------------------------------------------------------
+-----------------------------------------
 
-# Choose a logo instead of text on the display (**WILL OVERWRITES TEXT ON SCREEN**)
+# Choose a logo instead of text on the display (**WILL OVERWRITE TEXT ON SCREEN**) Default = No
 
-oled_showlogo = **No**
+oled_showlogo = **Yes**
 
 # Pictures/Logo path
 
@@ -233,6 +233,8 @@ oled_logos = **pibooth_logo_64.png**
 
 oled_states_pictures = **Yes**
 
+------------------------------------
+
 # fonts path
 
 oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
@@ -244,7 +246,7 @@ oled_font_1 = **DejaVuSans-Bold.ttf**
 Counter Type
 ^^^^^^^^^^^^
 
-# Text-1 counter type - Could be either numbers of Taken_Photo, Printed, Forgotten, Remaining_Duplicates or Text_Only
+# Text-1 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
 oled_counter_type1 = **Text_Only**
 
@@ -267,6 +269,8 @@ oled_text1_right = **0**
 
 oled_text1_down = **"0"**
 
+------------------------------------
+
 # Text-2 font
 
 oled_font_2 = **DejaVuSans-Bold.ttf***
@@ -275,7 +279,7 @@ oled_font_2 = **DejaVuSans-Bold.ttf***
 
 oled_counter_type2 = **Text_Only**
 
-Write your own text 1 on the display
+Write your own text 2 on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Text-2
@@ -290,7 +294,7 @@ oled_size_2 = **28**
 
 oled_text2_right = **16**
 
-# Text-2 Move text-1 **down** on the screen
+# Text-2 Move text-2 **down** on the screen
 
 oled_text2_down = **"28"**
 
