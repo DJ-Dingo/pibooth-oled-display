@@ -34,8 +34,6 @@ Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd
 
 **All changes can be made in the pibooth.cfg, and most of the allso in the pibooth menu**
 
---------------------------------------------------------------------------------
-
 
 .. contents::
 
