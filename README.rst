@@ -45,9 +45,12 @@ Hardware
 ^^^^^^^^
 
 * 1 Raspberry Pi 3 Model B (or higher)
-* 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
-* See the list of Testet Devices down under here.
 * 1 I2c safe Bi-directional Logic Level Converter
+* 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
+* See the list of Testet Devices under 
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64__.png
+   :align: center
+   :alt: OLED screen
 
 Testet Devices
 ^^^^^^^^^^^^^^
@@ -129,6 +132,29 @@ You need to provide the name of the screen that you use.
 but most common are the sh1106 or ssd1306
   
 The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**. 
+
+How to find your I2c addresss
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command.  
+ 
+In this case the address of the display is **0x3C**.  
+
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/i2cdetect-y1.png
+   :align: center
+   :alt: I2C Address
+
+How to change address on the I2c
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Only if needed most OLED devices have 2 options of a port address change.
+
+Some can be changed by Soldering (short circuit) 1 wire on the back of the OLED device.
+
+And some OLED, there is a resister you need to solder from one location to another.
+
+(**check the manual of your device, or search the internet**)
 
 
 Circuit diagram
