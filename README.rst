@@ -28,7 +28,7 @@ Examples:
 
 .. note:: Maximum text or counter size can be changed and moved around to match the screen.
 
-Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1351**, **ssd1362**
+Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
 * I2c port address (**Default 0x3C**)
 
@@ -45,15 +45,15 @@ Hardware
 ^^^^^^^^
 
 * 1 Raspberry Pi 3 Model B (or higher)
-* 1 I2c safe Bi-directional Logic Level Converter
+* 1 I2c safe Bi-directional Logic Level Converter  **Only needed if you are using 5v**
 * 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
-* See the list of Testet Devices under 
+* See the list of Testet OLED Devices under 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64.png
    :align: center
    :alt: OLED screen
 
-Testet Devices
-^^^^^^^^^^^^^^
+Testet OLED Devices
+^^^^^^^^^^^^^^^^^^^
 
 =============== ========================== ===========
 OLED devices        Screen size testet       TESTET
@@ -65,7 +65,6 @@ OLED devices        Screen size testet       TESTET
 - ssd1325                                  not testet
 - ssd1327                                  not testet
 - ssd1331                                  not testet
-- ssd1351                                  not testet
 - ssd1362                                  not testet
 =============== ========================== ===========
 
@@ -180,7 +179,7 @@ How to setup Oled_I2C in config.cfg
 
 [OLED_I2C] 
 
-# Choose OLED chip - **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1351**, **ssd1362**, **ws0010**
+# Choose OLED chip - **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
 lcd_chip = **ssd1306** 
 
