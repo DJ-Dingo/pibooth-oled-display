@@ -83,7 +83,7 @@ Menu settings
 ^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the application.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu-settings.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
    :align: center
    :alt: OLED menu settings
 
