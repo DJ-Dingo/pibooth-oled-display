@@ -32,8 +32,9 @@ Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd
 
 * I2c port address (**Default 0x3C**)
 
-All changes can be made in the pibooth.cfg, and most of them in the pibooth menu
+**All changes can be made in the pibooth.cfg, and most of them in the pibooth menu**
 
+--------------------------------------------------------------------------------
 
 .. contents::
 
@@ -46,7 +47,8 @@ Hardware
 * 1 Raspberry Pi 3 Model B (or higher)
 * 1 I2c safe Bi-directional Logic Level Converter  **Only needed if you are using 5v**
 * 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
-* See the list of Testet OLED Devices under 
+* See the list of Testet OLED Devices under
+
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64.png
    :align: center
    :alt: OLED screen
