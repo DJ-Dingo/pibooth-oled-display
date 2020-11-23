@@ -79,14 +79,6 @@ Install
 Configuration
 -------------
 
-Menu settings
-^^^^^^^^^^^^^
-At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the application.
-
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
-   :align: center
-   :alt: OLED menu settings
-
 Turn I2C on - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -161,8 +153,18 @@ And some OLED, there is a resister you need to solder from one location to anoth
 
 (**check the manual of your device, or search the internet**)
 
+
+Menu settings
+^^^^^^^^^^^^^
+At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the application.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
+   :align: center
+   :alt: OLED menu settings
+
+
 How to setup the OLED in the config.cfg file
--------------------------------------------
+--------------------------------------------
 
 Options are available by editing the configuration file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -250,7 +252,7 @@ Counter Type
 
 oled_counter_type1 = **Text_Only**
 
-Write your own text 1 on the display
+Write your own text-1 on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Text-1
@@ -275,11 +277,11 @@ oled_text1_down = **"0"**
 
 oled_font_2 = **DejaVuSans-Bold.ttf***
 
-# Text-2 counter type - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Text_Only
+# Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
 oled_counter_type2 = **Text_Only**
 
-Write your own text 2 on the display
+Write your own text-2 on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Text-2
@@ -299,6 +301,7 @@ oled_text2_right = **16**
 oled_text2_down = **"28"**
 
 
+
 Circuit diagram
 ---------------
 
@@ -314,7 +317,7 @@ Wiring
 I2C-safe Bi-directional Logic Level Converter 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**ONLY If YOUR OLED ARE USING 5v** some OLED can also run on 3v3, check your manual.
+**ONLY If YOU USE 5v on the OLED SCREEN** some OLED can also run on 3v3, check your manual.
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** so you don't fryed your pi.
 
