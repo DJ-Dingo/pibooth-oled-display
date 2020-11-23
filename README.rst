@@ -28,7 +28,7 @@ Examples:
 
 .. note:: Maximum text or counter size can be changed and moved around to match the screen.
 
-Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1351**, **ssd1362**, **ws0010**
+Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1351**, **ssd1362**
 
 * I2c port address (**Default 0x3C**)
 
@@ -67,7 +67,6 @@ OLED devices        Screen size testet       TESTET
 - ssd1331                                  not testet
 - ssd1351                                  not testet
 - ssd1362                                  not testet
-- ws0010                                   not testet
 =============== ========================== ===========
 
 
@@ -81,6 +80,13 @@ Install
 Configuration
 -------------
 
+Menu settings
+^^^^^^^^^^^^^
+At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the application.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu-settings.png
+   :align: center
+   :alt: OLED menu settings
 
 Turn I2C on - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
