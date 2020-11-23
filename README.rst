@@ -86,6 +86,7 @@ The I2C peripheral is not turned on by default.
 
 There are two methods to adjust the settings. To enable it, do the following.
 
+
 **Raspberry Pi Configuration via Desktop GUI**  
  
 You can use the Desktop GUI by heading to the Pi Start Menu > Preferences > Raspberry Pi Configuration.
@@ -97,6 +98,7 @@ Click on the tab and select Enable for I2C. Click on the OK button to save.
 We recommend restarting your Pi to ensure that the changes to take effect.  
 
 Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to restart, click on the Restart button.
+
 
 **raspi-config Tool via Terminal**
 
@@ -121,14 +123,17 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-Most commom OLED I2c screens are sh1106 or ssd1306
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Most commom OLED I2c screens are sh1106 and ssd1306
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to provide the name of the screen that you use.  
  
-but most common are the sh1106 or ssd1306
-  
-The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**. 
+The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
+
+
+.. image:: 
+   :align: center
+   :alt: I2C Address
 
 How to find your I2c addresss
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,7 +150,7 @@ In this case the address of the display is **0x3C**.
 How to change address on the I2c
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Only if needed most OLED devices have 2 options of a port address change.
+Only if needed: Most OLED devices have 2 options of a port address change.
 
 Some can be changed by Soldering (short circuit) 1 wire on the back of the OLED device.
 
@@ -210,7 +215,7 @@ oled_color_mode = **1**
 oled_rotate = **0**
 
 Show a logo instead of text or counter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x64 or 128x32
 
@@ -237,6 +242,9 @@ oled_states_pictures = **Yes**
 
 ------------------------------------
 
+Write your own text-1 on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 # fonts path
 
 oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
@@ -245,15 +253,12 @@ oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
 
 oled_font_1 = **DejaVuSans-Bold.ttf**
 
-Counter Type
-^^^^^^^^^^^^
+Counter Type text-1
+^^^^^^^^^^^^^^^^^^^
 
 # Text-1 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
 oled_counter_type1 = **Text_Only**
-
-Write your own text-1 on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Text-1
 
@@ -273,16 +278,19 @@ oled_text1_down = **"0"**
 
 ------------------------------------
 
+Write your own text-2 on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 # Text-2 font
 
 oled_font_2 = **DejaVuSans-Bold.ttf***
 
+Counter Type text-2
+^^^^^^^^^^^^^^^^^^^
+
 # Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
 oled_counter_type2 = **Text_Only**
-
-Write your own text-2 on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Text-2
 
