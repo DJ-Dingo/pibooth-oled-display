@@ -36,6 +36,7 @@ Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd
 
 --------------------------------------------------------------------------------
 
+
 .. contents::
 
 Requirements
