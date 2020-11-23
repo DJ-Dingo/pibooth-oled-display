@@ -48,7 +48,7 @@ Hardware
 * 1 I2c safe Bi-directional Logic Level Converter
 * 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
 * See the list of Testet Devices under 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64__.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64.png
    :align: center
    :alt: OLED screen
 
