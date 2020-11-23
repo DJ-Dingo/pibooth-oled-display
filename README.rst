@@ -131,7 +131,7 @@ You need to provide the name of the screen that you use.
 The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
 
 
-.. image:: 
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/oled_3.png
    :align: center
    :alt: I2C Address
 
