@@ -10,10 +10,11 @@ pibooth-oled-i2c
    :align: center
    :alt: OLED screen
 
-THE README FILE IS STILL UNDER DEVELOPMENT!!!!!. 
+THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
+
 **SPI displays not supportet in this version yet** but some SPI displays can allso use I2c.
 
-Add a **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c.
+Add an **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c.
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**.
 
