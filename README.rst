@@ -12,7 +12,7 @@ pibooth-oled-i2c
 
 THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
-Add a small **COOL** OLED-screen etc, 128x32 or 120x64 connected Through I2c.
+Add a **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c.
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**.
 
@@ -26,10 +26,6 @@ Examples:
 * Show some free texts like "pibooth!" "Welcome!" "Take a Photo"
 
 .. note:: Maximum text or counter size can be changed and moved around to match the screen.
-
-Supported OLED devices are **sh1106**, **(ssd1306 default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
-
-* I2c port address (**Default 0x3C**)
 
 **All changes can be made in the pibooth.cfg, and most of them in the pibooth menu**
 
@@ -133,7 +129,7 @@ The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/oled_3.png
    :align: center
-   :alt: I2C Address
+   :alt: 3 OLED I2C screens
 
 How to find your I2c addresss
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -161,7 +157,7 @@ And some OLED, there is a resister you need to solder from one location to anoth
 
 Menu settings
 ^^^^^^^^^^^^^
-At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the application.
+At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
    :align: center
@@ -172,7 +168,6 @@ How to setup the OLED in the config.cfg file
 --------------------------------------------
 
 Options are available by editing the configuration file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 using the command - (Most options can also be changed in the pibooth menu under "Oled_i2c")
 
@@ -217,12 +212,12 @@ oled_rotate = **0**
 Show a logo instead of text or counter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can provide your own logo to the screen. Default is the Pibooth logo in 128x64 or 128x32
+You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64
 
 If you are using OLED screens with other dimention you need to make a new photo and put in the OLED logo folder.
 "/home/pi/.config/pibooth/logo"
 
-# Choose a logo instead of text on the display (**WILL OVERWRITE TEXT ON SCREEN**) Default = No
+# Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
 
 oled_showlogo = **Yes**
 
@@ -234,15 +229,15 @@ oled_logo_path = **/home/pi/.config/pibooth/logo/**
 
 oled_logos = **pibooth_logo_64.png**
 
-# Show state pictures (Yes / NO), Show a images for each state when taking photos
+# Show state pictures (Yes / NO), (Show an images for each state when taking photos)
 
 oled_states_pictures = **Yes**
 
 ------------------------------------
 
-Write your own text-1 and/or choose counter type on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+Write your own text 1-2 and/or choose a counter type on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
 # fonts path
 
 oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
@@ -273,9 +268,6 @@ oled_text1_down = **"0"**
 
 ------------------------------------
 
-Write your own text-2 and/or choose counter type on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 # Text-2 font
 
 oled_font_2 = **DejaVuSans-Bold.ttf***
@@ -304,7 +296,8 @@ oled_text2_down = **"28"**
 Circuit diagram
 ---------------
 
-Here is the diagram for hardware connections.
+Here is the diagram for hardware connections with anc Logic Level Converter.
+**IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
    :align: center
@@ -316,7 +309,7 @@ Wiring
 I2C-safe Bi-directional Logic Level Converter 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**ONLY If YOU USE 5v on the OLED SCREEN** some OLED can also run on 3v3, check your manual.
+**ONLY If YOU USE 5v to the OLED SCREEN** some OLEDs can also run on 3v3, check your manual.
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** so you don't fryed your pi.
 
@@ -333,16 +326,16 @@ Connect the OLED-I2c to **HV** (High Level) on the Level Converter.
 **IMPORTANT CHECK YOUR OLED FOR THE RIGHT CONNECTION**
 
 - GND: Pin GND (GND) **MAKE SURE GND IS SET TO GROUND**
-- VCC: Pin HV  (HV)(5v) - Also connect **5v** from the Raspberry Pi Pin 2, to **HV** on the Level Converter
-- SCL: Pin HV2 (HV2) **CHECK YOU USE SCL**
-- SDA: Pin HV1 (HV1) **CHECK YOU USE SCA**
+- VCC: Pin HV  (HV ) (5v) - Also connect **5v** from the Raspberry Pi Pin 2, to **HV** on the Level Converter
+- SCL: Pin HV2 (HV2) **CHECK YOU USE THE SAME NUMBER LV as HV on the SCL**
+- SDA: Pin HV1 (HV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
 
 Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on the Level Converter. 
 
-- GND:  Pin 6 (GND) 
-- 3.3v: Pin 1 (LV)  
-- SCL:  Pin 5 (LV2) **CHECK YOU USE THE SAME NUMBER LV as HV**
-- SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV**
+- GND:  Pin 6 (GND) GROUND on the pi
+- 3.3v: Pin 1 (LV ) 3v3 on the pi
+- SCL:  Pin 5 (LV2) **CHECK YOU USE THE SAME NUMBER LV as HV on the SCL**
+- SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
 
 .. --- Links ------------------------------------------------------------------
 
