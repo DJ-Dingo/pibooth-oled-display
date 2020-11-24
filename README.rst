@@ -6,7 +6,7 @@ pibooth-oled-i2c-spi
 
 ``pibooth-oled-i2c-spi`` is a plugin for the `pibooth`_ application.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-i2c/
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-i2c-spi/
    :align: center
    :alt: OLED screen
 
@@ -46,7 +46,7 @@ Hardware
 * 1 OLED-screens I2c or SPI (sh1106, ssd1306) are most commom, with size **128x32 or 128x64**
 * See the list of Testet OLED Devices under
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/128x64.png
    :align: center
    :alt: OLED screen
 
@@ -131,7 +131,7 @@ You need to provide the name of the screen that you use.
 The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
 
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/oled_3.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/oled_3.png
    :align: center
    :alt: 3 OLED I2C screens
 
@@ -143,7 +143,7 @@ You need to know the address of your I2c. You can find it on the command line us
 In this case the address of the display is **0x3C**.  
 
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/i2cdetect-y1.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/i2cdetect-y1.png
    :align: center
    :alt: I2C Address
 
@@ -209,13 +209,11 @@ CS              Chip Select    P01-24  GPIO 8 (CE0)
 
 
 
-
-
 Menu settings in Pibooth
 ^^^^^^^^^^^^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu_settings.png
    :align: center
    :alt: OLED menu settings
 
@@ -352,7 +350,7 @@ oled_text2_down = **"28"**
 States description
 ------------------
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/state-sequence-oled-i2c.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state-sequence-oled-i2c.png
    :align: center
    :alt:  State sequence
 
@@ -363,7 +361,7 @@ Circuit diagram
 Here is the diagram for hardware connections with and Logic Level Converter.
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
    :align: center
    :alt:  OLED Electronic sketch
 
@@ -377,7 +375,7 @@ I2C-safe Bi-directional Logic Level Converter
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** so you don't fryed your pi.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-lcd-i2c/master/templates/level_converter.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-lcd-i2c-spi/master/templates/level_converter.png
    :align: center
    :alt: 4-channel I2C-safe Bi-directional Logic Level converter
 
