@@ -358,7 +358,7 @@ I2C-safe Bi-directional Logic Level Converter
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** so you don't fryed your pi.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-lcd-i2c-spi/master/templates/level_converter.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/level_converter.png
    :align: center
    :alt: 4-channel I2C-safe Bi-directional Logic Level converter
 
