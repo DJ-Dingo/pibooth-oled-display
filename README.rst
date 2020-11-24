@@ -90,8 +90,8 @@ The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** a
 Configuration
 -------------
 
-Turn I2C on - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enabling The I2c Interface - Raspberry Pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The I2C peripheral is not turned on by default.
 
@@ -183,13 +183,20 @@ Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to *
 **SPI** is not turned on by default. Again, we can use raspi-config to enable it.
 
 Run **sudo raspi-config**
+
 Use the down arrow to select **3 Interfacing Options**
+
 Arrow down to **P4 SPI**
+
 Select yes when it asks you to enable **SPI**
+
 Also select **yes** if it asks about automatically loading the kernel module.
+
 Use the right arrow to select the **<Finish>** button.
+
 Select **yes** when it asks to reboot.
-The system will reboot. when it comes back up, log in and enter the following command
+
+The system will reboot. when it comes back up, log in and enter the following command.
 
 
 Menu settings in Pibooth
