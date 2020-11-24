@@ -12,143 +12,143 @@ from luma.core.render import canvas
 from luma.oled.device import ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd1331, ssd1351, ssd1362, sh1106
 # from pibooth.pictures import get_pygame_layout_image
 
-
 __version__ = "1.0.5"
 # DJ-Dingo, Kenneth Nicholas Jørgensen
+
 
 @pibooth.hookimpl
 def pibooth_configure(cfg):
     """Declare the new configuration options"""
 
-    cfg.add_option('OLED_I2C', 'oled_devices', "sh1106",
+    cfg.add_option('OLED_I2C_SPI', 'oled_devices', "sh1106",
                    "Choose OLED device - (sh1106=Default)",
                    "Choose OLED device", ["ssd1306", "ssd1309", "ssd1322", "ssd1325", "ssd1327", "ssd1331", "ssd1362", "sh1106"]) # , "ssd1351"
-    cfg.add_option('OLED_I2C', 'oled_i2c_or_spi', "I2c",
+    cfg.add_option('OLED_I2C_SPI', 'oled_i2c_or_spi', "I2c",
                    "I2c or SPI display connection",
                    "I2c or SPI display connection", ["SPI", "I2c"])
-    cfg.add_option('OLED_I2C', 'oled_spi_gpio_dc_pin', "24",
+    cfg.add_option('OLED_I2C_SPI', 'oled_spi_gpio_dc_pin', "24",
                    "SPI GPIO DC PIN")
-    cfg.add_option('OLED_I2C', 'oled_spi_gpio_rst_pin', "25",
+    cfg.add_option('OLED_I2C_SPI', 'oled_spi_gpio_rst_pin', "25",
                    "SPI GPIO RST PIN")
-    cfg.add_option('OLED_I2C', 'oled_port_address', "0x3C",
+    cfg.add_option('OLED_I2C_SPI', 'oled_port_address', "0x3C",
                    'I2c address 0x3C(Default)',
                    "I2c address", "0x3C")
-    cfg.add_option('OLED_I2C', 'oled_port', "1",
+    cfg.add_option('OLED_I2C_SPI', 'oled_port', "1",
                    "Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)",
                    "I2c or SPI Port number", ["0", "1", "2"])
-    cfg.add_option('OLED_I2C', 'oled_width', "128",
+    cfg.add_option('OLED_I2C_SPI', 'oled_width', "128",
                    'Change screen WIDTH 128(Default)',
                    "OLED screen width", ["32", "64", "96", "128", "256"])
-    cfg.add_option('OLED_I2C', 'oled_height', "64",
+    cfg.add_option('OLED_I2C_SPI', 'oled_height', "64",
                    'Change screen HEIGHT 32, 48, 64(Default), 96, 128, 256',
                    "OLED screen height", ["32", "48", "64", "96", "128", "256"])
-    cfg.add_option('OLED_I2C', 'oled_color_mode', "1",
+    cfg.add_option('OLED_I2C_SPI', 'oled_color_mode', "1",
                    'Color mode (Default = 1) RGB, RGBA',
                    "Color mode(Default=1)", ["1", "RGB", "RGBA"])
-    cfg.add_option('OLED_I2C', 'oled_rotate', "0",
+    cfg.add_option('OLED_I2C_SPI', 'oled_rotate', "0",
                    'Rotate screen (Normal mode = 0 or 2)',
                    "Rotate screen", ["0", "1", "2", "3"])
                    # Logo
-    cfg.add_option('OLED_I2C', 'oled_showlogo', "Yes",
+    cfg.add_option('OLED_I2C_SPI', 'oled_showlogo', "Yes",
                    "Logo instead of text",
                    "Logo instead of text", ['Yes', 'No'])
-    cfg.add_option('OLED_I2C', 'oled_logo_path', "/home/pi/.config/pibooth/logo/",
+    cfg.add_option('OLED_I2C_SPI', 'oled_logo_path', "/home/pi/.config/pibooth/logo/",
                    "Pictures/Logo path")
-    logo_path = cfg.get('OLED_I2C', 'oled_logo_path').strip('"')
+    logo_path = cfg.get('OLED_I2C_SPI', 'oled_logo_path').strip('"')
     _logos = sorted(os.listdir(logo_path))
-    cfg.add_option('OLED_I2C', 'oled_logos', "pibooth_logo_64.png", # pibooth_logo_64.png
+    cfg.add_option('OLED_I2C_SPI', 'oled_logos', "pibooth_logo_64.png", # pibooth_logo_64.png
                    'Choose logo file',
                    "Choose logo file", _logos)
-    cfg.add_option('OLED_I2C', 'oled_states_pictures', "Yes",
+    cfg.add_option('OLED_I2C_SPI', 'oled_states_pictures', "Yes",
                    "Show state pictures",
                    "Show state pictures", ['Yes', 'No'])
                    # Font
-    cfg.add_option('OLED_I2C', 'oled_fonts_path', "/home/pi/.config/pibooth/oled_fonts/",
+    cfg.add_option('OLED_I2C_SPI', 'oled_fonts_path', "/home/pi/.config/pibooth/oled_fonts/",
                    "fonts path")
-    fonts_path = cfg.get('OLED_I2C', 'oled_fonts_path').strip('"')
+    fonts_path = cfg.get('OLED_I2C_SPI', 'oled_fonts_path').strip('"')
     _fonts = sorted(os.listdir(fonts_path))   #'/home/pi/.config/pibooth/oled_fonts/'
-    cfg.add_option('OLED_I2C', 'oled_font_1', "DejaVuSans.ttf",
+    cfg.add_option('OLED_I2C_SPI', 'oled_font_1', "DejaVuSans.ttf",
                    'Text font 1',
                    "Text font 1", _fonts)
                     # Choose Counter, Text 1
-    cfg.add_option('OLED_I2C', 'oled_counter_type1', "Text_Only",
+    cfg.add_option('OLED_I2C_SPI', 'oled_counter_type1', "Text_Only",
                    "Text-1 counter type - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Text_Only",
                    "Text-1 counter type", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates','Text_Only'])
                    # Text 1 color
-    cfg.add_option('OLED_I2C', 'oled_text1_color', "white",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text1_color', "white",
                    'Text color (Default = white)',
                    "Text color (Default = white)", ["white", "green", "red", "yellow", "blue", "black", "cyan", "purple", "orange", "violet"])
                    # Text 1
-    cfg.add_option('OLED_I2C', 'oled_text_1', "Pibooth",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text_1', "Pibooth",
                    'Text-1',
                    "Text-1", "Pibooth")
-    cfg.add_option('OLED_I2C', 'oled_size_1', "28",
+    cfg.add_option('OLED_I2C_SPI', 'oled_size_1', "28",
                    'Text-1 size',
                    "Text-1 size", "28")
-    cfg.add_option('OLED_I2C', 'oled_text1_right', "0",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text1_right', "0",
                    'Text-1 move right',
                    "Text-1 move right", "0")
-    cfg.add_option('OLED_I2C', 'oled_text1_down', "0",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text1_down', "0",
                    'Text-1 move down',
                    "Text-1 move down", "0")
                     # Font 2
-    cfg.add_option('OLED_I2C', 'oled_font_2', "DejaVuSans.ttf",
+    cfg.add_option('OLED_I2C_SPI', 'oled_font_2', "DejaVuSans.ttf",
                    'Text font 2',
                    "Text font 2", _fonts)
                     # Choose Counter2, Text 2
-    cfg.add_option('OLED_I2C', 'oled_counter_type2', "Text_Only",
+    cfg.add_option('OLED_I2C_SPI', 'oled_counter_type2', "Text_Only",
                    "Text-2 counter type - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Text_Only",
                    "Text-2 counter type", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Text_Only'])
                    # Text 2 color
-    cfg.add_option('OLED_I2C', 'oled_text2_color', "white",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text2_color', "white",
                    'Text color (Default = white)',
                    "Text color (Default = white)", ["white", "green", "red", "yellow", "blue", "black", "cyan", "purple", "orange", "violet"])
                    # Text 2
-    cfg.add_option('OLED_I2C', 'oled_text_2', "",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text_2', "",
                    'Text-2',
                    "Text-2", "")
-    cfg.add_option('OLED_I2C', 'oled_size_2', "28",
+    cfg.add_option('OLED_I2C_SPI', 'oled_size_2', "28",
                    'Text-2 size',
                    "Text-2 size", "28")
-    cfg.add_option('OLED_I2C', 'oled_text2_right', "16",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text2_right', "16",
                    'Text-2 move right',
                    "Text-2 move right", "16")
-    cfg.add_option('OLED_I2C', 'oled_text2_down', "22",
+    cfg.add_option('OLED_I2C_SPI', 'oled_text2_down', "22",
                    'Text-2 move down',
                    "Text-2 move down", "22")
 
 
-def connect_oled_i2c(app, cfg):
-    """connect to oled I2c"""
+def connect_oled_i2c_spi(app, cfg):
+    """connect to oled I2c SPI"""
     try:
-        app.devices = cfg.get('OLED_I2C', 'oled_devices').strip('"')
-        app.i2c_or_spi = cfg.get('OLED_I2C', 'oled_i2c_or_spi').strip('"')
-        app.spi_gpio_dc_pin = int(cfg.get('OLED_I2C', 'oled_spi_gpio_dc_pin').strip('"'))
-        app.spi_gpio_rst_pin = int(cfg.get('OLED_I2C', 'oled_spi_gpio_rst_pin').strip('"'))
-        app.port_address = cfg.get('OLED_I2C', 'oled_port_address').strip('"')
-        app.port = int(cfg.get('OLED_I2C', 'oled_port').strip('"'))
-        app.color_mode = cfg.get('OLED_I2C', 'oled_color_mode').strip('"')
-        app.screen_width = int(cfg.get('OLED_I2C', 'oled_width').strip('"'))
-        app.screen_height = int(cfg.get('OLED_I2C', 'oled_height').strip('"'))
-        app.rotate_screen = int(cfg.get('OLED_I2C', 'oled_rotate'))
-        app.showlogo = cfg.get('OLED_I2C', 'oled_showlogo').strip('"')
-        app.logos = cfg.get('OLED_I2C', 'oled_logos').strip('"')
-        app.logo_path = cfg.get('OLED_I2C', 'oled_logo_path').strip('"')
-        app.states_pictures = cfg.get('OLED_I2C', 'oled_states_pictures').strip('"')
-        app.font_1 = cfg.get('OLED_I2C', 'oled_font_1').strip('"')
-        app.counter_1 = cfg.get('OLED_I2C', 'oled_counter_type1').strip('"')
-        app.text1_color = cfg.get('OLED_I2C', 'oled_text1_color').strip('"')
-        app.text_1 = cfg.get('OLED_I2C', 'oled_text_1').strip('"')
-        app.size_1 = int(cfg.get('OLED_I2C', 'oled_size_1').strip('"'))
-        app.right_1 = int(cfg.get('OLED_I2C', 'oled_text1_right').strip('"'))
-        app.down_1 = int(cfg.get('OLED_I2C', 'oled_text1_down').strip('"'))
-        app.font_2 = cfg.get('OLED_I2C', 'oled_font_2').strip('"')
-        app.counter_2 = cfg.get('OLED_I2C', 'oled_counter_type2').strip('"')
-        app.text2_color = cfg.get('OLED_I2C', 'oled_text2_color').strip('"')
-        app.text_2 = cfg.get('OLED_I2C', 'oled_text_2').strip('"')
-        app.size_2 = int(cfg.get('OLED_I2C', 'oled_size_2').strip('"'))
-        app.right_2 = int(cfg.get('OLED_I2C', 'oled_text2_right').strip('"'))
-        app.down_2 = int(cfg.get('OLED_I2C', 'oled_text2_down').strip('"'))
+        app.devices = cfg.get('OLED_I2C_SPI', 'oled_devices').strip('"')
+        app.i2c_or_spi = cfg.get('OLED_I2C_SPI', 'oled_i2c_or_spi').strip('"')
+        app.spi_gpio_dc_pin = int(cfg.get('OLED_I2C_SPI', 'oled_spi_gpio_dc_pin').strip('"'))
+        app.spi_gpio_rst_pin = int(cfg.get('OLED_I2C_SPI', 'oled_spi_gpio_rst_pin').strip('"'))
+        app.port_address = cfg.get('OLED_I2C_SPI', 'oled_port_address').strip('"')
+        app.port = int(cfg.get('OLED_I2C_SPI', 'oled_port').strip('"'))
+        app.color_mode = cfg.get('OLED_I2C_SPI', 'oled_color_mode').strip('"')
+        app.screen_width = int(cfg.get('OLED_I2C_SPI', 'oled_width').strip('"'))
+        app.screen_height = int(cfg.get('OLED_I2C_SPI', 'oled_height').strip('"'))
+        app.rotate_screen = int(cfg.get('OLED_I2C_SPI', 'oled_rotate'))
+        app.showlogo = cfg.get('OLED_I2C_SPI', 'oled_showlogo').strip('"')
+        app.logos = cfg.get('OLED_I2C_SPI', 'oled_logos').strip('"')
+        app.logo_path = cfg.get('OLED_I2C_SPI', 'oled_logo_path').strip('"')
+        app.states_pictures = cfg.get('OLED_I2C_SPI', 'oled_states_pictures').strip('"')
+        app.font_1 = cfg.get('OLED_I2C_SPI', 'oled_font_1').strip('"')
+        app.counter_1 = cfg.get('OLED_I2C_SPI', 'oled_counter_type1').strip('"')
+        app.text1_color = cfg.get('OLED_I2C_SPI', 'oled_text1_color').strip('"')
+        app.text_1 = cfg.get('OLED_I2C_SPI', 'oled_text_1').strip('"')
+        app.size_1 = int(cfg.get('OLED_I2C_SPI', 'oled_size_1').strip('"'))
+        app.right_1 = int(cfg.get('OLED_I2C_SPI', 'oled_text1_right').strip('"'))
+        app.down_1 = int(cfg.get('OLED_I2C_SPI', 'oled_text1_down').strip('"'))
+        app.font_2 = cfg.get('OLED_I2C_SPI', 'oled_font_2').strip('"')
+        app.counter_2 = cfg.get('OLED_I2C_SPI', 'oled_counter_type2').strip('"')
+        app.text2_color = cfg.get('OLED_I2C_SPI', 'oled_text2_color').strip('"')
+        app.text_2 = cfg.get('OLED_I2C_SPI', 'oled_text_2').strip('"')
+        app.size_2 = int(cfg.get('OLED_I2C_SPI', 'oled_size_2').strip('"'))
+        app.right_2 = int(cfg.get('OLED_I2C_SPI', 'oled_text2_right').strip('"'))
+        app.down_2 = int(cfg.get('OLED_I2C_SPI', 'oled_text2_down').strip('"'))
     except OSError:
         pass
 
@@ -247,7 +247,7 @@ def pibooth_startup(app, cfg):
     # Connect the OLED
     # startup.
     try:
-        connect_oled_i2c(app, cfg)
+        connect_oled_i2c_spi(app, cfg)
         write_text_to_oled(app, cfg)
     except:
         pass
@@ -257,7 +257,7 @@ def state_wait_enter(app, cfg):
     #Connect the OLED
     #enter in 'wait' state.
     try:
-        connect_oled_i2c(app, cfg)
+        connect_oled_i2c_spi(app, cfg)
         write_text_to_oled(app, cfg)
     except:
         pass
