@@ -298,7 +298,7 @@ oled_text2_down = **"28"**
 States description
 ------------------
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-lcd-i2c/master/templates/state-sequence-lcd-i2c.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/state-sequence-oled-i2c.png
    :align: center
    :alt:  State sequence
 
