@@ -83,6 +83,7 @@ The I2C peripheral is not turned on by default.
 There are two methods to adjust the settings. To enable it, do the following.
 
 
+
 **Raspberry Pi Configuration via Desktop GUI**  
  
 You can use the Desktop GUI by heading to the Pi Start Menu > Preferences > Raspberry Pi Configuration.
@@ -94,6 +95,7 @@ Click on the tab and select Enable for I2C. Click on the OK button to save.
 We recommend restarting your Pi to ensure that the changes to take effect.  
 
 Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to restart, click on the Restart button.
+
 
 
 **raspi-config Tool via Terminal**
@@ -119,12 +121,12 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-Most commom OLED I2c screens are sh1106 and ssd1306
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Most commom OLED I2c screens
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to provide the name of the screen that you use.  
  
-The OLED devices on this photo are the **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
+The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
 
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/oled_3.png
@@ -155,8 +157,8 @@ And some OLED, there is a resister you need to solder from one location to anoth
 (**check the manual of your device, or search the internet**)
 
 
-Menu settings
-^^^^^^^^^^^^^
+Menu settings in Pibooth
+^^^^^^^^^^^^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/menu_settings.png
@@ -164,12 +166,12 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
    :alt: OLED menu settings
 
 
-How to setup the OLED in the config.cfg file
---------------------------------------------
+How to setup the screen
+-----------------------
 
-Options are available by editing the configuration file
+Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c**)
 
-using the command - (Most options can also be changed in the pibooth menu under "Oled_i2c")
+using the command line
 
 ::
 
@@ -177,7 +179,7 @@ using the command - (Most options can also be changed in the pibooth menu under 
    
 
 How to setup Oled_I2C in config.cfg 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 [OLED_I2C] 
 
@@ -235,8 +237,8 @@ oled_states_pictures = **Yes**
 
 ------------------------------------
 
-Write your own text 1-2 and/or choose a counter type on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Write your own text 1-2 and / or choose a counter type to show on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
 # fonts path
 
@@ -296,7 +298,7 @@ oled_text2_down = **"28"**
 Circuit diagram
 ---------------
 
-Here is the diagram for hardware connections with anc Logic Level Converter.
+Here is the diagram for hardware connections with and Logic Level Converter.
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
