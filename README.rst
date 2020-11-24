@@ -74,11 +74,24 @@ Install
     $ setup not ready, add the plugin to the config.cfg instead
 
 
+Most commom OLED I2c or SPI screens
+-----------------------------------
+
+You need to provide the name of the screen that you use.  
+ 
+The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
+
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/oled_3.png
+   :align: center
+   :alt: 3 OLED I2C screens
+
+
 Configuration
 -------------
 
 Turn I2C on - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The I2C peripheral is not turned on by default.
 
@@ -123,18 +136,6 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-Most commom OLED I2c or SPI screens
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You need to provide the name of the screen that you use.  
- 
-The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** and the small **ssd1306 128x32**.
-
-
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/oled_3.png
-   :align: center
-   :alt: 3 OLED I2C screens
-
 How to find your I2c addresss
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -159,15 +160,14 @@ And some OLED, there is a resister you need to solder from one location to anoth
 (**check the manual of your device, or search the internet**)
 
 
-
-Enabling The SPI Interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enabling The SPI Interface - Raspberry Pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The SPI peripheral is not turned on by default.
 
 There are two methods to adjust the settings. To enable it, do the following.
 
 **Raspberry Pi Configuration via Desktop GUI**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
 
 A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces tab**.
@@ -179,7 +179,7 @@ We recommend restarting your Pi to ensure that the changes to take effect.
 Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to **restart**, click on the Restart button.
 
 **raspi-config Tool via Terminal**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 **SPI** is not turned on by default. Again, we can use raspi-config to enable it.
 
 Run **sudo raspi-config**
@@ -221,6 +221,18 @@ How to setup OLED_I2C_SPI in config.cfg
 # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
 oled_devices = **sh1106**
+
+# I2c or SPI display connection
+
+oled_i2c_or_spi = **I2c**
+
+# SPI GPIO DC PIN
+
+oled_spi_gpio_dc_pin = **24**
+
+# SPI GPIO RST PIN
+
+oled_spi_gpio_rst_pin = **25**
 
 # Change Port Address 0x3C(Default) 
 
@@ -287,6 +299,10 @@ oled_font_1 = **DejaVuSans-Bold.ttf**
 
 oled_counter_type1 = **Text_Only**
 
+# Text color (Default = **white**)
+
+oled_text1_color = **white**
+
 # Text-1
 
 oled_text_1 = **" Pibooth"**
@@ -312,6 +328,10 @@ oled_font_2 = **DejaVuSans-Bold.ttf***
 # Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
 oled_counter_type2 = **Text_Only**
+
+# Text-2 color (Default = **white**)
+
+oled_text2_color = **white**
 
 # Text-2
 
