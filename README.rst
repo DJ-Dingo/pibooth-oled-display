@@ -1,10 +1,10 @@
-================
-pibooth-oled-i2c
-================
+====================
+pibooth-oled-i2c-spi
+====================
 
 |PythonVersions| |PypiPackage| |Downloads|
 
-``pibooth-oled-i2c`` is a plugin for the `pibooth`_ application.
+``pibooth-oled-i2c-spi`` is a plugin for the `pibooth`_ application.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-i2c/
    :align: center
@@ -12,9 +12,9 @@ pibooth-oled-i2c
 
 THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
-**SPI displays not supportet in this version yet** but some SPI displays can allso use I2c.
+**SPI displays supportet, but not testet yet** but some SPI displays can allso use I2c.
 
-Add an **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c.
+Add an **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c or SPI.
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**.
 
@@ -43,7 +43,7 @@ Hardware
 
 * 1 Raspberry Pi 3 Model B (or higher)
 * 1 I2c safe Bi-directional Logic Level Converter  **Only needed if you are using 5v**
-* 1 OLED-screens with I2c (sh1106, ssd1306) are most commom with size **128x32 or 128x64**
+* 1 OLED-screens I2c or SPI (sh1106, ssd1306) are most commom, with size **128x32 or 128x64**
 * See the list of Testet OLED Devices under
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c/blob/master/templates/128x64.png
@@ -84,21 +84,21 @@ The I2C peripheral is not turned on by default.
 
 There are two methods to adjust the settings. To enable it, do the following.
 
-
+ 
 
 **Raspberry Pi Configuration via Desktop GUI**  
  
-You can use the Desktop GUI by heading to the Pi Start Menu > Preferences > Raspberry Pi Configuration.
+You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
 
-A window will pop up with different tabs to adjust settings. What we are interested is the Interfaces tab. 
+A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces** tab.
 
-Click on the tab and select **Enable** for I2C. Click on the **OK** button to **save**.    
+Click on the tab and select **Enable** for I2C. Click on the **OK** button to **save**.
 
-We recommend restarting your Pi to ensure that the changes to take effect.  
+We recommend restarting your Pi to ensure that the changes to take effect.
 
 Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to restart, click on the Restart button.
 
-
+ 
 
 **raspi-config Tool via Terminal**
 
@@ -123,8 +123,8 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-Most commom OLED I2c screens
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Most commom OLED I2c or SPI screens
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to provide the name of the screen that you use.  
  
@@ -159,6 +159,58 @@ And some OLED, there is a resister you need to solder from one location to anoth
 (**check the manual of your device, or search the internet**)
 
 
+
+Enabling The SPI Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+The SPI peripheral is not turned on by default.
+
+There are two methods to adjust the settings. To enable it, do the following.
+
+**Raspberry Pi Configuration via Desktop GUI**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
+
+A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces tab**.
+
+Click on the tab and select **Enable** for **SPI**. Click on the **OK** button to save.
+
+We recommend restarting your Pi to ensure that the changes to take effect.
+
+Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to **restart**, click on the Restart button.
+
+**raspi-config Tool via Terminal**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**SPI** is not turned on by default. Again, we can use raspi-config to enable it.
+
+Run **sudo raspi-config**
+Use the down arrow to select **3 Interfacing Options**
+Arrow down to **P4 SPI**
+Select yes when it asks you to enable **SPI**
+Also select **yes** if it asks about automatically loading the kernel module.
+Use the right arrow to select the **<Finish>** button.
+Select **yes** when it asks to reboot.
+The system will reboot. when it comes back up, log in and enter the following command
+
+SPI OLED device **wire**setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+=============== ============== ======= ==============
+OLED Device Pin Remarks        RPi Pin RPi Function
+=============== ============== ======= ==============
+VCC             +3.3V Power    P01-17  3V3
+GND             Ground         P01-20  GND
+D0              Clock          P01-23  GPIO 11 (SCLK)
+D1              MOSI           P01-19  GPIO 10 (MOSI)
+RST             Reset          P01-22  GPIO 25
+DC              Data/Command   P01-18  GPIO 24
+CS              Chip Select    P01-24  GPIO 8 (CE0)
+=============== ============== ======= ==============
+
+
+
+
+
+
 Menu settings in Pibooth
 ^^^^^^^^^^^^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
@@ -171,7 +223,7 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
 How to setup the screen
 -----------------------
 
-Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c**)
+Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c_spi**)
 
 using the command line
 
@@ -180,10 +232,10 @@ using the command line
    $ pibooth --config
    
 
-How to setup Oled_I2C in config.cfg 
+How to setup OLED_I2C_SPI in config.cfg 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-[OLED_I2C] 
+[OLED_I2C_SPI] 
 
 # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
@@ -352,7 +404,7 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 .. --- Links ------------------------------------------------------------------
 
 .. _`pibooth`: https://pypi.org/project/pibooth
-.. _`pibooth_oled_i2c`: https://pypi.org/project/pibooth-lcd-i2c/
+.. _`pibooth_oled_i2c_spi`: 
 
 .. |PythonVersions| image:: https://img.shields.io/badge/python-3.6+-red.svg
    :target: https://www.python.org/downloads
