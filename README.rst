@@ -191,23 +191,6 @@ Use the right arrow to select the **<Finish>** button.
 Select **yes** when it asks to reboot.
 The system will reboot. when it comes back up, log in and enter the following command
 
-SPI OLED device **wire**setup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-=============== ============== ======= ==============
-OLED Device Pin Remarks        RPi Pin RPi Function
-=============== ============== ======= ==============
-VCC             +3.3V Power    P01-17  3V3
-GND             Ground         P01-20  GND
-D0              Clock          P01-23  GPIO 11 (SCLK)
-D1              MOSI           P01-19  GPIO 10 (MOSI)
-RST             Reset          P01-22  GPIO 25
-DC              Data/Command   P01-18  GPIO 24
-CS              Chip Select    P01-24  GPIO 8 (CE0)
-=============== ============== ======= ==============
-
-
-
 
 Menu settings in Pibooth
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -398,6 +381,22 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 - 3.3v: Pin 1 (LV ) 3v3 on the pi
 - SCL:  Pin 5 (LV2) **CHECK YOU USE THE SAME NUMBER LV as HV on the SCL**
 - SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
+
+
+SPI OLED devices **wire** setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+=============== ============== ======= ==============
+OLED Device Pin Remarks        RPi Pin RPi Function
+=============== ============== ======= ==============
+VCC             +3.3V Power    P01-17  3V3
+GND             Ground         P01-20  GND
+D0              Clock          P01-23  GPIO 11 (SCLK)
+D1              MOSI           P01-19  GPIO 10 (MOSI)
+RST             Reset          P01-22  GPIO 25
+DC              Data/Command   P01-18  GPIO 24
+CS              Chip Select    P01-24  GPIO 8 (CE0)
+=============== ============== ======= ==============
 
 .. --- Links ------------------------------------------------------------------
 
