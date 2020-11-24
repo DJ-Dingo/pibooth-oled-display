@@ -10,13 +10,14 @@ pibooth-oled-i2c
    :align: center
    :alt: OLED screen
 
-THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
+THE README FILE IS STILL UNDER DEVELOPMENT!!!!!. 
+**SPI displays not supportet in this version yet** but some SPI displays can allso use I2c.
 
 Add a **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c.
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**.
 
-It can show an image like your own logo.
+It can show an image like your own **Logo**.
 
 It also have 2 x **Free-Text** where you can write your own text and move around on the screen.
 
@@ -25,7 +26,7 @@ Examples:
 * Show pibooth counters like "Taken Photos 197" or "Today Photos 197"
 * Show some free texts like "pibooth!" "Welcome!" "Take a Photo"
 
-.. note:: Maximum text or counter size can be changed and moved around to match the screen.
+.. note:: Maximum text or counter size can be changed and text moved around to match the screen.
 
 **All changes can be made in the pibooth.cfg, and most of them in the pibooth menu**
 
@@ -90,7 +91,7 @@ You can use the Desktop GUI by heading to the Pi Start Menu > Preferences > Rasp
 
 A window will pop up with different tabs to adjust settings. What we are interested is the Interfaces tab. 
 
-Click on the tab and select Enable for I2C. Click on the OK button to save.    
+Click on the tab and select **Enable** for I2C. Click on the **OK** button to **save**.    
 
 We recommend restarting your Pi to ensure that the changes to take effect.  
 
@@ -102,12 +103,12 @@ Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to resta
 
 I2C is not turned on by default. Again, we can use raspi-config to enable it.
 
-* Run sudo raspi-config.
-* Use the down arrow to select 5 Interfacing Options
-* Arrow down to P5 I2C.
-* Select yes when it asks you to enable I2C
-* Also select yes if it asks about automatically loading the kernel module.
-* Use the right arrow to select the <Finish> button.
+* Run **sudo raspi-config**
+* Use the down arrow to select **5 Interfacing Options**
+* Arrow down to **P5 I2C**
+* Select **yes** when it asks you to enable **I2C**
+* Also select **yes** if it asks about automatically loading the kernel module.
+* Use the right arrow to select the **<Finish>** button.
 * Select yes when it asks to reboot.
 
 The system will reboot. when it comes back up, log in and enter the following command
