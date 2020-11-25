@@ -91,7 +91,7 @@ Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
 * **sh1106  128x64** 1.3″ SPI I2C Serial 128X64 OLED LCD Display Module
 
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/oled_3.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/3-oled.png
    :align: center
    :alt: 3 OLED I2C screens
 
