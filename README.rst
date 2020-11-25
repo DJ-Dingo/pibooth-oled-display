@@ -74,8 +74,8 @@ Install
     $ setup not ready, add the plugin to the config.cfg instead
 
 
-Most commom OLED I2c or SPI screens
------------------------------------
+Most commom OLED **I2c** or **SPI** screens
+-------------------------------------------
 
 You need to provide the name of the screen that you use.  
  
@@ -90,7 +90,7 @@ The most common OLED devices are these 3 **sh1106 128x64**, **ssd1306 128x64** a
 Configuration
 -------------
 
-Enabling The I2c Interface - Raspberry Pi
+Enabling The **I2c** Interface - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The I2C peripheral is not turned on by default.
@@ -130,7 +130,7 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-How to find your I2c addresss
+How to find your **I2c addresss**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command.  
@@ -142,8 +142,8 @@ In this case the address of the display is **0x3C**.
    :align: center
    :alt: I2C Address
 
-How to change address on the I2c
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to **change I2c address**
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Only if needed: Most OLED devices have 2 options of a port address change.
 
@@ -154,7 +154,7 @@ And some OLED, there is a resister you need to solder from one location to anoth
 (**check the manual of your device, or search the internet**)
 
 
-Enabling The SPI Interface - Raspberry Pi
+Enabling The **SPI** Interface - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The **SPI** peripheral is not turned on by default.
 
@@ -183,7 +183,7 @@ Again, we can use raspi-config to enable it.
 The system will reboot. when it comes back up, log in and enter the following command.
 
 
-Menu settings in Pibooth
+**Menu settings** in Pibooth
 ^^^^^^^^^^^^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
@@ -192,7 +192,7 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
    :alt: OLED menu settings
 
 
-How to setup the screen
+How to **setup the screen**
 -----------------------
 
 Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c_spi**)
@@ -204,10 +204,10 @@ using the command line
    $ pibooth --config
    
 
-How to setup OLED_I2C_SPI in config.cfg 
+How to setup **OLED_I2C_SPI** in **config.cfg**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-[OLED_I2C_SPI] 
+**[OLED_I2C_SPI]**
 
 # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
@@ -249,7 +249,7 @@ oled_color_mode = **1**
 
 oled_rotate = **0**
 
-Show a logo instead of text or counter
+Show a **Logo** instead of text or counter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64
@@ -275,7 +275,7 @@ oled_states_pictures = **Yes**
 
 ------------------------------------
 
-Write your own text 1-2 and / or choose a counter type to show on the display
+Write your own **Text** 1-2 and / or choose a **Counter type** to show on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
 # fonts path
@@ -362,7 +362,7 @@ Here is the diagram for hardware connections with and Logic Level Converter.
 Wiring
 ------
 
-I2C-safe Bi-directional Logic Level Converter 
+I2C-safe Bi-directional **Logic Level Converter**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **ONLY If YOU USE 5v to the OLED SCREEN** some OLEDs can also run on 3v3, check your manual.
@@ -394,7 +394,7 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 - SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
 
 
-SPI OLED devices **wire** setup
+**SPI** OLED devices **wire** setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 =============== ============== ======= ==============
