@@ -182,19 +182,13 @@ Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to *
 
 **SPI** is not turned on by default. Again, we can use raspi-config to enable it.
 
-Run **sudo raspi-config**
-
-Use the down arrow to select **3 Interfacing Options**
-
-Arrow down to **P4 SPI**
-
-Select yes when it asks you to enable **SPI**
-
-Also select **yes** if it asks about automatically loading the kernel module.
-
-Use the right arrow to select the **<Finish>** button.
-
-Select **yes** when it asks to reboot.
+* Run **sudo raspi-config**
+* Use the down arrow to select **3 Interfacing Options**
+* Arrow down to **P4 SPI**
+* Select yes when it asks you to enable **SPI**
+* Also select **yes** if it asks about automatically loading the kernel module.
+* Use the right arrow to select the **<Finish>** button.
+* Select **yes** when it asks to reboot.
 
 The system will reboot. when it comes back up, log in and enter the following command.
 
