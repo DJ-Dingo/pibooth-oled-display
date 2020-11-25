@@ -399,17 +399,17 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 If you have a 8 pins OLED device with **Vin** connect 5v to Vin and leave VCC empty. 
 (or check the internet for more info on your device)
 
-============== ============== ======= ============== ==================================================================
-OLED 7 Pins    Remarks        RPi Pin RPi Function   Info
-============== ============== ======= ============== ==================================================================
-VCC            Power Pin              3V3 or 5V      (3-5V tolerable)
-GND            Ground                 GND            Ground pin of the module
-D0 SCL CLK     Clock          P01-23  GPIO 11 (SCLK) Acts as the clock pin. Used for both I2C and SPI
-D1 SDA	      MOSI           P01-19  GPIO 10 (MOSI) Data pin of the module. Used for both IIC and SPI
-RST            Reset          P01-22  GPIO 25        Resets the module (useful during SPI) (**change in config.cfg**)
-DC A0          Data/Command   P01-18  GPIO 24        Data Command pin. Used for SPI protocol (**change in config.cfg**)
-CS             Chip Select    P01-24  GPIO 8 (CE0)   Useful when more than one module is used under SPI protocol
-============== ============== ======= ============== ==================================================================
+============== ============== ======== ============== ==================================================================
+OLED 7 Pins    Remarks        RPi Pin  RPi Function   Info
+============== ============== ======== ============== ==================================================================
+VCC            Power Pin               3V3 or 5V      (3-5V tolerable)
+GND            Ground                  GND            Ground pin of the module
+D0 SCL CLK     Clock          P01-23   GPIO 11 (SCLK) Acts as the clock pin. Used for both I2C and SPI
+D1 SDA	      MOSI           P01-19   GPIO 10 (MOSI) Data pin of the module. Used for both IIC and SPI
+RST            Reset          P01-22   GPIO 25        Resets the module (useful during SPI) **change in config.cfg**
+DC A0          Data/Command   P01-18   GPIO 24        Data Command pin. Used for SPI protocol **change in config.cfg**
+CS             Chip Select    P01-24   GPIO 8 (CE0)   Useful when more than one module is used under SPI protocol
+============== ============== ======== ============== ==================================================================
 
 .. --- Links ------------------------------------------------------------------
 
