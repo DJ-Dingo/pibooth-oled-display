@@ -357,8 +357,8 @@ States description
    :alt:  State sequence
 
 
-Circuit diagram
----------------
+Circuit diagram I2c
+-------------------
 
 Here is the diagram for hardware connections with and Logic Level Converter.
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
@@ -367,8 +367,8 @@ Here is the diagram for hardware connections with and Logic Level Converter.
    :align: center
    :alt:  OLED Electronic sketch
 
-Wiring
-------
+Wiring I2c
+----------
 
 I2C-safe Bi-directional **Logic Level Converter**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -401,6 +401,24 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 - SCL:  Pin 5 (LV2) **CHECK YOU USE THE SAME NUMBER LV as HV on the SCL**
 - SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
 
+
+
+Circuit diagram SPI
+-------------------
+
+Here is the diagram for hardware connections without and Logic Level Converter. 
+
+If your OLED device demands a I2C-safe Bi-directional Logic Level Converter, you should get one.
+
+**IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/Pibooth%20oled-i2c-spi%20sketch_bb.png
+   :align: center
+   :alt:  OLED Electronic sketch
+
+
+Wiring SPI
+----------
 
 **SPI** OLED devices **wire** setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
