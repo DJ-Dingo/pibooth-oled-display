@@ -407,8 +407,8 @@ VCC            Power Pin               3V3 or 5V       (3-5V tolerable)
 GND            Ground                  GND             Ground pin of the module
 D0 SCL CLK     Clock          P01-23   GPIO 11 (SCLK)  Acts as the clock pin. Used for both I2C and SPI
 D1 SDA	      MOSI           P01-19   GPIO 10 (MOSI)  Data pin of the module. Used for both IIC and SPI
-RST            Reset          P01-22   GPIO 25         Resets the module (useful during SPI) **change in config.cfg**
-DC A0          Data/Command   P01-18   GPIO 24         Data Command pin. Used for SPI protocol **change in config.cfg**
+RST            Reset          P01-22   GPIO 25         Resets the module (useful during SPI) Change in config.cfg
+DC A0          Data/Command   P01-18   GPIO 24         Data Command pin. Used for SPI protocol Change in config.cfg
 CS             Chip Select    P01-24   GPIO 8 (CE0)    Useful when more than one module is used under SPI protocol
 ============== ============== ======== =============== ================================================================
 
