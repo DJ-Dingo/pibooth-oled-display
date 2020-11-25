@@ -71,7 +71,8 @@ Install
 -------
 ::
 
-    $ setup not ready, add the plugin to the config.cfg instead
+    $ setup not ready, add **pibooth-oled-i2c-spi.py** to the config.cfg instead
+    $ Also instal the OLED driver: **pip3 install luma.oled**
 
 
 Most commom OLEDs **I2c**, **SPI** or **I2c-SPI** on the same device
