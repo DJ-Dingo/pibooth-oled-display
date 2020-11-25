@@ -97,25 +97,19 @@ The I2C peripheral is not turned on by default.
 
 There are two methods to adjust the settings. To enable it, do the following.
 
- 
 
 **Raspberry Pi Configuration via Desktop GUI**  
  
-You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
-
-A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces** tab.
-
-Click on the tab and select **Enable** for I2C. Click on the **OK** button to **save**.
-
-We recommend restarting your Pi to ensure that the changes to take effect.
-
-Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to restart, click on the Restart button.
+* You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
+* A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces** tab.
+* Click on the tab and select **Enable** for I2C. Click on the **OK** button to **save**.
+* We recommend restarting your Pi to ensure that the changes to take effect.
+* Click on the Pi Start Menu > Preferences > Shutdown. Since we just need to restart, click on the Restart button.
 
  
-
 **raspi-config Tool via Terminal**
 
-I2C is not turned on by default. Again, we can use raspi-config to enable it.
+Again, we can use raspi-config to enable it.
 
 * Run **sudo raspi-config**
 * Use the down arrow to select **5 Interfacing Options**
@@ -162,25 +156,21 @@ And some OLED, there is a resister you need to solder from one location to anoth
 
 Enabling The SPI Interface - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The SPI peripheral is not turned on by default.
+The **SPI** peripheral is not turned on by default.
 
-There are two methods to adjust the settings. To enable it, do the following.
+There are two methods to adjust the settings. To enable it, do one of the following.
 
 **Raspberry Pi Configuration via Desktop GUI**
 
-You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
-
-A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces tab**.
-
-Click on the tab and select **Enable** for **SPI**. Click on the **OK** button to save.
-
-We recommend restarting your Pi to ensure that the changes to take effect.
-
-Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to **restart**, click on the Restart button.
+* You can use the Desktop GUI by heading to the Pi **Start Menu > Preferences > Raspberry Pi Configuration**.
+* A window will pop up with different tabs to adjust settings. What we are interested is the **Interfaces tab**.
+* Click on the tab and select **Enable** for **SPI**. Click on the **OK** button to save.
+* We recommend restarting your Pi to ensure that the changes to take effect.
+* Click on the Pi **Start Menu > Preferences > Shutdown**. Since we just need to **restart**, click on the Restart button.
 
 **raspi-config Tool via Terminal**
 
-**SPI** is not turned on by default. Again, we can use raspi-config to enable it.
+Again, we can use raspi-config to enable it.
 
 * Run **sudo raspi-config**
 * Use the down arrow to select **3 Interfacing Options**
@@ -239,7 +229,7 @@ oled_spi_gpio_rst_pin = **25**
 
 oled_port_address = **0x3C**
 
-# Change the I2C port number 0, 1 or 2 - (Default = 1) 
+# Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
 
 oled_port = **1**
 
