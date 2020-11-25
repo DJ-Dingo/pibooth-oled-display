@@ -81,8 +81,10 @@ Most commom OLEDs **I2c**, **SPI** or **I2c-SPI** on the same device
 * The display performance is better than the traditional LCD display, also lower consumption.
 * SPI OLEDs are faster than I2c OLEDs, but use more wires to the raspberry pi.
 
-* You need to provide the name of the screen that you use.
-The most common OLED devices are these 3. Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
+You need to provide the name of the screen that you use. The most common OLED devices are these 3. 
+
+Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
+
 * **ssd1306 128x32** 0.91″ OLED 128X32 white Display Module IIC I2C
 * **ssd1306 128x64** 0.96″ I2C IIC SPI Serial 128X64 OLED
 * **sh1106  128x64** 1.3″ SPI I2C Serial 128X64 OLED LCD Display Module
