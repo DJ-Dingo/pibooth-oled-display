@@ -408,7 +408,7 @@ If you have a 8 pins OLED device with **Vin** connect 5v to Vin and leave VCC em
 (or check the internet for more info on your device)
 
 ======== ============ ========== =============== ============================================================
-7 Pins   Remarks      RPi-PIN's  RPi GPIO        Info
+7 Pins   Remarks      RPi-PIN    RPi GPIO        Info
 ======== ============ ========== =============== ============================================================
 VCC      Power Pin    P          3V3 or 5V       3-5V tolerable
 GND      Ground       P          GND             Ground pin of the module
