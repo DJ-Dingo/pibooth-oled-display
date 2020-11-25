@@ -187,7 +187,7 @@ The system will reboot. when it comes back up, log in and enter the following co
 ^^^^^^^^^^^^^^^^^^^^^^^^
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/Menu-Settings_I2c_SPI.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu-settings_i2c_spi.png
    :align: center
    :alt: OLED menu settings
 
