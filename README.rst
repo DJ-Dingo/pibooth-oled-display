@@ -95,8 +95,8 @@ Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
    :alt: 3 OLED I2C screens
 
 
-Configuration
--------------
+**I2c Configuration**
+---------------------
 
 Enabling The **I2c** Interface - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -162,6 +162,9 @@ And some OLED, there is a resister you need to solder from one location to anoth
 (**check the manual of your device, or search the internet**)
 
 
+**SPI Configuration**
+---------------------
+
 Enabling The **SPI** Interface - Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The **SPI** peripheral is not turned on by default.
@@ -192,7 +195,7 @@ The system will reboot. when it comes back up, log in and enter the following co
 
 
 **Menu settings** in Pibooth
-^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu-settings_i2c_spi.png
@@ -200,8 +203,8 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
    :alt: OLED menu settings
 
 
-How to **setup the screen**
------------------------
+How to **setup the screen** in config.cfg
+-----------------------------------------
 
 Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c_spi**)
 
@@ -212,7 +215,7 @@ using the command line
    $ pibooth --config
    
 
-How to setup **OLED_I2C_SPI** in **config.cfg**
+**OLED_I2C_SPI** options in **config.cfg**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **[OLED_I2C_SPI]**
