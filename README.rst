@@ -296,11 +296,11 @@ oled_text1_color = **white**
 
 # Text-1
 
-oled_text_1 = **" Pibooth"**
+oled_text_1 = ** Pibooth**
 
 # Text-1 size
 
-oled_size_1 = **"26"**
+oled_size_1 = **26**
 
 # Text-1 - Move text-1 to the **right** on the screen
 
@@ -308,13 +308,13 @@ oled_text1_right = **0**
 
 # Text-1 Move text-1 **down** on the screen
 
-oled_text1_down = **"0"**
+oled_text1_down = **0**
 
 ------------------------------------
 
 # Text-2 font
 
-oled_font_2 = **DejaVuSans-Bold.ttf***
+oled_font_2 = **DejaVuSans-Bold.ttf**
 
 # Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
@@ -326,7 +326,7 @@ oled_text2_color = **white**
 
 # Text-2
 
-oled_text_2 = **"Photos"**
+oled_text_2 = **Photos**
 
 # Text-2 size
 
@@ -338,7 +338,7 @@ oled_text2_right = **16**
 
 # Text-2 Move text-2 **down** on the screen
 
-oled_text2_down = **"28"**
+oled_text2_down = **28**
 
 
 States description
