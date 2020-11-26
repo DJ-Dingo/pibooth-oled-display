@@ -221,136 +221,134 @@ using the command line
 
 **[OLED_I2C_SPI]**
 
-# Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
+* # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
-oled_devices = **sh1106**
+* oled_devices = **sh1106**
 
-# I2c or SPI display connection
+* # I2c or SPI display connection
 
-oled_i2c_or_spi = **I2c**
+* oled_i2c_or_spi = **I2c**
 
-# SPI GPIO DC PIN
+* # SPI GPIO DC PIN
 
-oled_spi_gpio_dc_pin = **24**
+* oled_spi_gpio_dc_pin = **24**
 
-# SPI GPIO RST PIN
+* # SPI GPIO RST PIN
 
-oled_spi_gpio_rst_pin = **25**
+* oled_spi_gpio_rst_pin = **25**
 
-# Change Port Address 0x3C(Default) 
+* # Change Port Address 0x3C(Default) 
 
-oled_port_address = **0x3C**
+* oled_port_address = **0x3C**
 
-# Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
+* # Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
 
-oled_port = **1**
+* oled_port = **1**
 
-# Change screen WIDTH 128(Default)
+* # Change screen WIDTH 128(Default)
 
-oled_width = **128**
+* oled_width = **128**
 
-# Change screen HEIGHT 32, 64(Default)
+* # Change screen HEIGHT 32, 64(Default)
 
-oled_height = **64**
+* oled_height = **64**
 
-# Color mode 1 (Default = 1), RGB, RGBA
+* # Color mode 1 (Default = 1), RGB, RGBA
 
-oled_color_mode = **1**
+* oled_color_mode = **1**
 
-# Rotate screen up/down (Default = 0), 2
+* # Rotate screen up/down (Default = 0), 2
 
-oled_rotate = **0**
+* oled_rotate = **0**
 
 Show a **Logo** instead of text or counter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64
-
+You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64. 
 If you are using OLED screens with other dimention you need to make a new photo and put in the OLED logo folder.
-"/home/pi/.config/pibooth/logo"
 
-# Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
+* # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
 
-oled_showlogo = **Yes**
+* oled_showlogo = **Yes**
 
-# Pictures/Logo path
+* # Pictures/Logo path
 
-oled_logo_path = **/home/pi/.config/pibooth/logo/**
+* oled_logo_path = **/home/pi/.config/pibooth/logo/**
 
-# Choose what picture/logo file to show on the screen
+* # Choose what picture/logo file to show on the screen
 
-oled_logos = **pibooth_logo_64.png**
+* oled_logos = **pibooth_logo_64.png**
 
-# Show state pictures (Yes / NO), (Show an images for each state when taking photos)
+* # Show state pictures (Yes / NO), (Show an images for each state when taking photos)
 
-oled_states_pictures = **Yes**
+* oled_states_pictures = **Yes**
 
 ------------------------------------
 
 Write your own **Text** 1-2 and / or choose a **Counter type** to show on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
-# fonts path
+* # fonts path
 
-oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
+* oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
 
-# Text-1 font 
+* # Text-1 font 
 
-oled_font_1 = **DejaVuSans-Bold.ttf**
+* oled_font_1 = **DejaVuSans-Bold.ttf**
 
-# Text-1 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
+* # Text-1 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
-oled_counter_type1 = **Text_Only**
+* oled_counter_type1 = **Text_Only**
 
-# Text color (Default = **white**)
+* # Text color (Default = **white**)
 
-oled_text1_color = **white**
+* oled_text1_color = **white**
 
-# Text-1
+* # Text-1
 
-oled_text_1 = ** Pibooth**
+* oled_text_1 = ** Pibooth**
 
-# Text-1 size
+* # Text-1 size
 
-oled_size_1 = **26**
+* oled_size_1 = **26**
 
-# Text-1 - Move text-1 to the **right** on the screen
+* # Text-1 - Move text-1 to the **right** on the screen
 
-oled_text1_right = **0**
+* oled_text1_right = **0**
 
-# Text-1 Move text-1 **down** on the screen
+* # Text-1 Move text-1 **down** on the screen
 
-oled_text1_down = **0**
+* oled_text1_down = **0**
 
 ------------------------------------
 
-# Text-2 font
+* # Text-2 font
 
-oled_font_2 = **DejaVuSans-Bold.ttf**
+* oled_font_2 = **DejaVuSans-Bold.ttf**
 
-# Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
+* # Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
 
-oled_counter_type2 = **Text_Only**
+* oled_counter_type2 = **Text_Only**
 
-# Text-2 color (Default = **white**)
+* # Text-2 color (Default = **white**)
 
-oled_text2_color = **white**
+* oled_text2_color = **white**
 
-# Text-2
+* # Text-2
 
-oled_text_2 = **Photos**
+* oled_text_2 = **Photos**
 
-# Text-2 size
+* # Text-2 size
 
-oled_size_2 = **28**
+* oled_size_2 = **28**
 
-# Text-2 Move text-2 to the **right** on the screen
+* # Text-2 Move text-2 to the **right** on the screen
 
-oled_text2_right = **16**
+* oled_text2_right = **16**
 
-# Text-2 Move text-2 **down** on the screen
+* # Text-2 Move text-2 **down** on the screen
 
-oled_text2_down = **28**
+* oled_text2_down = **28**
 
 
 States description
