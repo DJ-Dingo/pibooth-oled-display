@@ -12,7 +12,7 @@ from luma.oled.device import ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd133
 # from pibooth.pictures import get_pygame_layout_image
 
 
-__version__ = "1.0.7"
+__version__ = "0.0.8"
 # DJ-Dingo, Kenneth Nicholas Jørgensen
 
 
@@ -53,7 +53,7 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_showlogo', "No",
                    "Logo instead of text",
                    "Logo instead of text", ['Yes', 'No'])
-    cfg.add_option('OLED DISPLAY TEXT', 'oled_logo_path', "/home/pi/.config/pibooth/logo/",
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_logo_path', "/home/pi/.config/pibooth/oled_display/logo/",
                    "Pictures/Logo path")
     logo_path = cfg.get('OLED DISPLAY TEXT', 'oled_logo_path').strip('"')
     _logos = sorted(os.listdir(logo_path))
@@ -63,14 +63,16 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_states_pictures', "Yes",
                    "Show state pictures",
                    "Show state pictures", ['Yes', 'No'])
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_state_picture_path', "/home/pi/.config/pibooth/oled_display/states/",
+                   "state picture path")
                    # Font
-    cfg.add_option('OLED DISPLAY TEXT', 'oled_fonts_path', "/home/pi/.config/pibooth/oled_fonts/",
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_fonts_path', "/home/pi/.config/pibooth/oled_display/fonts/",
                    "fonts path")
     fonts_path = cfg.get('OLED DISPLAY TEXT', 'oled_fonts_path').strip('"')
-    _fonts = sorted(os.listdir(fonts_path))   #'/home/pi/.config/pibooth/oled_fonts/'
+    _fonts = sorted(os.listdir(fonts_path))
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_1', "DejaVuSerif-Bold.ttf",
-                   'Text font 1',
-                   "Text font 1", _fonts)
+                   'Text 1 font',
+                   "Text 1 font", _fonts)
                     # Choose Counters 1, Text 1, Date-Time 1
     cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type1', "Taken_Photo",
                    "Text-1 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
@@ -95,8 +97,8 @@ def pibooth_configure(cfg):
                    "Text-1 move down", "0")
                     # Font 2
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_2', "DejaVuSerif-Bold.ttf",
-                   'Text font 2',
-                   "Text font 2", _fonts)
+                   'Text 2 font',
+                   "Text 2 font", _fonts)
                     # Choose Counters 2, Text 2, Date-Time 2
     cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type2', "Printed",
                    "Text-2 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
@@ -121,8 +123,8 @@ def pibooth_configure(cfg):
                    "Text-2 move down", "23")
                     # Font 3
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_3', "DejaVuSerif-Bold.ttf",
-                   'Text font 3',
-                   "Text font 3", _fonts)
+                   'Text 3 font',
+                   "Text 3 font", _fonts)
                     # Choose Counters 3, Text 3, Date-Time 3
     cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type3', "Remaining_Duplicates",
                    "Text-3 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
@@ -166,6 +168,7 @@ def connect_oled_i2c_spi(app, cfg):
         app.logos = cfg.get('OLED DISPLAY TEXT', 'oled_logos').strip('"')
         app.logo_path = cfg.get('OLED DISPLAY TEXT', 'oled_logo_path').strip('"')
         app.states_pictures = cfg.get('OLED DISPLAY TEXT', 'oled_states_pictures').strip('"')
+        app.state_picture_path = cfg.get('OLED DISPLAY TEXT', 'oled_state_picture_path').strip('"')
         # Text 1
         app.font_1 = cfg.get('OLED DISPLAY TEXT', 'oled_font_1').strip('"')
         app.counter_1 = cfg.get('OLED DISPLAY TEXT', 'oled_counter_type1').strip('"')
@@ -306,6 +309,8 @@ def write_text_to_oled(app, cfg):
                     app.image = Image.open(app.logo_path + app.logos).convert(app.color_mode)
                 elif app.device.height == 128:
                     app.image = Image.open(app.logo_path + app.logos).convert(app.color_mode)
+                elif app.device.height == 256:
+                    app.image = Image.open(app.logo_path + app.logos).convert(app.color_mode)
                 # Display image
                 app.device.display(app.image)
     except:
@@ -315,173 +320,89 @@ def write_text_to_oled(app, cfg):
 def choose(app, cfg):
     """Method called to write choose state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout2_32.png').convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout2_48.png').convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout2_64.png').convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout2_96.png').convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout2_128.png').convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'choose_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def chosen(app, cfg):
     """Method called to write chosen state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'layout{0}_{1}.png'.format(app.capture_nbr, app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def preview(app, cfg):
     """Method called to write preview state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/capture_32.png').convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/capture_48.png').convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/capture_64.png').convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/capture_96.png').convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/capture_128.png').convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'preview_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def capture(app, cfg):
     """Method called to write capture state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:    
-            font_1 = ImageFont.truetype(app.font_1, app.size_1)
-            font_2 = ImageFont.truetype(app.font_2, app.size_2)
-            with canvas(app.device) as app.draw:
-                app.draw.rectangle(app.device.bounding_box, outline="white", fill="white")
-            # Display white background at capture
-            app.image=app.image.show()
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'capture_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def processing(app, cfg):
     """Method called to write processing state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/processing_32.png').convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/processing_48.png').convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/processing_64.png').convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/processing_96.png').convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/processing_128.png').convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'processing_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def print_(app, cfg):
     """Method called to write print state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_32.png').convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_48.png').convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_64.png').convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_96.png').convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_128.png').convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'printer_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 def finish(app, cfg):
     """Method called to write finish state on the screen
     """
-    try:
-        s = app.states_pictures.split()
-        if "Yes" in s:
-            if app.device.height == 32:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/finished_32.png').convert(app.color_mode)
-            elif app.device.height == 48:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/finished_48.png').convert(app.color_mode)
-            elif app.device.height == 64:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/finished_64.png').convert(app.color_mode)
-            elif app.device.height == 96:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/finished_96.png').convert(app.color_mode)
-            elif app.device.height == 128:
-                app.image = Image.open('/home/pi/.config/pibooth/oled_states/finished_128.png').convert(app.color_mode)
-            # Display image
-            app.device.display(app.image)
-        else:
-            # Write text instead of picture
-            write_text_to_oled(app, cfg)
-    except:
-        pass
+    s = app.states_pictures.split()
+    if "Yes" in s:
+        app.image = Image.open(app.state_picture_path + 'finished_{0}.png'.format(app.device.height)).convert(app.color_mode)
+        app.device.display(app.image)
+    else:
+        # Write text instead of picture
+        write_text_to_oled(app, cfg)
 
 
 @pibooth.hookimpl
 def pibooth_startup(app, cfg):
     # Connect the OLED
     # startup.
-    # Write the date at startup
-    connect_oled_i2c_spi(app, cfg)
-    write_text_to_oled(app, cfg)
+    try:
+        connect_oled_i2c_spi(app, cfg)
+    except:
+        pass
 
 
 @pibooth.hookimpl
@@ -489,43 +410,48 @@ def state_wait_enter(app, cfg):
     #Connect the OLED
     #enter in 'wait' state.
     # Re-Write the date at wait_enter
-    connect_oled_i2c_spi(app, cfg)
-    write_text_to_oled(app, cfg)
-
+    try:
+        connect_oled_i2c_spi(app, cfg)
+        write_text_to_oled(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_wait_do(app, cfg):
     #Connect the OLED
     #enter in 'wait_do' state.
-    write_text_to_oled(app, cfg)
-
-
+    try:
+        write_text_to_oled(app, cfg)
+    except:
+        pass
 
 ####### CHOOSE ###############################
 @pibooth.hookimpl
 def state_choose_enter(app, cfg):
     # Write state picture on screen at choose_enter
     # Re-Write the date at choose_enter
-    choose(app, cfg)
+    try:
+        choose(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_choose_do(app, cfg):
     # Write the state picture at choose_do
     # Re-Write the date at choose_do
-    choose(app, cfg)
+    try:
+        choose(app, cfg)
+    except:
+        pass
     
-@pibooth.hookimpl
-def state_choose_validate(app, cfg):
-    # Write state picture on screen at choose_validate
-    # Re-Write the date at choose_validate
-    choose(app, cfg)
-
 @pibooth.hookimpl
 def state_choose_exit(app, cfg):
     # Write the state picture at choose_exit
     # Re-Write the date at choose_exit
-    choose(app, cfg)
-
+    try:
+        choose(app, cfg)
+    except:
+        pass
 
 
 ####### CHOSEN ###############################
@@ -533,26 +459,28 @@ def state_choose_exit(app, cfg):
 def state_chosen_enter(app, cfg):
     # Write the state picture at chosen enter
     # Re-Write the date at chosen_enter
-    chosen(app, cfg)
+    try:
+        chosen(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_chosen_do(app, cfg):
     # Write the state picture at chosen_do
     # Re-Write the date at chosen_do
-    chosen(app, cfg)
-
-@pibooth.hookimpl
-def state_chosen_validate(app, cfg):
-    # Write the state picture at chosen_validate
-    # Re-Write the date at chosen_validate
-    chosen(app, cfg)
+    try:
+        chosen(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_chosen_exit(app, cfg):
     # Write the state picture at chosen_exit
     # Re-Write the date at chosen_exit
-    chosen(app, cfg)
-
+    try:
+        chosen(app, cfg)
+    except:
+        pass
 
 
 ####### PREVIEW ###############################
@@ -560,26 +488,28 @@ def state_chosen_exit(app, cfg):
 def state_preview_enter(app, cfg):
     # Write the State picture at preview_enter
     # Re-Write the date at preview_enter
-    preview(app, cfg)
+    try:
+        preview(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_preview_do(app, cfg):
     # Write the State picture at preview_do
     # Re-Write the date at preview_do
-    preview(app, cfg)
-
-@pibooth.hookimpl
-def state_preview_validate(app, cfg):
-    # Write the State picture at preview_validate
-    # Re-Write the date at preview_validate
-    preview(app, cfg)
+    try:
+        preview(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_preview_exit(app, cfg):
     # Write the State picture at preview_exit
     # Re-Write the date at preview_exit
-    preview(app, cfg)
-
+    try:
+        preview(app, cfg)
+    except:
+        pass
 
 
 ####### CAPTURE ###############################
@@ -587,26 +517,28 @@ def state_preview_exit(app, cfg):
 def state_capture_enter(app, cfg):
     # Write the State BLANK WHITE background at capture_enter
     # Re-Write the date at capture_enter
-    capture(app, cfg)
+    try:
+        capture(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_capture_do(app, cfg):
     # Write the State BLANK WHITE background at capture_do
     # Re-Write the date at capture_do
-    capture(app, cfg)
-
-@pibooth.hookimpl
-def state_capture_validate(app, cfg):
-    # Write the State BLANK WHITE background at capture_validate
-    # Re-Write the date at capture_validate
-    capture(app, cfg)
+    try:
+        capture(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_capture_exit(app, cfg):
     # Write the State BLANK WHITE background at capture_exit
     # Re-Write the date at capture_exit
-    capture(app, cfg)
-
+    try:
+        capture(app, cfg)
+    except:
+        pass
 
 
 ####### PROCESSING #############################
@@ -614,26 +546,28 @@ def state_capture_exit(app, cfg):
 def state_processing_enter(app, cfg):
     # Write the State picture at processing_enter
     # Re-Write the date at processing_enter
-    processing(app, cfg)
+    try:
+        processing(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_processing_do(app, cfg):
     # Write the State picture at processing_do
     # Re-Write the date at processing_do
-    processing(app, cfg)
-
-@pibooth.hookimpl
-def state_processing_validate(app, cfg):
-    # Write the State picture at processing_validate
-    # Re-Write the date at processing_validate
-    processing(app, cfg)
+    try:
+        processing(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_processing_exit(app, cfg):
     # Write the State picture at processing_exit
     # Re-Write the date at processing_exit
-    processing(app, cfg)
-
+    try:
+        processing(app, cfg)
+    except:
+        pass
 
 
 ####### PRINT #################################
@@ -641,26 +575,28 @@ def state_processing_exit(app, cfg):
 def state_print_enter(app, cfg):
     # Write the State picture at print_enter
     # Re-Write the date at print_enter
-    print_(app, cfg)
+    try:
+        print_(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_print_do(app, cfg):
     # Write the State picture at print_do
     # Re-Write the date at print_do
-    print_(app, cfg)
-
-@pibooth.hookimpl
-def state_print_validate(app, cfg):
-    # Write the State picture at print_validate
-    # Re-Write the date at print_validate
-    print_(app, cfg)
+    try:
+        print_(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_print_exit(app, cfg):
     # Write the State picture at print_exit
     # Re-Write the date at print_exit
-    print_(app, cfg)
-
+    try:
+        print_(app, cfg)
+    except:
+        pass
 
 
 ####### FINISH #################################
@@ -668,26 +604,28 @@ def state_print_exit(app, cfg):
 def state_finish_enter(app, cfg):
     # Write the State picture at finish_enter
     # Re-Write the date at finish_enter
-    finish(app, cfg)
+    try:
+        finish(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_finish_do(app, cfg):
     # Write the State picture at finish_do
     # Re-Write the date at finish_do
-    finish(app, cfg)
-
-@pibooth.hookimpl
-def state_finish_validate(app, cfg):
-    # Write the State picture at finish_validate
-    # Re-Write the date at finish_validate
-    finish(app, cfg)
+    try:
+        finish(app, cfg)
+    except:
+        pass
 
 @pibooth.hookimpl
 def state_finish_exit(app, cfg):
     # Write the State picture at finish_exit
     # Re-Write the date at finish_exit
-    finish(app, cfg)
-
+    try:
+        finish(app, cfg)
+    except:
+        pass
 
 
 ####### FAILSAFE ###############################
@@ -695,18 +633,8 @@ def state_finish_exit(app, cfg):
 def state_failsafe_do(app):
     # Write the State picture at failsafe_do
     try:
-        if app.device.height == 32:
-            app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_failure_32.png').convert(app.color_mode)
-        elif app.device.height == 48:
-            app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_failure_48.png').convert(app.color_mode)
-        elif app.device.height == 64:
-            app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_failure_64.png').convert(app.color_mode)
-        elif app.device.height == 96:
-            app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_failure_96.png').convert(app.color_mode)
-        elif app.device.height == 128:
-            app.image = Image.open('/home/pi/.config/pibooth/oled_states/printer_failure_128.png').convert(app.color_mode)
+        app.image = Image.open(app.state_picture_path + 'failure_{0}.png'.format(app.device.height)).convert(app.color_mode)
         # Display image
         app.device.display(app.image)
     except:
         pass
-
