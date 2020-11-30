@@ -12,16 +12,18 @@ pibooth-oled-i2c-spi
 
 THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
-Add an **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c or SPI.
+Add a **COOL** small OLED monochrome or color screen.
 
-**SPI displays supportet, but not testet yet** but some SPI displays can allso use I2c.
+The OLED device showing here is the * **OLED sh1106  128x64** 1.3″ SPI I2C Serial 128X64.
+
+**SPI displays are supportet, but not testet yet** but some SPI displays can allso use I2c.
 
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, **Date-Time**.
 
 It can show an image like your own **Logo**.
 
-It also have 2 x **Free-Text** where you can write your own text and move around on the screen.
+It also have 4 x **Free-Text** where you can write your own text or put in front of a **counter** and move around on the screen.
 
 Examples:
 
@@ -44,7 +46,7 @@ Hardware
 
 * 1 Raspberry Pi 3 Model B (or higher)
 * 1 I2c safe Bi-directional Logic Level Converter  **Only needed if you are using 5v**
-* 1 OLED-screens I2c or SPI (sh1106, ssd1306) are most commom, with size **128x32 or 128x64**
+* 1 OLED-screens I2c or SPI (sh1106, ssd1306) are the most commom monochrome, with size **128x32 or 128x64**
 * See the list of Testet OLED Devices under
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/128x64.png
@@ -76,8 +78,8 @@ Install
     $ Also instal the OLED driver: **pip3 install luma.oled**
 
 
-Most commom OLEDs **I2c**, **SPI** or **I2c-SPI** on the same device
---------------------------------------------------------------------
+Most commom OLEDs I2c, SPI or I2c-SPI on the same device
+--------------------------------------------------------
 
 * OLED displays, don't use backlight, self-illumination.
 * The display performance is better than the traditional LCD display, also lower consumption.
@@ -101,7 +103,7 @@ Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
 ---------------------
 
 Enabling The **I2c** Interface - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The I2C peripheral is not turned on by default.
 
@@ -141,7 +143,7 @@ Which represents the user-mode I2C interface.
 
 
 How to find your **I2c addresss**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command.  
  
@@ -153,7 +155,7 @@ In this case the address of the display is **0x3C**.
    :alt: I2C Address
 
 How to **change I2c address**
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Only if needed: Most OLED devices have 2 options of a port address change.
 
@@ -168,7 +170,7 @@ And some OLED, there is a resister you need to solder from one location to anoth
 ---------------------
 
 Enabling The **SPI** Interface - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The **SPI** peripheral is not turned on by default.
 
 There are two methods to adjust the settings. To enable it, do one of the following.
@@ -196,8 +198,8 @@ Again, we can use raspi-config to enable it.
 The system will reboot. when it comes back up, log in and enter the following command.
 
 
-**Menu - OLED Display Setup** in Pibooth.
-----------------------------
+**OLED Display Setup** in Pibooth Menu
+--------------------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu_oled_display_setup.png
@@ -206,8 +208,8 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
 
 
 
-**Menu - OLED Display Text** in Pibooth
-----------------------------
+**OLED Display Text** in Pibooth Menu
+-------------------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu_oled_display_text.png
@@ -215,10 +217,10 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
    :alt: OLED Display Text
 
 
-How to **setup the screen** in config.cfg
------------------------------------------
+How to **setup** in config.cfg
+------------------------------
 
-Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled_i2c_spi**)
+Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled display setup** and **Oled display text**)
 
 using the command line
 
@@ -228,7 +230,7 @@ using the command line
    
 
 **OLED_I2C_SPI** options in **config.cfg**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **[OLED_I2C_SPI]**
 
@@ -268,15 +270,17 @@ using the command line
 
 * oled_color_mode = **1**
 
-* # Rotate screen up/down (Default = 0), 2
+* # Rotate screen up/down (Default = 0), 1,2,3
 
 * oled_rotate = **0**
 
 Show a **Logo** instead of text or counter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64. 
-If you are using OLED screens with other dimention you need to make a new photo and put in the OLED logo folder.
+If you are using an OLED screen with other dimention you need to make a new photo and put it in the OLED logo folder.
+You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
+If you have an 128x64, you convert picture to that size in 8-bit mode, or make som tests.
 
 * # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
 
@@ -290,14 +294,22 @@ If you are using OLED screens with other dimention you need to make a new photo 
 
 * oled_logos = **pibooth_logo_64.png**
 
-* # Show state pictures (Yes / NO), (Show an images for each state when taking photos)
+
+States pictures on OLED
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* # Show state pictures (Yes / No), (Show a images for each state when taking photos)
 
 * oled_states_pictures = **Yes**
 
-------------------------------------
 
-Write your own **Text** 1-2 and / or choose a **Counter type** to show on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state_photos.png
+   :align: center
+   :alt:  OLED State pictures
+
+
+Write your own **Text** 1,2,3,4 and / or choose a **Counter type** to show on the display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
 * # fonts path
 
@@ -307,21 +319,21 @@ Write your own **Text** 1-2 and / or choose a **Counter type** to show on the di
 
 * oled_font_1 = **DejaVuSans-Bold.ttf**
 
-* # Text-1 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
+* # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
 * oled_counter_type1 = **Text_Only**
 
-* # Text color (Default = **white**)
+* # Text-1 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
 
 * oled_text1_color = **white**
 
 * # Text-1
 
-* oled_text_1 = ** Pibooth**
+* oled_text_1 = **"Photos  "**
 
 * # Text-1 size
 
-* oled_size_1 = **26**
+* oled_size_1 = **19**
 
 * # Text-1 - Move text-1 to the **right** on the screen
 
@@ -333,33 +345,93 @@ Write your own **Text** 1-2 and / or choose a **Counter type** to show on the di
 
 ------------------------------------
 
+* # Text-2 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
+
+* oled_counter_type2 = **Text_Only**
+
 * # Text-2 font
 
 * oled_font_2 = **DejaVuSans-Bold.ttf**
 
-* # Text-2 counter type - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates** or **Text_Only**
-
-* oled_counter_type2 = **Text_Only**
-
-* # Text-2 color (Default = **white**)
+* # Text-2 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
 
 * oled_text2_color = **white**
 
 * # Text-2
 
-* oled_text_2 = **Photos**
+* oled_text_2 = **"Printed "**
 
 * # Text-2 size
 
-* oled_size_2 = **28**
+* oled_size_2 = **19**
 
 * # Text-2 Move text-2 to the **right** on the screen
 
-* oled_text2_right = **16**
+* oled_text2_right = **0**
 
 * # Text-2 Move text-2 **down** on the screen
 
-* oled_text2_down = **28**
+* oled_text2_down = **23**
+
+----------------------------------------------------
+
+* # Text-3 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
+
+* oled_counter_type3 = **Remaining_Duplicates**
+
+* # Text-3 font
+
+* oled_font_3 = **DejaVuSans-Bold.ttf**
+
+* # Text-3 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
+
+* oled_text3_color = **white**
+
+* # Text-3
+
+* oled_text_3 = **"Remain "**
+
+* # Text-3 size
+
+* oled_size_3 = **19**
+
+* # Text-3 Move text-3 to the **right** on the screen
+
+* oled_text3_right = **0**
+
+* # Text-3 Move text-3 **down** on the screen
+
+* oled_text3_down = **46**
+
+----------------------------------------------------
+
+* # Text-4 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
+
+* oled_counter_type4 = **Empty**
+
+* # Text-4 font
+
+* oled_font_4 = **DejaVuSans-Bold.ttf**
+
+* # Text-4 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
+
+* oled_text4_color = **white**
+
+* # Text-4
+
+* oled_text_4 = **"Text 4"**
+
+* # Text-4 size
+
+* oled_size_4 = **19**
+
+* # Text-4 Move text-4 to the **right** on the screen
+
+* oled_text4_right = **0**
+
+* # Text-4 Move text-4 **down** on the screen
+
+* oled_text4_down = **0**
 
 
 States description
@@ -368,15 +440,6 @@ States description
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state-sequence-oled-i2c.png
    :align: center
    :alt:  State sequence
-
-States pictures on OLED
------------------------
-
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state_photos.png
-   :align: center
-   :alt:  OLED State pictures
-
-
 
 Circuit diagram I2c devices
 ---------------------------
