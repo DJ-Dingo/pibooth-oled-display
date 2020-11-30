@@ -369,6 +369,14 @@ States description
    :align: center
    :alt:  State sequence
 
+States pictures on OLED
+-----------------------
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state_photos.png
+   :align: center
+   :alt:  OLED State pictures
+
+
 
 Circuit diagram I2c devices
 ---------------------------
