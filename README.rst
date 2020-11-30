@@ -210,7 +210,7 @@ At the first run, a configuration file is generated in ~/.config/pibooth/pibooth
 ----------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu-settings_i2c_spi.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu_oled_display_text.png
    :align: center
    :alt: OLED Display Text
 
