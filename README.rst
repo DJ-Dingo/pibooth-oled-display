@@ -14,7 +14,7 @@ THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
 Add a **COOL** small OLED monochrome or color screen.
 
-The OLED device showing here is the * **OLED sh1106  128x64** 1.3″ SPI I2C Serial 128X64.
+The OLED device showing here is the **OLED sh1106  128x64** 1.3″ SPI I2C Serial 128X64.
 
 **SPI displays are supportet, but not testet yet** but some SPI displays can allso use I2c.
 
@@ -232,7 +232,7 @@ using the command line
 **OLED_I2C_SPI** options in **config.cfg**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**[OLED_I2C_SPI]**
+**[OLED DISPLAY SETUP]**
 
 * # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
 
@@ -281,6 +281,9 @@ You can provide your own logo to the screen. Default is the Pibooth logo in 128x
 If you are using an OLED screen with other dimention you need to make a new photo and put it in the OLED logo folder.
 You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
 If you have an 128x64, you convert picture to that size in 8-bit mode, or make som tests.
+
+
+[OLED DISPLAY TEXT]
 
 * # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
 
