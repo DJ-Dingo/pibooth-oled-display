@@ -10,8 +10,6 @@ pibooth-oled-i2c-spi
    :align: center
    :alt: OLED screens
 
-THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
-
 Add a **COOL** small OLED monochrome or color screen.
 
 The OLED device showing here is the **OLED sh1106  128x64** 1.3″ SPI I2C Serial 128X64.
@@ -74,7 +72,7 @@ Install
 -------
 ::
 
-    $ setup not ready, add **pibooth-oled-i2c-spi.py** to the config.cfg instead
+    $ setup not ready, add **pibooth_oled_i2c_spi.py** to the config.cfg instead
     $ Also instal the OLED driver: **pip3 install luma.oled**
 
 
@@ -285,7 +283,7 @@ If you have an 128x64, you convert picture to that size in 8-bit mode, or make s
 
 [OLED DISPLAY TEXT]
 
-* # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**) Default = No
+* # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**)
 
 * oled_showlogo = **Yes**
 
