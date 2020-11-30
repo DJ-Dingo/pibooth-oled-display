@@ -6,17 +6,18 @@ pibooth-oled-i2c-spi
 
 ``pibooth-oled-i2c-spi`` is a plugin for the `pibooth`_ application.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-i2c-spi/
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/main_oled.png
    :align: center
-   :alt: OLED screen
+   :alt: OLED screens
 
 THE README FILE IS STILL UNDER DEVELOPMENT!!!!!
 
-**SPI displays supportet, but not testet yet** but some SPI displays can allso use I2c.
-
 Add an **COOL** small OLED-screen etc, 128x32 or 120x64 connected Through I2c or SPI.
 
-It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**.
+**SPI displays supportet, but not testet yet** but some SPI displays can allso use I2c.
+
+
+It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, **Date-Time**.
 
 It can show an image like your own **Logo**.
 
@@ -195,13 +196,23 @@ Again, we can use raspi-config to enable it.
 The system will reboot. when it comes back up, log in and enter the following command.
 
 
-**Menu settings** in Pibooth
+**Menu - OLED Display Setup** in Pibooth.
+----------------------------
+At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu_oled_display_setup.png
+   :align: center
+   :alt: OLED Display Setup
+
+
+
+**Menu - OLED Display Text** in Pibooth
 ----------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/menu-settings_i2c_spi.png
    :align: center
-   :alt: OLED menu settings
+   :alt: OLED Display Text
 
 
 How to **setup the screen** in config.cfg
