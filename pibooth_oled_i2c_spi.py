@@ -12,7 +12,7 @@ from luma.oled.device import ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd133
 # from pibooth.pictures import get_pygame_layout_image
 
 
-__version__ = "0.0.8"
+__version__ = "0.0.9"
 # DJ-Dingo, Kenneth Nicholas Jørgensen
 
 
@@ -51,8 +51,8 @@ def pibooth_configure(cfg):
                    "Rotate screen", ["0", "1", "2", "3"])
                    # Logo
     cfg.add_option('OLED DISPLAY TEXT', 'oled_showlogo', "No",
-                   "Logo instead of text",
-                   "Logo instead of text", ['Yes', 'No'])
+                   "Show logo instead of text",
+                   "logo instead of text", ['Yes', 'No'])
     cfg.add_option('OLED DISPLAY TEXT', 'oled_logo_path', "/home/pi/.config/pibooth/oled_display/logo/",
                    "Pictures/Logo path")
     logo_path = cfg.get('OLED DISPLAY TEXT', 'oled_logo_path').strip('"')
@@ -65,6 +65,10 @@ def pibooth_configure(cfg):
                    "Show state pictures", ['Yes', 'No'])
     cfg.add_option('OLED DISPLAY TEXT', 'oled_state_picture_path', "/home/pi/.config/pibooth/oled_display/states/",
                    "state picture path")
+                    # Choose Text 1, Counters 1, Date-Time 1
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type1', "Taken_Photo",
+                   "Text-1, Counter, Date-Time - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
+                   "Text-1 Counter DateTime", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty','Text_Only'])
                    # Font
     cfg.add_option('OLED DISPLAY TEXT', 'oled_fonts_path', "/home/pi/.config/pibooth/oled_display/fonts/",
                    "fonts path")
@@ -73,13 +77,9 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_1', "DejaVuSerif-Bold.ttf",
                    'Text 1 font',
                    "Text 1 font", _fonts)
-                    # Choose Counters 1, Text 1, Date-Time 1
-    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type1', "Taken_Photo",
-                   "Text-1 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
-                   "Text-1 / Counter", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty','Text_Only'])
                    # Text 1 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text1_color', "white",
-                   'Text-1 color (Default = white)',
+                   'Text-1 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
                    "Text-1 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
 "Magenta", "Olive"])
                    # Text 1
@@ -95,17 +95,17 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text1_down', "0",
                    'Text-1 move down',
                    "Text-1 move down", "0")
+                    # Choose Text 2, Counters 2, Date-Time 2
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type2', "Printed",
+                   "Text-2, Counter, Date-Time - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
+                   "Text-2 Counter DateTime", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                     # Font 2
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_2', "DejaVuSerif-Bold.ttf",
                    'Text 2 font',
                    "Text 2 font", _fonts)
-                    # Choose Counters 2, Text 2, Date-Time 2
-    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type2', "Printed",
-                   "Text-2 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
-                   "Text-2 / Counter", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                    # Text 2 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text2_color', "white",
-                   'Text-2 color (Default = white)',
+                   'Text-2 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
                    "Text-2 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
 "Magenta", "Olive"])
                    # Text 2
@@ -121,17 +121,17 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text2_down', "23",
                    'Text-2 move down',
                    "Text-2 move down", "23")
+                    # Choose Text 3, Counters 3, Date-Time 3
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type3', "Remaining_Duplicates",
+                   "Text-3, Counter, Date-Time - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
+                   "Text-3 Counter DateTime", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                     # Font 3
     cfg.add_option('OLED DISPLAY TEXT', 'oled_font_3', "DejaVuSerif-Bold.ttf",
                    'Text 3 font',
                    "Text 3 font", _fonts)
-                    # Choose Counters 3, Text 3, Date-Time 3
-    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type3', "Remaining_Duplicates",
-                   "Text-3 / Counter - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
-                   "Text-3 / Counter", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                    # Text 3 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text3_color', "white",
-                   'Text-3 color (Default = white)',
+                   'Text-3 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
                    "Text-3 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
 "Magenta", "Olive"])
                    # Text 3
@@ -147,6 +147,32 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text3_down', "46",
                    'Text-3 move down',
                    "Text-3 move down", "46")
+                    # Choose Text 4, Counters 4, Date-Time 4
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_counter_type4', "Empty",
+                   "Text-4, Counter, Date-Time - Could be either Taken_Photo, Printed, Forgotten, Remaining_Duplicates, Date-Time, Empty, Text_Only",
+                   "Text-4 Counter DateTime", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
+                    # Font 4
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_font_4', "DejaVuSerif-Bold.ttf",
+                   'Text 4 font',
+                   "Text 4 font", _fonts)
+                   # Text 4 color
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_text4_color', "white",
+                   'Text-4 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
+                   "Text-4 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
+"Magenta", "Olive"])
+                   # Text 4
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_text_4', '"Text 4"',
+                   'Text-4',
+                   "Text-4", '"Text 4"')
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_size_4', "19",
+                   'Text-4 size',
+                   "Text-4 size", "19")
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_text4_right', "0",
+                   'Text-4 move right',
+                   "Text-4 move right", "0")
+    cfg.add_option('OLED DISPLAY TEXT', 'oled_text4_down', "0",
+                   'Text-4 move down',
+                   "Text-4 move down", "0")
 
 
 def connect_oled_i2c_spi(app, cfg):
@@ -169,7 +195,7 @@ def connect_oled_i2c_spi(app, cfg):
         app.logo_path = cfg.get('OLED DISPLAY TEXT', 'oled_logo_path').strip('"')
         app.states_pictures = cfg.get('OLED DISPLAY TEXT', 'oled_states_pictures').strip('"')
         app.state_picture_path = cfg.get('OLED DISPLAY TEXT', 'oled_state_picture_path').strip('"')
-        # Text 1
+        # Text 1, Counter, Date-Time
         app.font_1 = cfg.get('OLED DISPLAY TEXT', 'oled_font_1').strip('"')
         app.counter_1 = cfg.get('OLED DISPLAY TEXT', 'oled_counter_type1').strip('"')
         app.text1_color = cfg.get('OLED DISPLAY TEXT', 'oled_text1_color').strip('"')
@@ -177,7 +203,7 @@ def connect_oled_i2c_spi(app, cfg):
         app.size_1 = int(cfg.get('OLED DISPLAY TEXT', 'oled_size_1').strip('"'))
         app.right_1 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text1_right').strip('"'))
         app.down_1 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text1_down').strip('"'))
-        # Text 2
+        # Text 2, Counter, Date-Time
         app.font_2 = cfg.get('OLED DISPLAY TEXT', 'oled_font_2').strip('"')
         app.counter_2 = cfg.get('OLED DISPLAY TEXT', 'oled_counter_type2').strip('"')
         app.text2_color = cfg.get('OLED DISPLAY TEXT', 'oled_text2_color').strip('"')
@@ -185,7 +211,7 @@ def connect_oled_i2c_spi(app, cfg):
         app.size_2 = int(cfg.get('OLED DISPLAY TEXT', 'oled_size_2').strip('"'))
         app.right_2 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text2_right').strip('"'))
         app.down_2 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text2_down').strip('"'))
-        # Text 3
+        # Text 3, Counter, Date-Time
         app.font_3 = cfg.get('OLED DISPLAY TEXT', 'oled_font_3').strip('"')
         app.counter_3 = cfg.get('OLED DISPLAY TEXT', 'oled_counter_type3').strip('"')
         app.text3_color = cfg.get('OLED DISPLAY TEXT', 'oled_text3_color').strip('"')
@@ -193,6 +219,14 @@ def connect_oled_i2c_spi(app, cfg):
         app.size_3 = int(cfg.get('OLED DISPLAY TEXT', 'oled_size_3').strip('"'))
         app.right_3 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text3_right').strip('"'))
         app.down_3 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text3_down').strip('"'))
+        # Text 4, Counter, Date-Time
+        app.font_4 = cfg.get('OLED DISPLAY TEXT', 'oled_font_4').strip('"')
+        app.counter_4 = cfg.get('OLED DISPLAY TEXT', 'oled_counter_type4').strip('"')
+        app.text4_color = cfg.get('OLED DISPLAY TEXT', 'oled_text4_color').strip('"')
+        app.text_4 = cfg.get('OLED DISPLAY TEXT', 'oled_text_4').strip('"')
+        app.size_4 = int(cfg.get('OLED DISPLAY TEXT', 'oled_size_4').strip('"'))
+        app.right_4 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text4_right').strip('"'))
+        app.down_4 = int(cfg.get('OLED DISPLAY TEXT', 'oled_text4_down').strip('"'))
     except OSError:
         pass
 
@@ -241,6 +275,7 @@ def write_text_to_oled(app, cfg):
         font_1 = ImageFont.truetype(app.font_1, app.size_1)
         font_2 = ImageFont.truetype(app.font_2, app.size_2)
         font_3 = ImageFont.truetype(app.font_3, app.size_3)
+        font_4 = ImageFont.truetype(app.font_4, app.size_4)
         # Show logo Yes/No
         y = app.showlogo.split()
         if "No" in y:
@@ -293,6 +328,22 @@ def write_text_to_oled(app, cfg):
                     app.draw.text((app.right_3, app.down_3), "", font=font_3, fill=app.text3_color)
                 elif "Date-Time" in x:
                     app.draw.text((app.right_3, app.down_3), time.strftime(app.text_3), font=font_3, fill=app.text3_color)
+                # Draw the text 4
+                x = app.counter_4.split()
+                if "Text_Only" in x:
+                    app.draw.text((app.right_4, app.down_4), app.text_4, font=font_4, fill=app.text4_color)
+                elif "Taken_Photo" in x:
+                    app.draw.text((app.right_4, app.down_4), app.text_4 + ('%s' % app.count.taken), font=font_4, fill=app.text4_color)
+                elif "Printed" in x:
+                    app.draw.text((app.right_4, app.down_4), app.text_4 + ('%s' % app.count.printed), font=font_4, fill=app.text4_color)
+                elif "Forgotten" in x:
+                    app.draw.text((app.right_4, app.down_4), app.text_4 + ('%s' % app.count.forgotten), font=font_4, fill=app.text4_color)
+                elif "Remaining_Duplicates" in x:
+                    app.draw.text((app.right_4, app.down_4), app.text_4 + ('%s' % app.count.remaining_duplicates), font=font_4, fill=app.text4_color)
+                elif "Empty" in x:
+                    app.draw.text((app.right_4, app.down_4), "", font=font_4, fill=app.text4_color)
+                elif "Date-Time" in x:
+                    app.draw.text((app.right_4, app.down_4), time.strftime(app.text_4), font=font_4, fill=app.text4_color)
                 # Display text
                 app.image=app.image.show()
         else:
@@ -638,3 +689,5 @@ def state_failsafe_do(app):
         app.device.display(app.image)
     except:
         pass
+
+
