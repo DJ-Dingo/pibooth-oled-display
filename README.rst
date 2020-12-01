@@ -320,7 +320,7 @@ Write your own **Text** 1,2,3,4 and / or choose a **Counter type** to show on th
  
 * # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
-* oled_counter_type1 = **Text_Only**
+* oled_counter_type1 = **Taken_Photo**
 
 * # fonts path
 
@@ -354,7 +354,7 @@ Write your own **Text** 1,2,3,4 and / or choose a **Counter type** to show on th
 
 * # Text-2 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
-* oled_counter_type2 = **Text_Only**
+* oled_counter_type2 = **Printed**
 
 * # Text-2 font
 
