@@ -242,15 +242,15 @@ using the command line
 
 * oled_i2c_or_spi = **I2c**
 
-* # SPI GPIO DC PIN
+* # **SPI ONLY** - GPIO DC PIN
 
 * oled_spi_gpio_dc_pin = **24**
 
-* # SPI GPIO RST PIN
+* # **SPI ONLY** - GPIO RST PIN
 
 * oled_spi_gpio_rst_pin = **25**
 
-* # Change Port Address 0x3C(Default) 
+* # **I2c ONLY** - Change Port Address 0x3C(Default) 
 
 * oled_port_address = **0x3C**
 
