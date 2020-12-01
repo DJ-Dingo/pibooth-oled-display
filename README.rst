@@ -74,6 +74,8 @@ Install
 
     $ setup not ready, add **pibooth_oled_i2c_spi.py** to the config.cfg instead
     $ Also instal the OLED driver: **pip3 install luma.oled**
+    $ You allso need the Oled_Display folder with folders and files, to put in your /home/pi/.config/pibooth/
+    $ https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/tree/master/templates/oled_display
 
 
 Most commom OLEDs I2c, SPI or I2c-SPI on the same device
@@ -289,7 +291,7 @@ If you have an 128x64, you convert a picture to that size in 8-bit mode, or make
 
 * # Pictures/Logo path
 
-* oled_logo_path = **/home/pi/.config/pibooth/logo/**
+* oled_logo_path = **/home/pi/.config/pibooth/oled_display/logo/**
 
 * # Choose what picture/logo file to show on the screen
 
@@ -303,6 +305,10 @@ States pictures on OLED
 
 * oled_states_pictures = **Yes**
 
+* # State picture path
+
+* oled_state_picture_path = /home/pi/.config/pibooth/oled_display/states/
+
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/state_photos.png
    :align: center
@@ -312,17 +318,17 @@ States pictures on OLED
 Write your own **Text** 1,2,3,4 and / or choose a **Counter type** to show on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
+* # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
+
+* oled_counter_type1 = **Text_Only**
+
 * # fonts path
 
-* oled_fonts_path = **/home/pi/.config/pibooth/oled_fonts/**
+* oled_fonts_path = **/home/pi/.config/pibooth/oled_display/fonts/**
 
 * # Text-1 font 
 
 * oled_font_1 = **DejaVuSans-Bold.ttf**
-
-* # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
-
-* oled_counter_type1 = **Text_Only**
 
 * # Text-1 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
 
