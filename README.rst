@@ -278,7 +278,7 @@ Show a **Logo** instead of text or counter
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64. 
 If you are using an OLED screen with other dimention you need to make a new photo and put it in the OLED logo folder.
 You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
-If you have an 128x64, you convert picture to that size in 8-bit mode, or make som tests.
+If you have an 128x64, you convert a picture to that size in 8-bit mode, or make som tests. Or you can use some of the `XCF_files Here<https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/tree/master/templates/xcf_files>`_ and change them.
 
 
 [OLED DISPLAY TEXT]
