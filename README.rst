@@ -266,7 +266,7 @@ using the command line
 
 * oled_height = **64**
 
-* # Color mode 1 (Default = 1), RGB, RGBA
+* # Color mode 1 (Default = 1 **monochrome**), RGB, RGBA
 
 * oled_color_mode = **1**
 
