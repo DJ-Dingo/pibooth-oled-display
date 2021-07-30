@@ -345,7 +345,7 @@ def write_text_to_oled(app, cfg):
                 elif "Date-Time" in x:
                     app.draw.text((app.right_4, app.down_4), time.strftime(app.text_4), font=font_4, fill=app.text4_color)
                 # Display text
-                app.image=app.image.show()
+                # app.image=app.image.show()
         else:
             # Show logo Yes/No
             y = app.showlogo.split()
