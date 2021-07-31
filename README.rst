@@ -490,8 +490,21 @@ Here is the diagram for hardware connections **with** and Logic Level Converter.
 Wiring I2c devices
 ------------------
 
+**wire** **I2C** OLED devices **without** an **Logic Level Converter**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3v3 only. **IMPORTANT CHECK YOUR DEVICE FOR THE RIGHT CONNECTION**
+
+======== ============ ========== =============== ==================================================
+  Pins   Remarks      RPi-PIN    RPi GPIO        Info
+======== ============ ========== =============== ==================================================
+VCC 3v3  Power Pin    PIN 1 etc. 3V3 ONLY        Volt
+GND      Ground       PIN 6 etc. GND             Ground pin of the module
+SCL      Clock        PIN 5                      Acts as the clock pin. Used for both I2C and SPI
+SDA      MOSI         PIN 3                      Data pin of the module. Used for both IIC and SPI
+======== ============ ========== =============== ==================================================
+
 I2C-safe Bi-directional **Logic Level Converter**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **ONLY If YOU USE 5v to the OLED SCREEN** some OLEDs can also run on 3v3, check your manual.
 
@@ -507,7 +520,7 @@ How to connect a **Level Converter** to your **OLED** and the **Raspberry Pi**
 
 Connect the OLED-I2c to **HV** (High Level) on the Level Converter.  
 
-**IMPORTANT CHECK YOUR OLED FOR THE RIGHT CONNECTION**
+**IMPORTANT CHECK YOUR DEVICE FOR THE RIGHT CONNECTION**
 
 - GND: Pin GND (GND) **MAKE SURE GND IS SET TO GROUND**
 - VCC: Pin HV  (HV ) (5v) - Also connect **5v** from the Raspberry Pi Pin 2, to **HV** on the Level Converter
