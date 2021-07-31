@@ -54,18 +54,18 @@ Hardware
 Testet OLED Devices
 ^^^^^^^^^^^^^^^^^^^
 
-=============== ===== ===== ========================== ===========
-OLED devices     SPI   I2C   Display Pixels testet       TESTET
-=============== ===== ===== ========================== ===========
-- sh1106                X   128x64 (I2c)               **Working**
-- ssd1306               X   128x32, 128x64 (I2c)       **Working**
-- ssd1309                                              not testet
-- ssd1322                                              not testet
-- ssd1325                                              not testet
-- ssd1327                                              not testet
-- ssd1331                                              not testet
-- ssd1362                                              not testet
-=============== ===== ===== ========================== ===========
+=============== ========================== =========== ===== =====
+OLED devices     Display Pixels              TESTET     SPI   I2C
+=============== ========================== =========== ===== =====
+- sh1106        128x64 (I2c)               **Working**         X
+- ssd1306       128x32, 128x64 (I2c)       **Working**         X
+- ssd1309                                  not testet
+- ssd1322                                  not testet
+- ssd1325                                  not testet
+- ssd1327                                  not testet
+- ssd1331                                  not testet
+- ssd1362                                  not testet
+=============== ========================== =========== ===== =====
 
 
 Install
