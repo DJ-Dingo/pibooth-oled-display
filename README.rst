@@ -12,9 +12,9 @@ pibooth-oled-display
 
 Add a **COOL** small OLED monochrome or color screen through **I2c** or **SPI**. (parallel mode will not be suported)
 
-The OLED device showing here is the **OLED sh1106  128x64** 1.3″ SPI I2C Serial 128X64.
+The OLED device showing here is the 4 pin I2c **OLED sh1106  128x64** 1.3″
 
-**SPI displays are supportet, but not testet yet** but some SPI displays can allso use I2c.
+**SPI displays are supportet, but not testet yet** but many SPI displays allso have I2c, you can by making some hardware changes.
 
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, **Date-Time**.
@@ -54,18 +54,18 @@ Hardware
 Testet OLED Devices
 ^^^^^^^^^^^^^^^^^^^
 
-=============== ========================== ===========
-OLED devices        Display Pixels testet    TESTET
-=============== ========================== ===========
-- sh1106        128x64 (I2c)               **Working**
-- ssd1306       128x32, 128x64 (I2c)       **Working**
-- ssd1309                                  not testet
-- ssd1322                                  not testet
-- ssd1325                                  not testet
-- ssd1327                                  not testet
-- ssd1331                                  not testet
-- ssd1362                                  not testet
-=============== ========================== ===========
+=============== ===== ===== ========================== ===========
+OLED devices     SPI   I2C   Display Pixels testet       TESTET
+=============== ===== ===== ========================== ===========
+- sh1106                X   128x64 (I2c)               **Working**
+- ssd1306               X   128x32, 128x64 (I2c)       **Working**
+- ssd1309                                              not testet
+- ssd1322                                              not testet
+- ssd1325                                              not testet
+- ssd1327                                              not testet
+- ssd1331                                              not testet
+- ssd1362                                              not testet
+=============== ===== ===== ========================== ===========
 
 
 Install
@@ -148,7 +148,7 @@ How to find your **I2c addresss**
 
 You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command.  
  
-In this case the address of the display is **0x3C**.  
+In this case the address of the display is **0x3C**.
 
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/i2cdetect-y1.png
