@@ -320,8 +320,20 @@ States pictures on OLED
    :alt:  OLED State pictures
 
 
-Write your own **Text** 1,2,3,4 and / or choose a **Counter type** to show on the display
+Write your own **Text** 1,2,3,4 and / or choose a **Counter type** or **Date** to show on the display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+How to change the Date-Time format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+See the Date-Time format codes in the following `page <https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/Date-Time_Format_Codes.rst>`_
+
+# You can change the way Date-Time is displayed - This can also be changed in the pibooth menu under "OLED DISPLAY TEXT"
+
+# If you leave the text field empty, the Default will be used = **%d/%m - %H:%M:%S** 
+
+- Choose Date_Time and use etc. **%d/%m - %H:%M:%S** to display the date and time
+
  
 * # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
