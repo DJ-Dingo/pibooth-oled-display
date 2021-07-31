@@ -330,9 +330,9 @@ See the Date-Time format codes in the following `page <https://github.com/DJ-Din
 
 # You can change the way Date-Time is displayed - This can also be changed in the pibooth menu under "OLED DISPLAY TEXT"
 
-# Choose Date_Time in the menu - If you leave the text field empty, the Default will be used = **%d/%m - %H:%M:%S**  Or use semething like this **%H:%M:%S** to display the time
+# Choose Date_Time in the menu - If you leave the text field empty, the Default will be used = **%d/%m - %H:%M:%S**  Or use semething like this **%H:%M:%S** in the text field to display the time
 
--
+
  
 * # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
@@ -464,10 +464,23 @@ States description
    :align: center
    :alt:  State sequence
 
-Circuit diagram I2c devices
----------------------------
+Circuit diagram - **I2c devices**
+---------------------------------
 
-Here is the diagram for hardware connections with and Logic Level Converter.
+I2C displays **without** an **Logic Level Converter** (use ONLY 3v3) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here is the diagram for hardware connections **without** an Logic Level Converter.
+**IMPORTANT** **use ONLY 3v3** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-I2c%203V_Sketch2_bb.png
+   :align: center
+   :alt:  OLED Electronic sketch
+
+I2C displays **with** a **Logic Level Converter** (for use with 5v)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here is the diagram for hardware connections **with** and Logic Level Converter.
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
@@ -482,7 +495,7 @@ I2C-safe Bi-directional **Logic Level Converter**
 
 **ONLY If YOU USE 5v to the OLED SCREEN** some OLEDs can also run on 3v3, check your manual.
 
-Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** so you don't fryed your pi.
+Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/level_converter.png
    :align: center
