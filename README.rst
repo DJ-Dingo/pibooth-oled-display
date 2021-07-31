@@ -73,9 +73,9 @@ Install
 ::
 
     $ sudo apt-get update
-    $ setup not ready, add **pibooth_oled_i2c_spi.py** to the config.cfg instead
+    $ setup not ready, add **pibooth_oled_display.py** to the config.cfg instead
     $ Also instal the OLED driver: **pip3 install luma.oled**
-    $ You allso need to download the Oled_Display folder with folders and files, then put it in  /home/pi/.config/pibooth/
+    $ You allso need to download the Oled_Display folder with all folders and files, then place the **oled_display** folder with subfolders in /home/pi/.config/pibooth/
     $ https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/oled_display
 
 
