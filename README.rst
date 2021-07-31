@@ -230,7 +230,7 @@ using the command line
    $ pibooth --config
    
 
-**OLED_I2C_SPI** options in **config.cfg**
+**OLED SPI or I2c SETUP** options in **config.cfg**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **[OLED DISPLAY SETUP]**
@@ -243,6 +243,18 @@ using the command line
 
 * oled_i2c_or_spi = **I2c**
 
+* # **I2c ONLY** - Change Port Address 0x3C(Default) 
+
+* oled_port_address = **0x3C**
+
+* # Chance SPI device number 0 or 1
+
+* oled_spi_devicenumber = 0
+
+* # Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
+
+* oled_port = **1**
+
 * # **SPI ONLY** - GPIO DC PIN
 
 * oled_spi_gpio_dc_pin = **24**
@@ -250,14 +262,6 @@ using the command line
 * # **SPI ONLY** - GPIO RST PIN
 
 * oled_spi_gpio_rst_pin = **25**
-
-* # **I2c ONLY** - Change Port Address 0x3C(Default) 
-
-* oled_port_address = **0x3C**
-
-* # Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
-
-* oled_port = **1**
 
 * # Change screen WIDTH 128(Default)
 
@@ -279,9 +283,9 @@ Show a **Logo** instead of text or counter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64. 
-If you are using an OLED screen with other dimention you need to make a new photo and put it in the OLED logo folder.
+If you are using an OLED screen with other dimension you need to make a new photo and put it in the OLED logo folder.
 You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
-If you have an 128x64, you convert a picture to that size in 8-bit mode, or make som tests. Or you can use some of the `XCF_files Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/xcf_files>`_ and change them.
+If you have an 128x64 display, you convert a picture to that size in 8-bit mode, or make some tests. Or you can use some of the `XCF_files we used to make the pibooth logo. Download Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/xcf_files>`_ and change them using the free `GIMP <https://www.gimp.org/>`_
 
 
 [OLED DISPLAY TEXT]
