@@ -467,8 +467,8 @@ States description
 Circuit diagram - **I2c devices**
 ---------------------------------
 
-I2C displays **without** an **Logic Level Converter** (use ONLY 3v3) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I2C displays **without** an **Logic Level Converter** (use ONLY with 3v3) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here is the diagram for hardware connections **without** an Logic Level Converter.
 **IMPORTANT** **use ONLY 3v3** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
@@ -490,7 +490,7 @@ Here is the diagram for hardware connections **with** and Logic Level Converter.
 Wiring I2c devices
 ------------------
 
-**wire** **I2C** OLED devices **without** an **Logic Level Converter**
+**Wire** **I2C** OLED devices **without** an **Logic Level Converter**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3v3 only. **IMPORTANT CHECK YOUR DEVICE FOR THE RIGHT CONNECTION**
 
@@ -503,8 +503,8 @@ SCL      Clock        PIN 5                      Acts as the clock pin. Used for
 SDA      MOSI         PIN 3                      Data pin of the module. Used for both IIC and SPI
 ======== ============ ========== =============== ==================================================
 
-I2C-safe Bi-directional **Logic Level Converter** (for use with 5v)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Wire** I2C-safe Bi-directional **Logic Level Converter** (for use with 5v)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **ONLY If YOU USE 5v to power the OLED device** some OLEDs can also run on 3v3, check your manual.
 
@@ -536,12 +536,12 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 
 
 
-Circuit diagram SPI devices
----------------------------
+Circuit diagram SPI devices **without** an **Logic Level Converter** (use ONLY with 3v3)
+----------------------------------------------------------------------------------------
 
-Here is the diagram for hardware connections without and Logic Level Converter. 
+Here is the diagram for hardware connections **without** and **Logic Level Converter**. 
 
-If your OLED device demands a I2C-safe Bi-directional Logic Level Converter, you should get one.
+If your OLED device use 5v, it demands an I2C-safe Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
 
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
@@ -554,14 +554,14 @@ Wiring SPI devices
 ------------------
 
 **SPI** OLED devices **wire** setup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you have a 8 pins OLED device with **Vin** connect 5v to Vin and leave VCC empty. 
 (or check the internet for more info on your device)
 
 ======== ============ ========== =============== ============================================================
 7 Pins   Remarks      RPi-PIN    RPi GPIO        Info
 ======== ============ ========== =============== ============================================================
-VCC      Power Pin    PIN 1 or 2 3V3 or 5V       3-5V tolerable - CHECK YOUR DEVICE
+VCC      Power Pin    PIN 1 or 2 3V3             3V tolerable - CHECK YOUR DEVICE
 GND      Ground       PIN 6      GND             Ground pin of the module
 D0, SCL  Clock        PIN 23     GPIO 11 (SCLK)  Acts as the clock pin. Used for both I2C and SPI
 D1, SDA  MOSI         PIN 19     GPIO 10 (MOSI)  Data pin of the module. Used for both IIC and SPI
