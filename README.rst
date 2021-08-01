@@ -587,7 +587,7 @@ How to use 2 x I2c OLED displays at the same time, showing seperate things on ea
 -- Add the path and pibooth_oled_display_2.py to custom plugins in the config.cfg under [GENERAL]
    Etc. plugins = **´/path_to_file/pibooth_oled_display_2.py´**
 
-Now you will have an extra option in Menu, with **Oled Display Setup 2** and **Oled Display Text 2** go in and setup your new device with the right I2c address.
+Now you will have an extra option in Settings, with **Oled display 2 Setup** and **Oled display 2 text** go in and setup your new device with the right I2c address.
 
 
 .. --- Links ------------------------------------------------------------------
