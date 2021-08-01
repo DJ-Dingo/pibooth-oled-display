@@ -203,7 +203,7 @@ The system will reboot. when it comes back up, log in and enter the following co
 --------------------------------------
 At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_setup.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_setup_.png
    :align: center
    :alt: OLED Display Setup
 
@@ -588,6 +588,10 @@ How to use 2 x I2c OLED displays at the same time, showing seperate things on ea
    Etc. plugins = **´/path_to_file/pibooth_oled_display_2.py´**
 
 Now you will have an extra option in Settings, with **Oled display 2 Setup** and **Oled display 2 text** go in and setup your new device with the right I2c address.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/add_extra_oled_display.png
+   :align: center
+   :alt:  Add an extra OLED settings
 
 
 .. --- Links ------------------------------------------------------------------
