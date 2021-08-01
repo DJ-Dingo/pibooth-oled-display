@@ -545,7 +545,7 @@ If your OLED device use 5v, it demands an I2C-safe Bi-directional Logic Level Co
 
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth OLED-SPI Sketch2_bb.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-SPI%20Sketch2_bb.png
    :align: center
    :alt:  OLED Electronic sketch
 
