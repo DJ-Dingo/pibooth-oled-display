@@ -541,7 +541,7 @@ Circuit diagram SPI devices **without** an **Logic Level Converter** (use ONLY w
 
 Here is the diagram for hardware connections **without** and **Logic Level Converter**. 
 
-If your OLED device use 5v, it demands an 8 Channel Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
+If your OLED device use 5v instead of 3v3, it demands an 8 Channel Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
 
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
@@ -555,8 +555,8 @@ Wiring SPI devices
 
 **SPI** OLED devices **wire** setup  **without** and **Logic Level Converter**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you have a 8 pins OLED device with **Vin** connect 5v to Vin and leave VCC empty. 
-(or check the internet for more info on your device)
+If you have a 8 pins OLED device with **Vin** connect 3v3 to Vin and leave VCC empty. 
+(or check the internet for more info on how to setup your device)
 
 ======== ============ ========== =============== ============================================================
 7 Pins   Remarks      RPi-PIN    RPi GPIO        Info
