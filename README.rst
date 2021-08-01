@@ -503,10 +503,10 @@ SCL      Clock        PIN 5                      Acts as the clock pin. Used for
 SDA      MOSI         PIN 3                      Data pin of the module. Used for both IIC and SPI
 ======== ============ ========== =============== ==================================================
 
-I2C-safe Bi-directional **Logic Level Converter**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I2C-safe Bi-directional **Logic Level Converter** (for use with 5v)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**ONLY If YOU USE 5v to the OLED SCREEN** some OLEDs can also run on 3v3, check your manual.
+**ONLY If YOU USE 5v to power the OLED device** some OLEDs can also run on 3v3, check your manual.
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
