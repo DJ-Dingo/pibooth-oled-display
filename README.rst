@@ -516,7 +516,7 @@ Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea t
 
 
 How to connect a **Level Converter** to your **OLED** and the **Raspberry Pi**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connect the OLED-I2c to **HV** (High Level) on the Level Converter.  
 
@@ -541,7 +541,7 @@ Circuit diagram SPI devices **without** an **Logic Level Converter** (use ONLY w
 
 Here is the diagram for hardware connections **without** and **Logic Level Converter**. 
 
-If your OLED device use 5v, it demands an I2C-safe Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
+If your OLED device use 5v, it demands an 8 Channel Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
 
 **IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
@@ -553,8 +553,8 @@ If your OLED device use 5v, it demands an I2C-safe Bi-directional Logic Level Co
 Wiring SPI devices
 ------------------
 
-**SPI** OLED devices **wire** setup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**SPI** OLED devices **wire** setup  **without** and **Logic Level Converter**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you have a 8 pins OLED device with **Vin** connect 5v to Vin and leave VCC empty. 
 (or check the internet for more info on your device)
 
