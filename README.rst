@@ -14,7 +14,7 @@ Add a **COOL** small OLED monochrome or color screen through **I2c** or **SPI**.
 
 The OLED device showing here is the 4 pin I2c **OLED sh1106  128x64** 1.3″
 
-**SPI displays are supportet, but not testet yet** but many SPI displays allso have I2c, you can by making some hardware changes.
+**SPI displays are supportet, but not testet yet** but many SPI displays allso have I2c, by making some hardware changes.
 
 
 It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, **Date-Time**.
