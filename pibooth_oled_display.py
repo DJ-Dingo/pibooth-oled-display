@@ -4,15 +4,15 @@
 import time
 import datetime
 import os
-import pibooth
-from PIL import Image, ImageDraw, ImageFont
+import pibooth  
+from PIL import Image, ImageDraw, ImageFont #, ImageSequence # used for animated gif
+# from luma.core.sprite_system import framerate_regulator # used for animated gif
 from luma.core.interface.serial import i2c, spi
 from luma.core.render import canvas
 from luma.oled.device import ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd1331, ssd1351, ssd1362, sh1106
 # from pibooth.pictures import get_pygame_layout_image
 
-
-__version__ = "0.0.9"
+__version__ = "1.0.0"
 # DJ-Dingo, Kenneth Nicholas Jørgensen
 
 
@@ -20,23 +20,27 @@ __version__ = "0.0.9"
 def pibooth_configure(cfg):
     """Declare the new configuration options"""
     cfg.add_option('OLED DISPLAY SETUP', 'oled_devices', "sh1106",
-                   "Choose OLED device - (sh1106=Default)",
+                   "Choose OLED device - (sh1106=Default), ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd1331, ssd1362",
                    "Choose OLED device", ["ssd1306", "ssd1309", "ssd1322", "ssd1325", "ssd1327", "ssd1331", "ssd1362", "sh1106"]) # , "ssd1351"
     cfg.add_option('OLED DISPLAY SETUP', 'oled_i2c_or_spi', "I2c",
                    "I2c or SPI display connection",
                    "I2c or SPI connection", ["SPI", "I2c"])
+    cfg.add_option('OLED DISPLAY SETUP', 'oled_port_address', "0x3C",
+                   'I2c address 0x3C(Default)',
+                   "I2c address", "0x3C")
+    cfg.add_option('OLED DISPLAY SETUP', 'oled_spi_device_number', "0",
+                   "Change SPI device number 0 or 1 - (Default = 0)",
+                   "SPI device number 0 or 1", ["0", "1"])
+    cfg.add_option('OLED DISPLAY SETUP', 'oled_port', "1",
+                   "Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)",
+                   "Port - I2c(1) or SPI(0)", ["0", "1", "2"])
     cfg.add_option('OLED DISPLAY SETUP', 'oled_spi_gpio_dc_pin', "24",
                    "SPI GPIO DC PIN (24)",
                    "SPI GPIO DC PIN (24)", "24")
     cfg.add_option('OLED DISPLAY SETUP', 'oled_spi_gpio_rst_pin', "25",
-                   "SPI GPIO RST PIN (25)",
-                   "SPI GPIO RST PIN (25)", "25")
-    cfg.add_option('OLED DISPLAY SETUP', 'oled_port_address', "0x3C",
-                   'I2c address 0x3C(Default)',
-                   "I2c address", "0x3C")
-    cfg.add_option('OLED DISPLAY SETUP', 'oled_port', "1",
-                   "Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)",
-                   "I2c or SPI Port", ["0", "1", "2"])
+                   "GPIO RST PIN default(25)",
+                   "GPIO RST PIN default(25)", "25")
+                   # Display size    
     cfg.add_option('OLED DISPLAY SETUP', 'oled_width', "128",
                    'Change screen WIDTH 128(Default)',
                    "OLED screen width", ["32", "64", "96", "128", "256"])
@@ -52,7 +56,7 @@ def pibooth_configure(cfg):
                    # Logo
     cfg.add_option('OLED DISPLAY TEXT', 'oled_showlogo', "No",
                    "Show logo instead of text",
-                   "logo instead of text", ['Yes', 'No'])
+                   "logo instead of text", ['Yes', 'No']) # , 'Animated Gif'
     cfg.add_option('OLED DISPLAY TEXT', 'oled_logo_path', "/home/pi/.config/pibooth/oled_display/logo/",
                    "Pictures/Logo path")
     logo_path = cfg.get('OLED DISPLAY TEXT', 'oled_logo_path').strip('"')
@@ -80,8 +84,7 @@ def pibooth_configure(cfg):
                    # Text 1 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text1_color', "white",
                    'Text-1 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
-                   "Text-1 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
-"Magenta", "Olive"])
+                   "Text-1 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green", "Magenta", "Olive"])
                    # Text 1
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text_1', '"Photos  "',
                    'Text-1',
@@ -106,8 +109,7 @@ def pibooth_configure(cfg):
                    # Text 2 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text2_color', "white",
                    'Text-2 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
-                   "Text-2 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
-"Magenta", "Olive"])
+                   "Text-2 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green", "Magenta", "Olive"])
                    # Text 2
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text_2', '"Printed "',
                    'Text-2',
@@ -132,8 +134,7 @@ def pibooth_configure(cfg):
                    # Text 3 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text3_color', "white",
                    'Text-3 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
-                   "Text-3 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
-"Magenta", "Olive"])
+                   "Text-3 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green", "Magenta", "Olive"])
                    # Text 3
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text_3', '"Remain "',
                    'Text-3',
@@ -158,8 +159,7 @@ def pibooth_configure(cfg):
                    # Text 4 color
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text4_color', "white",
                    'Text-4 color - use HTML color "name". On monochrome displays colors will be converted to "white")',
-                   "Text-4 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green",
-"Magenta", "Olive"])
+                   "Text-4 color", ["White", "Red", "Cyan", "Silver", "Blue", "Grey", "DarkBlue", "Black", "LightBlue", "Orange", "Purple", "Brown", "Yellow", "Maroon", "Lime", "Green", "Magenta", "Olive"])
                    # Text 4
     cfg.add_option('OLED DISPLAY TEXT', 'oled_text_4', '"Text 4"',
                    'Text-4',
@@ -182,8 +182,9 @@ def connect_oled_i2c_spi(app, cfg):
         app.devices = cfg.get('OLED DISPLAY SETUP', 'oled_devices').strip('"')
         app.i2c_or_spi = cfg.get('OLED DISPLAY SETUP', 'oled_i2c_or_spi').strip('"')
         app.spi_gpio_dc_pin = int(cfg.get('OLED DISPLAY SETUP', 'oled_spi_gpio_dc_pin').strip('"'))
-        app.spi_gpio_rst_pin = int(cfg.get('OLED DISPLAY SETUP', 'oled_spi_gpio_rst_pin').strip('"'))
+        app.spi_gpio_rst_pin = int(cfg.get('OLED DISPLAY SETUP', 'oled_spi_gpio_rst_pin'))
         app.port_address = cfg.get('OLED DISPLAY SETUP', 'oled_port_address').strip('"')
+        app.spi_device_number = int(cfg.get('OLED DISPLAY SETUP', 'oled_spi_device_number'))
         app.port = int(cfg.get('OLED DISPLAY SETUP', 'oled_port').strip('"'))
         app.color_mode = cfg.get('OLED DISPLAY SETUP', 'oled_color_mode').strip('"')
         app.screen_width = int(cfg.get('OLED DISPLAY SETUP', 'oled_width').strip('"'))
@@ -234,7 +235,7 @@ def connect_oled_i2c_spi(app, cfg):
         # Choose I2c or SPI connection
         i = app.i2c_or_spi.split()
         if "SPI" in i:
-            app.serial = spi(device=0, port=app.port, gpio_DC=app.spi_gpio_dc_pin, gpio_RST=app.spi_gpio_rst_pin)
+            app.serial = spi(device=app.spi_device_number, port=app.port, gpio_DC=app.spi_gpio_dc_pin, gpio_RST=app.spi_gpio_rst_pin)
         elif "I2c" in i:
             app.serial = i2c(port=app.port, address=app.port_address)
     except OSError:
@@ -263,7 +264,8 @@ def connect_oled_i2c_spi(app, cfg):
     except OSError:
         pass      
 
-
+    
+    
 def write_text_to_oled(app, cfg):
     """Method called to write text or image on the screen
     """
@@ -271,6 +273,7 @@ def write_text_to_oled(app, cfg):
         # Create blank image for drawing.
         app.image = Image.new(app.color_mode, (app.device.width, app.device.height))
         app.draw = ImageDraw.Draw(app.image)
+        
         # Load a font.
         font_1 = ImageFont.truetype(app.font_1, app.size_1)
         font_2 = ImageFont.truetype(app.font_2, app.size_2)
@@ -295,7 +298,10 @@ def write_text_to_oled(app, cfg):
                 elif "Empty" in x:
                     app.draw.text((app.right_1, app.down_1), "", font=font_1, fill=app.text1_color)
                 elif "Date-Time" in x:
-                    app.draw.text((app.right_1, app.down_1), time.strftime(app.text_1), font=font_1, fill=app.text1_color)
+                    if app.text_1 =="":
+                        app.draw.text((app.right_1, app.down_1), time.strftime("%H:%M:%S"), font=font_1, fill=app.text1_color)
+                    else:
+                        app.draw.text((app.right_1, app.down_1), time.strftime(app.text_1), font=font_1, fill=app.text1_color)
                 # Draw the text 2
                 x = app.counter_2.split()
                 if "Text_Only" in x:
@@ -311,7 +317,10 @@ def write_text_to_oled(app, cfg):
                 elif "Empty" in x:
                     app.draw.text((app.right_2, app.down_2), "", font=font_2, fill=app.text2_color)
                 elif "Date-Time" in x:
-                    app.draw.text((app.right_2, app.down_2), time.strftime(app.text_2), font=font_2, fill=app.text2_color)
+                    if app.text_2 =="":
+                        app.draw.text((app.right_2, app.down_2), time.strftime("%H:%M:%S"), font=font_2, fill=app.text2_color)
+                    else:
+                        app.draw.text((app.right_2, app.down_2), time.strftime(app.text_2), font=font_2, fill=app.text2_color)
                 # Draw the text 3
                 x = app.counter_3.split()
                 if "Text_Only" in x:
@@ -327,7 +336,10 @@ def write_text_to_oled(app, cfg):
                 elif "Empty" in x:
                     app.draw.text((app.right_3, app.down_3), "", font=font_3, fill=app.text3_color)
                 elif "Date-Time" in x:
-                    app.draw.text((app.right_3, app.down_3), time.strftime(app.text_3), font=font_3, fill=app.text3_color)
+                    if app.text_3 =="":
+                        app.draw.text((app.right_3, app.down_3), time.strftime("%H:%M:%S"), font=font_3, fill=app.text3_color)
+                    else:
+                        app.draw.text((app.right_3, app.down_3), time.strftime(app.text_3), font=font_3, fill=app.text3_color)
                 # Draw the text 4
                 x = app.counter_4.split()
                 if "Text_Only" in x:
@@ -343,13 +355,17 @@ def write_text_to_oled(app, cfg):
                 elif "Empty" in x:
                     app.draw.text((app.right_4, app.down_4), "", font=font_4, fill=app.text4_color)
                 elif "Date-Time" in x:
-                    app.draw.text((app.right_4, app.down_4), time.strftime(app.text_4), font=font_4, fill=app.text4_color)
-                # Display text
+                    if app.text_4 =="":
+                        app.draw.text((app.right_4, app.down_4), time.strftime("%H:%M:%S"), font=font_4, fill=app.text4_color)
+                    else:
+                        app.draw.text((app.right_4, app.down_4), time.strftime(app.text_4), font=font_4, fill=app.text4_color)
+                # Display text - these are only used on some older setups
                 # app.image=app.image.show()
-        else:
+                # app.device.display(app.image)
+        else:       
             # Show logo Yes/No
             y = app.showlogo.split()
-            if "Yes" in y:
+            if "Yes" in y:                
                 if app.device.height == 32:
                     app.image = Image.open(app.logo_path + app.logos).convert(app.color_mode)
                 elif app.device.height == 48:
@@ -452,6 +468,7 @@ def pibooth_startup(app, cfg):
     # startup.
     try:
         connect_oled_i2c_spi(app, cfg)
+        
     except:
         pass
 
@@ -675,6 +692,7 @@ def state_finish_exit(app, cfg):
     # Re-Write the date at finish_exit
     try:
         finish(app, cfg)
+        GPIO.cleanup()
     except:
         pass
 
