@@ -36,6 +36,11 @@ class CustomInstallCommand(install):
         pibooth_oled_display_2_dst = os.path.join(destination_dir, 'pibooth_oled_display_2.py')
         shutil.copy(pibooth_oled_display_2_src, pibooth_oled_display_2_dst)
 
+        # Copy Date-Time_Format_Codes.rst separately
+        date_time_format_codes_src = os.path.join(HERE, 'Date-Time_Format_Codes.rst')
+        date_time_format_codes_dst = os.path.join(destination_dir, 'Date-Time_Format_Codes.rst')
+        shutil.copy(date_time_format_codes_src, date_time_format_codes_dst)
+
 
 def main():
     setup(
