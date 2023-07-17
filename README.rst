@@ -10,6 +10,8 @@ pibooth-oled-display
    :align: center
    :alt: OLED screens
 
+**THE README FILE IS UNDER DEVELOPMENT, NEW VERSION FOR V2.0.0 WILL BE ADDED SOON**
+
 Add a **COOL** small OLED monochrome or color screen through **I2c** or **SPI**. (parallel mode will not be suported)
 
 The OLED device showing here is the 4 pin I2c **OLED sh1106  128x64** 1.3″
