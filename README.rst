@@ -10,29 +10,22 @@ pibooth-oled-display
    :align: center
    :alt: OLED screens
 
-**THE README FILE IS UNDER DEVELOPMENT, NEW VERSION FOR V2.0.0 WILL BE ADDED SOON**
+| Add an small **COOL** OLED (monochrome or color) display through **I2c** or **SPI**. 
+(parallel mode will not be suported). 
 
-Add a **COOL** small OLED monochrome or color screen through **I2c** or **SPI**. (parallel mode will not be suported)
+It can show up to 3 x **Text**, plus the **Counters** with numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, and it can also show **Date-Time** or **Text_Only**.
 
-The OLED device showing here is the 4 pin I2c **OLED sh1106  128x64** 1.3″
+Or show an image with your Own **Logo**, like **Pibooth Logo**, and/or the images for each `states`_
 
-**SPI displays are supportet, but not testet yet** but many SPI displays allso have I2c, by making some hardware changes.
+.Examples: (look at the picture above)
 
+* Show pibooth counters like **"Photos 418"**, **"Wedding Party Photos 481"**.
+* Show some free texts like **"pibooth!"**, **"Welcome!"**, **"Take a Photo"**.
+* **Text_Only** in one line an a **Counter** of any choice in the next line.
 
-It can show numbers of **Photos Taken**, **Printed Photos**, **Forgotten Photos**, **Remaining Duplicates**, **Date-Time**.
+.. Note:: | Text / Counter size can be changed, Centered, or moved to the Right to match the display.
 
-It can show an image like your own **Logo**.
-
-It also have 4 x **Free-Text** where you can write your own text or put in front of a **counter** and move around on the screen.
-
-Examples:
-
-* Show pibooth counters like "Taken Photos 197" or "Today Photos 197"
-* Show some free texts like "pibooth!" "Welcome!" "Take a Photo"
-
-.. note:: Maximum text or counter size can be changed and text moved around to match the screen.
-
-**All changes can be made in the pibooth.cfg, and most of them in the pibooth menu**
+**All changes needed can be made in the Pibooth menu, or in pibooth.cfg**
 
 --------------------------------------------------------------------------------
 
@@ -44,10 +37,9 @@ Requirements
 Hardware
 ^^^^^^^^
 
-* 1 Raspberry Pi 3 Model B (or higher)
-* 1 I2c safe Bi-directional Logic Level Converter  **Only needed if you are using 5v**
-* 1 OLED-screens I2c or SPI (sh1106, ssd1306) are the most commom monochrome, with size **128x32 or 128x64**
-* See the list of Testet OLED Devices under
+* 1 x Raspberry Pi 3 Model B (or higher)
+* 1 x I2c safe Logic Level Converter, (**Only needed if you are using a 5v display**).  
+* 1 x OLED-display, with **I2c** or **SPI** (SH1106 or SSD1306 etc.) witch are the Most common choice.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/128x64.png
    :align: center
@@ -59,8 +51,8 @@ Testet OLED Devices
 =============== ========================== =========== ===== =====
 OLED devices     Display Pixels              TESTET     SPI   I2C
 =============== ========================== =========== ===== =====
-- sh1106        128x64 (I2c)               **Working**         X
-- ssd1306       128x32, 128x64 (I2c)       **Working**         X
+- sh1106        128x64                     **Working**     X     X
+- ssd1306       128x32, 128x64             **Working**     X     X
 - ssd1309                                  not testet
 - ssd1322                                  not testet
 - ssd1325                                  not testet
@@ -69,48 +61,41 @@ OLED devices     Display Pixels              TESTET     SPI   I2C
 - ssd1362                                  not testet
 =============== ========================== =========== ===== =====
 
+| **SPI** are a little faster than **I2c**, but also uses more wires to the raspberry pi.
+| Personally I use **I2c** 3v3 displays, since it is only 4 wires to the Pi. 
+
+Most common OLED displays are these 3 (I prefer size 1.3″)
+
+* **ssd1306 128x32** 0.91″ 128X32 white Display
+* **ssd1306 128x64** 0.96″ 128X64 white Display
+* **sh1106  128x64** 1.3″  128X64 white Display
+
+
 
 Install
 -------
 ::
 
     $ sudo apt-get update
-    $ setup not ready, add **pibooth_oled_display.py** to the config.cfg instead
-    $ Also instal the OLED driver: **pip3 install luma.oled**
+    $ Add the file **pibooth_oled_display.py** to the config.cfg
+    $ Instal the OLED driver: **pip3 install luma.oled**
     $ You allso need to download the Oled_Display folder with all folders and files, then place the **oled_display** folder with subfolders in /home/pi/.config/pibooth/
     $ https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/oled_display
 
 
-Most commom OLEDs I2c, SPI or I2c-SPI on the same device
---------------------------------------------------------
+I2c Configuration
+-----------------
 
-* OLED displays, don't use backlight, self-illumination.
-* The display performance is better than the traditional LCD display, also lower consumption.
-* SPI OLEDs are faster than I2c OLEDs, but use more wires to the raspberry pi.
+Enabling The I2c Interface - Raspberry Pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You need to provide the name of the screen that you use. The most common OLED devices are these 3. 
+| **The I2C peripheral is not turned on by default.**
+There are two methods to enable I2c.
+ 
 
-Either the 4pins-I2c (as shown at the picture) or the 7pins-I2c-SPI devices.
+| (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on I2c**).
+I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the I2C interface on your specific version of the Raspberry Pi.
 
-* **ssd1306 128x32** 0.91″ OLED 128X32 white Display Module IIC I2C
-* **ssd1306 128x64** 0.96″ I2C IIC SPI Serial 128X64 OLED
-* **sh1106  128x64** 1.3″ SPI I2C Serial 128X64 OLED LCD Display Module
-
-
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/3-oled.png
-   :align: center
-   :alt: 3 OLED I2C screens
-
-
-**I2c Configuration**
----------------------
-
-Enabling The **I2c** Interface - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The I2C peripheral is not turned on by default.
-
-There are two methods to adjust the settings. To enable it, do the following.
 
 
 **Raspberry Pi Configuration via Desktop GUI**  
@@ -134,9 +119,9 @@ Again, we can use raspi-config to enable it.
 * Use the right arrow to select the **<Finish>** button.
 * Select **yes** when it asks to reboot.
 
-The system will reboot. when it comes back up, log in and enter the following command
+The system will reboot. when it comes back up, log in and enter the following command in terminal
 
-``>ls /dev/*i2c*``   
+``ls /dev/*i2c*``   
  
 The Pi should respond with
 
@@ -145,10 +130,10 @@ The Pi should respond with
 Which represents the user-mode I2C interface.
 
 
-How to find your **I2c addresss**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to find your I2c addresss
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command.  
+You need to know the address of your I2c. You can find it on the command line using the **"sudo i2cdetect -y 1"** command. If you dont know how to wire your display, go down to `Circuit diagram and wiring i2c display`_
  
 In this case the address of the display is **0x3C**.
 
@@ -157,26 +142,28 @@ In this case the address of the display is **0x3C**.
    :align: center
    :alt: I2C Address
 
-How to **change I2c address**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to change I2c address
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Only if needed: Most OLED devices have 2 options of a port address change.
-
-Some can be changed by Soldering (short circuit) 1 wire on the back of the OLED device.
-
-And some OLED, there is a resister you need to solder from one location to another.
+| Only if needed: Most OLED devices have 2 options of a port address change.
+| Some can be changed by Soldering (short circuit) 1 wire on the back of the OLED device.
+And on some OLED displays, there is a resister you need to solder from one location to another.
 
 (**check the manual of your device, or search the internet**)
 
 
-**SPI Configuration**
----------------------
+SPI Configuration
+-----------------
 
-Enabling The **SPI** Interface - Raspberry Pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The **SPI** peripheral is not turned on by default.
+Enabling The SPI Interface - Raspberry Pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two methods to adjust the settings. To enable it, do one of the following.
+| **The SPI peripheral is not turned on by default.**
+There are two methods to adjust the settings.
+
+| (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on SPI**).
+I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the SPI interface on your specific version of the Raspberry Pi.
+
 
 **Raspberry Pi Configuration via Desktop GUI**
 
@@ -198,48 +185,59 @@ Again, we can use raspi-config to enable it.
 * Use the right arrow to select the **<Finish>** button.
 * Select **yes** when it asks to reboot.
 
-The system will reboot. when it comes back up, log in and enter the following command.
+The system will reboot. when it comes back up, log in and enter the following command in terminal.
+
+``ls /dev/spidev*``
+
+| This command lists the SPI devices available in the /dev directory.
+| If SPI is enabled, you should see output similar to 
+``/dev/spidev0.0`` 
+``/dev/spidev0.1``
+If SPI is not enabled, you will see an error message or no output.
 
 
-**OLED Display Setup** in Pibooth Menu
+OLED Display - (setup) in Pibooth Menu
 --------------------------------------
-At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
+| At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg
+which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_setup_.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_setup_1.png
    :align: center
    :alt: OLED Display Setup
 
 
 
-**OLED Display Text** in Pibooth Menu
--------------------------------------
-At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg which permits to configure the behavior of the plugin.
+OLED Display - (modify) in Pibooth Menu
+---------------------------------------
+| At the first run, a configuration file is generated in ~/.config/pibooth/pibooth.cfg
+which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_text.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_text_1.png
    :align: center
    :alt: OLED Display Text
 
 
-How to **setup** in config.cfg
-------------------------------
+How to setup in config.cfg
+--------------------------
 
-Options are available by editing the configuration file. (Or use the option in pibooth menu under **Oled display setup** and **Oled display text**)
+| Options are also available by editing the configuration file.
+(But it is easier to use the options in the "pibooth menu" under **Oled display - (setup)** and **Oled display - (modify)**)
 
-using the command line
+Edit config.cfg by using the command line
 
 ::
 
    $ pibooth --config
    
 
-**OLED SPI or I2c SETUP** options in **config.cfg**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OLED DISPLAY - (SETUP) options in config.cfg
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**[OLED DISPLAY SETUP]**
+**[OLED DISPLAY - (SETUP)]**
 
-* # Choose OLED device-chip - **sh1106**, **ssd1306**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331**, **ssd1362**
+* # Choose OLED device - **(ssd1306=Default)**, **ssd1309**, **ssd1322**, **ssd1325**, **ssd1327**, **ssd1331*, **ssd1362**, **sh1106**
 
-* oled_devices = **sh1106**
+* oled_devices = **ssd1306**
 
 * # I2c or SPI display connection
 
@@ -249,50 +247,48 @@ using the command line
 
 * oled_port_address = **0x3C**
 
-* # Chance SPI device number 0 or 1
+* # Change SPI device number 0, 1, 2 - (Default = 0)
 
-* oled_spi_devicenumber = 0
+* oled_spi_device_number = **0**
 
-* # Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0 - I2c = 1)
+* # Change the I2c or SPI port number 0, 1 or 2 - (SPI = 0,1,2 - I2c = 1)
 
 * oled_port = **1**
 
-* # **SPI ONLY** - GPIO DC PIN
+* # **SPI only** GPIO DC PIN (24) - Can be changed to any free GPIO PIN
 
 * oled_spi_gpio_dc_pin = **24**
 
-* # **SPI ONLY** - GPIO RST PIN
+* # SPI only GPIO RST PIN (25) - Can be changed to any free GPIO PIN
 
 * oled_spi_gpio_rst_pin = **25**
 
-* # Change screen WIDTH 128(Default)
+* # Change screen WIDTH, 32, 48, 64, 80, 96, 128(Default), 160, 256]
 
 * oled_width = **128**
 
-* # Change screen HEIGHT 32, 64(Default)
+* # Change screen HEIGHT 32, 48, 64(Default), 80, 96, 128, 160, 256
 
 * oled_height = **64**
 
-* # Color mode 1 (Default = 1 **monochrome**), RGB, RGBA
+* # Color mode - (Default **monochrome** = 1) RGB, RGBA
 
 * oled_color_mode = **1**
 
-* # Rotate screen up/down (Default = 0), 1,2,3
+* # Rotate screen - (Normal mode = 0 or 2)
 
 * oled_rotate = **0**
 
-Show a **Logo** instead of text or counter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You can provide your own logo to the screen. Default is the Pibooth logo in 128x32 or 128x64. 
-If you are using an OLED screen with other dimension you need to make a new photo and put it in the OLED logo folder.
-You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
-If you have an 128x64 display, you convert a picture to that size in 8-bit mode, or make some tests. Or you can use some of the XCF_files `Download Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/xcf_files>`_ we used to make the pibooth logo, and change them using the free `GIMP <https://www.gimp.org/>`_
+------------------------------------------
 
 
-[OLED DISPLAY TEXT]
+OLED DISPLAY - (modify) options in config.cfg
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**)
+**[OLED DISPLAY - (modify)]**
+
+* # Choose a logo instead of text on the display (**WILL TEMPORARILY OVERWRITE TEXT ON SCREEN**).
+* # (Also see `How to make your own logo and show instead of text or counters`_)
 
 * oled_showlogo = **Yes**
 
@@ -304,7 +300,7 @@ If you have an 128x64 display, you convert a picture to that size in 8-bit mode,
 
 * oled_logos = **pibooth_logo_64.png**
 
-
+.. _States: README.rst#States-pictures-on-OLED
 States pictures on OLED
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -322,22 +318,8 @@ States pictures on OLED
    :alt:  OLED State pictures
 
 
-Write your own **Text** 1,2,3,4 and / or choose a **Counter type** or **Date** to show on the display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-How to change the Date-Time format
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-See the Date-Time format codes in the following `page <https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/Date-Time_Format_Codes.rst>`_
-
-# You can change the way Date-Time is displayed - This can also be changed in the pibooth menu under "OLED DISPLAY TEXT"
-
-# Choose Date_Time in the menu - If you leave the text field empty, the Default will be used = **%d/%m - %H:%M:%S**  Or use semething like this **%H:%M:%S** in the text field to display the time
-
-
- 
 * # Text-1 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
-
+* # (Also see `How to change the Date-Time format`_, when using **Date-Time**)
 * oled_counter_type1 = **Taken_Photo**
 
 * # fonts path
@@ -430,33 +412,28 @@ See the Date-Time format codes in the following `page <https://github.com/DJ-Din
 
 ----------------------------------------------------
 
-* # Text-4 Counter, Date-Time - Could be either numbers of **Taken_Photo**, **Printed**, **Forgotten**, **Remaining_Duplicates**, **Date-Time**, **Empty** or **Text_Only**
 
-* oled_counter_type4 = **Empty**
+How to make your own Logo and show instead of text or counters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* # Text-4 font
+| You can provide your own logo to the Display. (Default is the Pibooth logo in 128x32 or 128x64). 
+| If you are using an OLED display with other dimension you need to make a new image and put it in the OLED logo folder.
+| You can find logo folder at this path **~/.config/pibooth/oled_display/logo/**
 
-* oled_font_4 = **DejaVuSans-Bold.ttf**
+| You can allso convert pictures with Gimp or online services like `this_page <https://online-converting.com/image/>`_
+| If you have an 128x64 display, you can convert a image to that size and in 8-bit mode, (or make you owm image). 
+| Or you can use some of the XCF_files (`Download Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/xcf_files>`_), that i used to make the pibooth logo´s and state images, and change them using the free `GIMP <https://www.gimp.org/>`_
 
-* # Text-4 color - use HTML color "name". On monochrome displays colors will be converted to **"white"**)
 
-* oled_text4_color = **white**
+How to change the Date-Time format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* # Text-4
+| See all the Date-Time format codes in the following `page <https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/Date-Time_Format_Codes.rst>`_ 
+or see the file **Date-Time_Format_Codes.rst** in your local pibooth config folder **~/.config/pibooth/**
 
-* oled_text_4 = **"Text 4"**
-
-* # Text-4 size
-
-* oled_size_4 = **19**
-
-* # Text-4 Move text-4 to the **right** on the screen
-
-* oled_text4_right = **0**
-
-* # Text-4 Move text-4 **down** on the screen
-
-* oled_text4_down = **0**
+| # Choose Date_Time in the menu - (If you leave the text field empty, the Default will be used = **%H:%M:%S**).
+| Or use semething like this **%d/%m - %H:%M:%S** in the text field to display the date and time.
+| Remember to set the size of the text to match the display, after you set your Date-Time format codes.
 
 
 States description
@@ -466,63 +443,71 @@ States description
    :align: center
    :alt:  State sequence
 
-Circuit diagram - **I2c devices**
----------------------------------
 
-I2C displays **without** an **Logic Level Converter** (use ONLY with 3v3) 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------
+
+.. _Circuit diagram and wiring i2c display: README.rst#Circuit-diagram-and-wiring---I2c-display
+Circuit diagram and wiring - I2c display
+----------------------------------------
+
+
+I2C displays without an Logic Level Converter (ONLY with 3v3 display) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here is the diagram for hardware connections **without** an Logic Level Converter.
-**IMPORTANT** **use ONLY 3v3** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
+**IMPORTANT** **use ONLY 3v3** The Vcc and GND on the OLED displays are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-I2c%203V_Sketch2_bb.png
    :align: center
    :alt:  OLED Electronic sketch
 
-I2C displays **with** a **Logic Level Converter** (for use with 5v)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is the diagram for hardware connections **with** and Logic Level Converter.
-**IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is verry important that you check Vcc and GND is set correctly.
-
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-I2c%20Sketch_bb.png
-   :align: center
-   :alt:  OLED Electronic sketch
-
-Wiring I2c devices
-------------------
-
-**Wire** **I2C** OLED devices **without** an **Logic Level Converter**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-3v3 only. **IMPORTANT CHECK YOUR DEVICE FOR THE RIGHT CONNECTION**
+Wire I2C OLED display without an Logic Level Converter (ONLY with 3v3 display)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3v3 only. **IMPORTANT CHECK YOUR DISPLAY FOR THE RIGHT CONNECTION**
 
 ======== ============ ========== =============== ==================================================
   Pins   Remarks      RPi-PIN    RPi GPIO        Info
 ======== ============ ========== =============== ==================================================
-VCC 3v3  Power Pin    PIN 1 etc. 3V3 ONLY        Volt
+VCC 3v3  Power Pin    PIN 1 etc. 3V3 ONLY        Power
 GND      Ground       PIN 6 etc. GND             Ground pin of the module
-SCL      Clock        PIN 5                      Acts as the clock pin. Used for both I2C and SPI
-SDA      MOSI         PIN 3                      Data pin of the module. Used for both IIC and SPI
+SCL      Clock        PIN 5                      Acts as the clock pin.
+SDA      MOSI         PIN 3                      Data pin of the module.
 ======== ============ ========== =============== ==================================================
 
-**Wire** I2C-safe Bi-directional **Logic Level Converter** (for use with 5v)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**ONLY If YOU USE 5v to power the OLED device** some OLEDs can also run on 3v3, check your manual.
+----------------------------------------------------
 
-Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C-safe Bi-directional Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
+
+
+I2C displays with a Logic Level Converter (for use with 5v display)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here is the diagram for hardware connections **with** and Logic Level Converter.
+**IMPORTANT** The Vcc and GND on the OLED display are not always the same, so it is verry important that you check Vcc and GND is set correctly.
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth_OLED-I2c_Sketch_bb_1.png
+   :align: center
+   :alt:  OLED Electronic sketch
+
+Wire I2C display with a Logic Level Converter (for use with 5v display)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ONLY If YOU USE 5v to power the OLED display** some OLEDs can also run on 3v3, check your manual.
+
+Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **I2C Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
 .. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/level_converter.png
    :align: center
    :alt: 4-channel I2C-safe Bi-directional Logic Level converter
 
 
-How to connect a **Level Converter** to your **OLED** and the **Raspberry Pi**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to connect a Level Converter to your OLED and the Raspberry Pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connect the OLED-I2c to **HV** (High Level) on the Level Converter.  
 
-**IMPORTANT CHECK YOUR DEVICE FOR THE RIGHT CONNECTION**
+**IMPORTANT CHECK YOUR DISPLAY FOR THE RIGHT CONNECTION**
 
 - GND: Pin GND (GND) **MAKE SURE GND IS SET TO GROUND**
 - VCC: Pin HV  (HV ) (5v) - Also connect **5v** from the Raspberry Pi Pin 2, to **HV** on the Level Converter
@@ -537,69 +522,144 @@ Connect the Raspberry Pi (**BOARD numbering scheme**) to **LV** (Low Level) on t
 - SDA:  Pin 3 (LV1) **CHECK YOU USE THE SAME NUMBER LV as HV on the SDA**
 
 
+----------------------------------------------------
 
-Circuit diagram SPI devices **without** an **Logic Level Converter** (use ONLY with 3v3)
-----------------------------------------------------------------------------------------
+
+Wiring and Circuit diagram for SPI display
+------------------------------------------
+
+Circuit diagram SPI display without an Logic Level Converter ONLY with 3v3 display)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here is the diagram for hardware connections **without** and **Logic Level Converter**. 
 
-If your OLED device use 5v instead of 3v3, it demands an 8 Channel Bi-directional Logic Level Converter, you should get one or you risk frye your pi.
+If your OLED display use 5v instead of 3v3, it demands an 8 Channel Logic Level Converter, you should get one or you risk frye your pi.
 
-**IMPORTANT** The Vcc and GND on the OLED screens are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
+**IMPORTANT** The Vcc and GND on an OLED display are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-SPI%20Sketch2_bb.png
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth_OLED-SPI_1.png
    :align: center
    :alt:  OLED Electronic sketch
 
 
-Wiring SPI devices
-------------------
 
-**SPI** OLED devices **wire** setup  **without** and **Logic Level Converter**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you have a 8 pins OLED device with **Vin** connect 3v3 to Vin and leave VCC empty. 
-(or check the internet for more info on how to setup your device)
+SPI OLED display wire setup without and Logic Level Converter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you have a 8 pins OLED display with **Vin** connect 3v3 to Vin and leave VCC empty. 
+(or check the internet for more info on how to setup your display)
 
 ======== ============ ========== =============== ============================================================
 7 Pins   Remarks      RPi-PIN    RPi GPIO        Info
 ======== ============ ========== =============== ============================================================
-VCC      Power Pin    PIN 1 or 2 3V3             3V tolerable - CHECK YOUR DEVICE
+VCC      Power Pin    PIN 1 or 2 3V3             3V3 tolerable - CHECK YOUR DISPLAY
 GND      Ground       PIN 6      GND             Ground pin of the module
-D0, SCL  Clock        PIN 23     GPIO 11 (SCLK)  Acts as the clock pin. Used for both I2C and SPI
-D1, SDA  MOSI         PIN 19     GPIO 10 (MOSI)  Data pin of the module. Used for both IIC and SPI
+D0, SCL  Clock        PIN 23     GPIO 11 (SCLK)  Acts as the clock pin.
+D1, SDA  MOSI         PIN 19     GPIO 10 (MOSI)  Data pin of the module.
 RST      Reset        PIN 22     GPIO 25         Resets the module, useful during SPI
 DC, A0   Data/Command PIN 18     GPIO 24         Data Command pin. Used for SPI protocol
 CS       Chip Select  PIN 24     GPIO 8 (CE0)    Useful when more than one module is used under SPI protocol
+                      PIN 26     GPIO 7 (CE1)    Useful when more than one module is used under SPI protocol
 ======== ============ ========== =============== ============================================================
+
+----------------------------------------------------
+
+
+SPI displays with a Logic Level Converter (for use with 5v display)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You will need a 8 channel Logic Level Converter to use SPI with 5v. Or you can use 2 x 4 channels Logic Level Converters.
+
+| It is the same princip as `I2c displays with a logic level converter (for use with 5v display)`_ 
+| You take the needed GPIO PINs from the Raspberry Pi, and wire them to the LV side of the Logic Level Converters.
+| The same goes for 3v3 wire, that goes to the LV side of the level converters. 
+| You also need to wire the 5v from the Raspberry Pi to the HV side of the level converter. 
+And last you need GND (Ground) from the Raspberry Pi to GND one or both sides of the level converters.
+
+----------------------------------------------------
 
 Tips & Tricks
 -------------
 
-How to use 2 x I2c OLED displays at the same time, showing seperate things on each display
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to use 2 x OLED displays at the same time
+---------------------------------------------
 
--- You will need 2 x I2c OLED devices with different I2c addresses etc 0x3C and 0x3D.
-   Most of the devices you can change the I2c address on the back of you OLED device with some soldering.
+Setup 2 x I2c OLED displays - Showing seperate things on each display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-- You will need 2 x I2c OLED devices with different I2c addresses. defaults are 0x3C on display 1, and 0x3D on display 2.
+   On most displays you can change the I2c address on the back of you OLED device with some soldering.
    
-   Check info about your devices on how to. 
-   
--- Or you can get an **8 Channel I2C Muti-Channel Expansion Development Board** to convert the same address to an new and then use up 8 x I2c devices at the same time.
+-- Or you can get an **8 Channel I2C Muti-Channel Expansion Development Board** to convert the default address to an new address and then use up 8 x I2c devices at the same time.
 
--- find the pibooth install folder and use that path with the extra file **pibooth_oled_display_2.py**
--- Add the path and pibooth_oled_display_2.py to custom plugins in the config.cfg under [GENERAL]
-   Etc. plugins = **´/path_to_file/pibooth_oled_display_2.py´**
+Setup 2 x SPI OLED displays - Showing seperate things on each display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you will have an extra option in Settings, with **Oled display 2 Setup** and **Oled display 2 text** go in and setup your new device with the right I2c address.
+| -- I dont know if it work, as i have not testet it yet. But it should work. 
+*And if it work, it will only work if you have the CS PIN on the displays*.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/add_extra_oled_display.png
+| -- Both the displays uses the same PINs/GPIOs, except the CS (Chip Select) PIN
+| -- On display 1. Put a wire from the CS PIN to GPIO 8 (pin24) to choose CE0.
+| -- On display 2. Put a wire from the CS PIN to GPIO 7 (pin26) to choose CS1. 
+*Check online for more info about your devices on how to set them up*.
+
+| -- According to LUMA driver documentation, you should choose **port 0** for display 1 and **port 1** for display 2.
+You can do that in the pibooth menu. An maybe also change the SPI device number to 0,1 or 2 to make it work.
+
+Can i use SPI1, or SPI and SPI1 togheter on the pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+| -- The short answer is no, i tryed but with no luck. I dont think it is suported by the luma.oled drivers
+So only SPI / SPI0 can be used.
+
+
+How to install the Display 2 plugin "pibooth_oled_display_2.py"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| -- The extra plugin for display 2 **"pibooth_oled_display_2.py"** is allredy in the folder **~/.config/pibooth/**
+| -- You can activate the plugin by adding the path to the file, to custom plugins in the config.cfg under [GENERAL].
+::
+
+   # Path to custom plugin(s) not installed with pip (list of quoted paths accepted)
+   plugins = '~/.config/pibooth/pibooth_oled_display_2.py'
+
+| Now you will have an extra plugin option in pibooth settings, with **Oled display 2 - (Setup)** and **Oled display 2 - (modify)** 
+| Go to the menu and setup your new display 2. If you are using I2c, you new display 2 need its own I2c addresses (**standard 0x3d**). 
+If you use SPI, you need to have 2 displays with the CS (**Chip Select**) option (this funktion has not yet been tested, but should work).
+
+
+.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/add_extra_oled_display_2.png
    :align: center
    :alt:  Add an extra OLED settings
+
+
+Setup 2 x OLED displays - Showing the same things on each display
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| If you want to show the exact same things on 2 or more displays, you dont need the second plugin.
+| On the I2c displays, you just use the same port address (0x3c etc.), and wire them to the same GPIO PINs.
+| On the SPI displays, you just use the same CS port address (CE0 etc.), and wire them to the same GPIO PINs.
+
+----------------------------------------------------
+
+
+How to use the OLED displays with only 6 pins I2c/SPI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| **SPI** Most 6 PINs displays works out of the box, but unfortunately you can only use one display, 
+as there is no CS pin on the display.
+
+| **I2c** can be used with some soldering tricks on the back of the displays, and with extra component. 
+| And it also works with 2 displays.
+
+ 
+
 
 
 .. --- Links ------------------------------------------------------------------
 
 .. _`pibooth`: https://pypi.org/project/pibooth
 .. _`pibooth_oled_display`: 
+.. _`official Raspberry Pi documentation`: https://www.raspberrypi.com/documentation/
+
 
 .. |PythonVersions| image:: https://img.shields.io/badge/python-3.6+-red.svg
    :target: https://www.python.org/downloads
@@ -612,4 +672,3 @@ Now you will have an extra option in Settings, with **Oled display 2 Setup** and
 .. |Downloads| image:: 
    :target: 
    :alt: PyPi downloads
-
