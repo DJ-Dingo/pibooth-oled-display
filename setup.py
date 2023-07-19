@@ -79,7 +79,7 @@ def main():
         python_requires=">=3.6",
         install_requires=[
             'pibooth>=2.0.0',
-            'luma.core>=2.4.0'
+            'luma.oled>=3.12.0'
         ],
         include_package_data=True,
         options={
