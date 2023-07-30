@@ -69,16 +69,24 @@ def main():
         license='GPLv3',
         platforms=['unix', 'linux'],
         keywords=[
-            'Raspberry Pi',
+            'raspberry pi',
             'camera',
+            'raspberry pi camera',
             'photobooth',
+            'selfiecam',
             'pygame',
+            'pil',
+            'pillow',
+            'pibooth',
+            'pibooth plugin',
+            'luma.oled',
             'oled'
+            
         ],
         py_modules=['pibooth_oled_display'],
         python_requires=">=3.6",
         install_requires=[
-            'pibooth>=2.0.0',
+            'pibooth>=2.0.3',
             'luma.oled>=3.12.0'
         ],
         include_package_data=True,
