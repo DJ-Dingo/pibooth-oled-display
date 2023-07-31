@@ -11,6 +11,8 @@ Release for Pypi
 
 3. Check the rendering of the README by generating the HTML page:
 
+"Note: Before generating the HTML page for README, ensure that the package is installed on your system. The pibooth_oled_display.py script requires access to certain files that are copied to the system during the installation process. ``python3 setup.py install``"
+
    ::
 
         $ python setup.py --long-description | rst2html.py > output.html
