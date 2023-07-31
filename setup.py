@@ -12,7 +12,7 @@ import os
 
 HERE = osp.abspath(osp.dirname(__file__))
 sys.path.insert(0, HERE)
-import pibooth_oled_display as plugin   # nopep8 : import shall be done after adding setup to paths
+from pibooth_oled_display import pibooth_oled_display as plugin   # nopep8 : import shall be done after adding setup to paths
 
 class CustomInstallCommand(install):
     def run(self):
