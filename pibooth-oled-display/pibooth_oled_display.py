@@ -127,8 +127,8 @@ def pibooth_configure(cfg):
     cfg.add_option('OLED DISPLAY - (MODIFY)', 'oled_showlogo', "No",
                    "Show Logo or Animated Gif (instead of text) - 'Yes' or 'No'",
                    "Logo instead of text", ['Yes', 'No'])
-    cfg.add_option('OLED DISPLAY - (MODIFY)', 'oled_logos', "128x64_aPibooth.png",
-                   "Logo or Animated Gif in the folder '~/.config/pibooth/logo/'",
+    cfg.add_option('OLED DISPLAY - (MODIFY)', 'oled_logos', "128x64_Pibooth_2.gif",
+                   "Logo or Animated Gif in the folder '~/.config/pibooth/oled_display/logo/'",
                    "Logo or Animated Gif", _logos)
                    # FPS
     cfg.add_option('OLED DISPLAY - (MODIFY)', 'oled_animated_fps', "15",
