@@ -14,15 +14,27 @@ from luma.oled.device import ssd1306, ssd1309, ssd1322, ssd1325, ssd1327, ssd133
 import pibooth
 from pibooth.utils import LOGGER
 
-
 __version__ = "2.0.1"
 # Github "DJ-Dingo", Kenneth Nicholas Jørgensen - Display 1
-
 
 # Paths to Logo and Fonts
 cache_dir = os.path.expanduser('~/.config/pibooth/')
 fonts_dir = os.path.join(cache_dir, 'oled_display/fonts/')
 logos_dir = os.path.join(cache_dir, 'oled_display/logo/')
+states_dir = os.path.join(cache_dir, 'oled_display/states/')
+
+def ensure_directory(directory):
+    """
+    Ensure that the specified directory exists.
+    If it doesn't exist, it's created.
+    """
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+# Ensure directories exist
+ensure_directory(fonts_dir)
+ensure_directory(logos_dir)
+ensure_directory(states_dir)
 
 def update_json_file(filename, data):
     """
@@ -36,49 +48,28 @@ def update_json_file(filename, data):
     with open(file_path, 'w') as f:
         json.dump(data, f)
 
-def list_fonts(directory, *extension):
+def list_files(directory, *extensions):
     """
-    This function lists all files in fonts directory.
+    This function lists all files in a given directory.
+    If extensions are provided, only files with those extensions are listed.
     :param directory: The directory to scan
-    :param extension: Extension 
+    :param extensions: Extensions to filter by
     :return: A list of all files in the directory
     """
-    return [file for file in os.listdir(directory) if file.endswith(extension) and os.path.isfile(os.path.join(directory, file))]
+    if extensions:
+        return [file for file in os.listdir(directory) if file.endswith(extensions) and os.path.isfile(os.path.join(directory, file))]
+    else:
+        return [file for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 
-def list_logos(directory):
-    """
-    This function lists all files in logos directory.
-    :param directory: The directory to scan
-    :return: A list of all files in the logos directory
-    """
-    return [file for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
-
-def get_fonts():
-    # Ensure the directory exists
-    if not os.path.exists(fonts_dir):
-        os.makedirs(fonts_dir)
-    # Now it's safe to list the files in the directory
-    return list_fonts(fonts_dir, '.ttf', '.otf')
-
-def get_logos():
-    # Ensure the directory exists
-    if not os.path.exists(logos_dir):
-        os.makedirs(logos_dir)
-    # Now it's safe to list the files in the directory
-    return list_logos(logos_dir)
-
-# Get the list of all default font names
-fonts = get_fonts()
-# Get the list of all logo names
-logos = get_logos()
-
+# Get the list of all font names and logo names
+fonts = list_files(fonts_dir, '.ttf', '.otf')
+logos = list_files(logos_dir)
 
 # Create and update JSON files with the fonts and logos
 update_json_file('fonts_1_cache.json', fonts)
 LOGGER.info("Updating fonts database for OLED display 1")
 update_json_file('logos_1_cache.json', logos)
 LOGGER.info("Updating logo database for OLED display 1")
-
 
 @pibooth.hookimpl
 def pibooth_configure(cfg):
