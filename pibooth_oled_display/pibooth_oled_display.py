@@ -53,10 +53,25 @@ def list_logos(directory):
     """
     return [file for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 
+def get_fonts():
+    # Ensure the directory exists
+    if not os.path.exists(fonts_dir):
+        os.makedirs(fonts_dir)
+    # Now it's safe to list the files in the directory
+    return list_fonts(fonts_dir, '.ttf', '.otf')
+
+def get_logos():
+    # Ensure the directory exists
+    if not os.path.exists(logos_dir):
+        os.makedirs(logos_dir)
+    # Now it's safe to list the files in the directory
+    return list_logos(logos_dir)
+
 # Get the list of all default font names
-fonts = list_fonts(fonts_dir, '.ttf', '.otf')
+fonts = get_fonts()
 # Get the list of all logo names
-logos = list_logos(logos_dir)
+logos = get_logos()
+
 
 # Create and update JSON files with the fonts and logos
 update_json_file('fonts_1_cache.json', fonts)
