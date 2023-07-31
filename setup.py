@@ -81,7 +81,7 @@ def main():
         packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
         package_data={
             'pibooth_oled_display': ['*.json', '*.txt'],
-            'pibooth_oled_display.oled_display': ['states/*', 'logo/*', 'fonts/*']
+            'pibooth_oled_display.oled_display': ['states/*', 'logo/*', 'fonts/*', '*.py']
         },
         options={
             'bdist_wheel':
