@@ -140,7 +140,7 @@ def pibooth_configure(cfg):
                    "Text-1 Counter/Time", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty','Text_Only'])
                    # Font 1
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_font_1', "DejaVuSerif-Bold.ttf",
-                   "Text-1 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/fonts/'",
+                   "Text-1 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/oled_display/fonts/'",
                    "Text-1 Font", _fonts2)
                    # Text 1 color
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_text1_color', "white",
@@ -172,7 +172,7 @@ def pibooth_configure(cfg):
                    "Text-2 Counter/Time", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                    # Font 2
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_font_2', "DejaVuSerif-Bold.ttf",
-                   "Text-2 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/fonts/'",
+                   "Text-2 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/oled_display/fonts/'",
                    "Text-2 Font", _fonts2)
                    # Text 2 color
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_text2_color', "white",
@@ -204,7 +204,7 @@ def pibooth_configure(cfg):
                    "Text-3 Counter/Time", ['Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'])
                    # Font 3
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_font_3', "DejaVuSerif-Bold.ttf",
-                   "Text-3 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/fonts/'",
+                   "Text-3 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder '~/.config/pibooth/oled_display/fonts/'",
                    "Text-3 Font", _fonts2)
                    # Text 3 color
     cfg.add_option('OLED DISPLAY 2 (MODIFY)', 'oled2_text3_color', "white",
