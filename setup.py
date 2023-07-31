@@ -19,7 +19,7 @@ class CustomInstallCommand(install):
         install.run(self)
 
         # Custom file copying script
-        source_dir = os.path.join(HERE, 'oled_display')
+        source_dir = os.path.join(HERE, 'pibooth_oled_display', 'oled_display')
         destination_dir = os.path.expanduser('~/.config/pibooth/')
 
         if not os.path.exists(destination_dir):
