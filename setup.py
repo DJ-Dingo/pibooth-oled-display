@@ -14,6 +14,7 @@ HERE = osp.abspath(osp.dirname(__file__))
 sys.path.insert(0, HERE)
 from pibooth_oled_display import pibooth_oled_display as plugin   # nopep8 : import shall be done after adding setup to paths
 
+
 class CustomInstallCommand(install):
     def run(self):
         install.run(self)
@@ -22,13 +23,22 @@ class CustomInstallCommand(install):
         source_dir = os.path.join(HERE, 'pibooth_oled_display', 'oled_display')
         destination_dir = os.path.expanduser('~/.config/pibooth/')
 
+        print("Source directory: ", source_dir)
+        print("Destination directory: ", destination_dir)
+
         if not os.path.exists(destination_dir):
             os.makedirs(destination_dir)
 
-        for file_name in os.listdir(source_dir):
-            source_path = os.path.join(source_dir, file_name)
-            destination_path = os.path.join(destination_dir, file_name)
-            shutil.copy(source_path, destination_path)
+        for root, dirs, files in os.walk(source_dir):
+            for file_name in files:
+                source_path = os.path.join(root, file_name)
+                destination_path = source_path.replace(source_dir, destination_dir)
+
+                print("Copying: ", source_path, " to ", destination_path)
+                
+                os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+                shutil.copy(source_path, destination_path)
+
 
 def main():
     setup(
