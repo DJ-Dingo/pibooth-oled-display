@@ -14,7 +14,6 @@ HERE = osp.abspath(osp.dirname(__file__))
 sys.path.insert(0, HERE)
 import pibooth_oled_display as plugin   # nopep8 : import shall be done after adding setup to paths
 
-
 class CustomInstallCommand(install):
     def run(self):
         install.run(self)
@@ -33,9 +32,13 @@ class CustomInstallCommand(install):
 
         # Copy pibooth_oled_display_2.py separately
         pibooth_oled_display_2_src = os.path.join(HERE, 'pibooth_oled_display_2.py')
-        pibooth_oled_display_2_dst = os.path.join(destination_dir, 'pibooth_oled_display_2.py')
+        pibooth_oled_display_2_dst = os.path.join(destination_dir, 'oled_display', 'pibooth_oled_display_2.py')
+        
+        oled_display_dir = os.path.dirname(pibooth_oled_display_2_dst)
+        if not os.path.exists(oled_display_dir):
+            os.makedirs(oled_display_dir)
+        
         shutil.copy(pibooth_oled_display_2_src, pibooth_oled_display_2_dst)
-
 
 def main():
     setup(
