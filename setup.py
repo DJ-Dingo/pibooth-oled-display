@@ -88,6 +88,11 @@ def main():
             'luma.oled>=3.12.0'
         ],
         include_package_data=True,
+        packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
+        package_data={
+            'pibooth_oled_display': ['*.json', '*.txt'],
+            'pibooth_oled_display.oled_display': ['states/*', 'logo/*', 'fonts/*']
+        },
         options={
             'bdist_wheel':
                 {'universal': True}
