@@ -151,7 +151,7 @@ You can find it writing this command in the command line:
 In this case the address of the display is **0x3C**.
 
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/i2cdetect-y1.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/i2cdetect-y1.png
    :align: center
    :alt: Detect I2C Address
 
@@ -222,7 +222,7 @@ I2c Circuit diagram - (ONLY with 3v3 displays)
 
 The Vcc and GND on the OLED displays are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth%20OLED-I2c%203V_Sketch2_bb.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Pibooth%20OLED-I2c%203V_Sketch2_bb.png
    :align: center
    :alt:  OLED I2c Circuit diagram - (ONLY with 3v3 displays)
 
@@ -253,7 +253,7 @@ I2C circuit diagram - (5v displays)
 Here is the diagram for hardware connections **with** and Logic Level Converter.
 **IMPORTANT** The Vcc and GND on the OLED display are not always the same, so it is verry important that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth_OLED-I2c_Sketch_bb_1.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Pibooth_OLED-I2c_Sketch_bb_1.png
    :align: center
    :alt:  I2C circuit diagram - (5v displays)
 
@@ -265,7 +265,7 @@ I2c wire - (5v displays)
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/level_converter.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/level_converter.png
    :align: center
    :alt: I2c wire - (5v displays) 4-channel Logic Level converter
 
@@ -313,7 +313,7 @@ If your OLED display use 5v instead of 3v3, it demands an 8 Channel Logic Level 
 
 **IMPORTANT** The Vcc and GND on an OLED display are not always the same, so it is **verry important** that you check Vcc and GND is set correctly.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Pibooth_OLED-SPI_1.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Pibooth_OLED-SPI_1.png
    :align: center
    :alt:  SPI circuit diagram (ONLY with 3v3 displays)
 
@@ -358,7 +358,7 @@ States
 
 States images
 ^^^^^^^^^^^^^
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/state_photos.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/state_photos.png
    :align: center
    :alt:  OLED State pictures
 
@@ -379,7 +379,7 @@ if you are using a display with 128x64, the filename for capture etc. should be 
 
 States description
 ^^^^^^^^^^^^^^^^^^
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/state-sequence-oled-i2c.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/state-sequence-oled-i2c.png
    :align: center
    :alt:  State sequence
 
@@ -397,7 +397,7 @@ Be aware that this plugin can sometimes make the reaction to enter the menu slow
 | At the first time you make changes in the Menu, a configuration file is generated in ``'~/.config/pibooth/pibooth.cfg'``
 which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_setup_1.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/menu_oled_display_setup_1.png
    :align: center
    :alt: OLED Display - (Setup) - Pibooth Menu
 
@@ -412,7 +412,7 @@ Be aware that this plugin can sometimes make the reaction to enter the menu slow
 | At the first time you make changes in the Menu, a configuration file is generated in ``'~/.config/pibooth/pibooth.cfg'``
 which permits to configure the behavior of the plugin.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/menu_oled_display_modify.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/menu_oled_display_modify.png
    :align: center
    :alt: OLED Display - (Modify) - Pibooth Menu
 
@@ -693,7 +693,7 @@ How to install the second display plugin "pibooth_oled_display_2.py"
 * If you use SPI, you need to have 2 displays with the CS (**Chip Select**) option (this funktion has not yet been tested, but should work).
 
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/add_extra_oled_display_2.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/add_extra_oled_display_2.png
    :align: center
    :alt:  Add an extra OLED display settings
 
@@ -747,7 +747,7 @@ How to use a OLED displays with only 6 pins I2c/SPI
 | **I2c** Can be used with some soldering tricks on the back of the displays, and some extra component.
 * It also works when using 2 displays in pibooth.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/6PIN_SPI_I2C.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/6PIN_SPI_I2C.png
    :align: center
    :alt:  Change 6PIN SPI to I2c
 
@@ -761,7 +761,7 @@ So you need a 10k resistor, and a 47nf or 100nf capacitor (Ceramic or Electrolyt
 * Reset pin >> 10k resistor >> VCC
 * Reset pin >> 47nF or 100nF capacitor (condensator) >> GND (Ground)
 ..
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/templates/Reset_pull-up_circuit.jpg
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Reset_pull-up_circuit.jpg
    :align: center
    :alt:  Reset pull-up circuit
 
