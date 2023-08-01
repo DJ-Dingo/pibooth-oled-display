@@ -99,8 +99,8 @@ def main():
         include_package_data=True,
         packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
 package_data={
-    'pibooth_oled_display': ['*.json', '*.txt', '*.rst'],
-    'pibooth_oled_display.oled_display': ['logo/*', 'fonts/*', '*.py',
+    'pibooth_oled_display': ['*.json', '*.txt'],
+    'pibooth_oled_display.oled_display': ['logo/*', 'fonts/*', '*.py', '*.rst',
                                           'states/capture/*', 
                                           'states/choose/*', 
                                           'states/failure/*', 
