@@ -86,7 +86,7 @@ Install
 ::
 
     Manual install - Download the zip or clone the repository
-unzip and install  
+    unzip and install  
     sudo apt-get update
     pip3 install luma.oled
     Add the file "pibooth_oled_display.py" to the config.cfg
