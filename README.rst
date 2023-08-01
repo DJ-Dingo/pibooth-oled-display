@@ -30,8 +30,7 @@ and a option for images for each `States`_
 
 .. Note:: Text / Counters can be ``Sized``, ``Centered``, or moved ``Right`` or ``Down``, to match the display. Changes can be made in the `Pibooth Menu`_ or in the `config.cfg`_ file.
 
-| **Don't be scared by this long manual, it´s there to cover all the defferent OLED displays on the marked. If you only have an 3v3 I2c 
-
+**Don't be scared by this long manual, it´s there to cover all the defferent OLED displays on the marked. If you only have an 3v3 I2c 
 OLED display all you need is 4 wires to your Pi, and installing the plugin.**
 
 -----------------------------------------------------------
@@ -105,13 +104,13 @@ Enabling I2c interface on the Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **The I2C peripheral is not turned on by default.**
+
 There are two methods to enable I2c.
  
 
 | (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on I2c**).
+
 I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the I2C interface on your specific version of the Raspberry Pi.
-
-
 
 **Raspberry Pi Configuration via Desktop GUI**  
  
@@ -149,6 +148,7 @@ How to find your I2c addresss
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **You need to know the address of your I2c.**
+
 You can find it writing this command in the command line:
 
 ``sudo i2cdetect -y 1``
@@ -178,9 +178,11 @@ Enabling SPI interface on the Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **The SPI peripheral is not turned on by default.**
+
 There are two methods to adjust the settings.
 
 | (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on SPI**).
+
 I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the SPI interface on your specific version of the Raspberry Pi.
 
 
@@ -210,6 +212,7 @@ The system will reboot. when it comes back up, log in and enter the following co
 
 | This command lists the SPI devices available in the /dev directory.
 | If SPI is enabled, you should see output similar to 
+
 ``/dev/spidev0.0`` 
 ``/dev/spidev0.1``
 If SPI is not enabled, you will see an error message or no output.
@@ -223,6 +226,7 @@ I2c Circuit diagram - (ONLY with 3v3 displays)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Here is the diagram for hardware connections **without** an Logic Level Converter.
+
 **IMPORTANT** **use ONLY 3v3** 
 
 The Vcc and GND on the OLED displays are not always the same, so it is verry important that you check Vcc and GND is set correctly.
@@ -278,6 +282,7 @@ Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea t
 **IMPORTANT CHECK YOUR DISPLAY FOR THE RIGHT CONNECTION**
 
 | OLED-I2c to the **HV** (High Level) side, on the Level Converter HV.  
+
 *(Display >> level converter HV side)*
 
 ============ =============== =========================================
@@ -290,6 +295,7 @@ SDA (Data)   HV1 (HV1)       **SDA <> HV1 on the Level Converter**
 ============ =============== =========================================
 
 | RPi (**BOARD numbering scheme**) to **LV** (Low Level) side, on the Level Converter. 
+
 *(Raspberry Pi >> Level converter LV side)*
 
 ===== ===== =============== ==========================================
@@ -302,7 +308,6 @@ SCL   Pin 5 LV2 (LV2)       **SCL <> LV2 on the Level Converter**
 SDA   Pin 3 LV1 (LV1)       **SDA <> LV1 on the Level Converter**
 ===== ===== =============== ==========================================
 
-..
 ----------------------------------------------------
 
 
@@ -340,7 +345,7 @@ CS       Chip Select  PIN 24     GPIO 8 (CE0)   Useful when more than one module
                       PIN 26     GPIO 7 (CE1)   Useful when more than one module is used under SPI protocol
 ======== ============ ========== ============== ============================================================
 
-| **If you have a 8 pins OLED display with "Vin" connect 3v3 to Vin and leave VCC empty.** *(or check the internet for more info on how to setup your display)*
+**If you have a 8 pins OLED display with "Vin" connect 3v3 to Vin and leave VCC empty.** *(or check the internet for more info on how to setup your display)*
 
 ----------------------------------------------------
 
@@ -351,6 +356,7 @@ SPI wire - (5v display) with a Logic Level Converter
 You will need a 8 channel Logic Level Converter to use SPI with 5v. Or you can use 2 x 4 channels Logic Level Converters.
 
 | Same princip as `I2c Circuit diagram - (5v displays) with an Logic Level Converter`_ 
+
 * You take the needed GPIO PINs from the Raspberry Pi, and wire them to the LV side of the Logic Level Converters.
 * The same goes for 3v3 wire, that goes to the LV side of the level converters. 
 * You also need to wire the 5v from the Raspberry Pi to the HV side of the level converter. 
@@ -370,15 +376,18 @@ States images
 | If you need to change states images or add missing resolutions to fit your display
 | you can upload them to the path = ``~/.config/pibooth/oled_display/states/``
 | Every state PNG images has a unik name, with the ``width x height`` in the name.
+
 if you are using a display with 128x64, the filename for capture etc. should be **capture_128x64.png**
 
 | The States files for defferent resolutions are already in the **states** folders.
 | You can also find the Gimp files ``.xcp`` under **origin** in every state folder
 | ``128 x 32 pixels``, ``128 x 64 pixels``, ``128 x 128 pixels``
 | ``160 x 128 pixels``, ``192 x 64 pixels``, ``256 x 64 pixels``
+
 ``256 x 128 pixels``, ``256 x 256 pixels``, ``320 x 240 pixels``
 
 | These states are showing on the display, if **Show state pictures** is activated
+
 ``´choose´, ´chosen´, ´preview´, ´capture´, ´processing´, ´print´, ´finish´, ´failsafe´``
 
 
@@ -397,9 +406,11 @@ OLED Display - (SETUP) - Pibooth Menu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | You enter the menu by using Esc on your keyboard. 
+
 Be aware that this plugin can sometimes make the reaction to enter the menu slow (2-3 sec).
 
 | At the first time you make changes in the Menu, a configuration file is generated in ``'~/.config/pibooth/pibooth.cfg'``
+
 which permits to configure the behavior of the plugin.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/menu_oled_display_setup_1.png
@@ -412,9 +423,11 @@ OLED Display - (MODIFY) - Pibooth Menu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | You enter the menu by using Esc on you keyboard. 
+
 Be aware that this plugin can sometimes make the reaction to enter the menu slow (2-3 sec).
 
 | At the first time you make changes in the Menu, a configuration file is generated in ``'~/.config/pibooth/pibooth.cfg'``
+
 which permits to configure the behavior of the plugin.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/menu_oled_display_modify.png
@@ -429,6 +442,7 @@ Setup in config.cfg
 
 | Options are also available by editing the configuration file.
 | But it is easier to `Setup in Pibooth Menu`_ 
+
 under **Oled display - (setup)** and **Oled display - (modify)**
 
 Edit config.cfg by using the command line or a text editor
@@ -446,46 +460,57 @@ OLED DISPLAY - (SETUP) - config.cfg
 | [OLED DISPLAY - (SETUP)]
 | # Choose OLED device - ``'ssd1306 (Default)', 'ssd1309', 'ssd1322', 'ssd1325', 'ssd1327', 'ssd1331', 'ssd1362', 'sh1106'``
 | # Required by 'oled_display' plugin
+
 oled_devices = ``ssd1306``
 
 | # Display connection ``'I2c' or 'SPI'``
 | # Required by 'oled_display' plugin
+
 oled_i2c_or_spi = ``I2c``
 
 | # I2c address ``(Default=0x3c)``
 | # Required by 'oled_display' plugin
+
 oled_port_address = ``0x3c``
 
 | # Change SPI device number ``'0', '1' or '2' (Default = 0)``
 | # Required by 'oled_display' plugin
+
 oled_spi_device_number = ``0``
 
 | # Change the I2c or SPI port number - ``(I2c = '1' - SPI = '0', '1', '2')``
 | # Required by 'oled_display' plugin
+
 oled_port = ``1``
 
 | # SPI only GPIO DC PIN ``(Default=24)``
 | # Required by 'oled_display' plugin
+
 oled_spi_gpio_dc_pin = ``24``
 
 | # SPI only GPIO RST PIN ``(Default=25)``
 | # Required by 'oled_display' plugin
+
 oled_spi_gpio_rst_pin = ``25``
 
 | # Change screen WIDTH - ``'32', '48', '64', '80', '96', '128(Default)', '160', '240', '256', '320'``
 | # Required by 'oled_display' plugin
+
 oled_width = ``128``
 
 | # Change screen HEIGHT - ``'32', '48', '64(Default)', '80', '96', '128', '160', '240', '256', '320'``
 | # Required by 'oled_display' plugin
+
 oled_height = ``64``
 
 | # Color mode - ``'1 = Monochrome (Default)', 'RGB', 'RGBA'``
 | # Required by 'oled_display' plugin
+
 oled_color_mode = ``1``
 
 | # Rotate screen - ``'0 (Default)', '1', '2', '3'``
 | # Required by 'oled_display' plugin
+
 oled_rotate = ``0``
 
 
@@ -498,88 +523,108 @@ OLED DISPLAY - (MODIFY) - config.cfg
 | [OLED DISPLAY - (MODIFY)]
 | # Show state pictures - ``'Yes' or 'No'``
 | # Required by 'oled_display' plugin - (See `States`_ for more info on how it works)
+
 oled_states_pictures = ``Yes``
 
 | # Show Logo or Animated Gif (instead of text) - ``'Yes' or 'No'``
 | # Required by 'oled_display' plugin - (Also see `How to add Animated Gif`_ )
+
 oled_showlogo = ``No``
 
 | # Logo or Animated Gif in the folder ``'~/.config/pibooth/oled_display/logo/'``
 | # Required by 'oled_display' plugin
+
 oled_logos = ``128x64_Pibooth_2.gif``
 
 | # FPS (Frames Per Second) speed for Animated Gif
 | # Required by 'oled_display' plugin
+
 oled_animated_fps = ``15``
 
 ------------------------------------
 
 | # Text-1 - Counters, Text, Date-Time - Could be either ``'Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'``
 | # Required by 'oled_display' plugin - (Also see `How to change the Date-Time format`_, when using **Date-Time**)
+
 oled_counter_type1 = ``Taken_Photo``
 
 | # Text-1 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder ``'~/.config/pibooth/oled_display/fonts/'``
 | # Required by 'oled_display' plugin
+
 oled_font_1 = ``DejaVuSerif-Bold.ttf``
 
 | # Text-1 Color - uses HTML color names. E.g. ``'White', 'Red', 'Cyan', 'Silver', 'Blue', 'Grey', 'DarkBlue', 'Black', 'LightBlue', 'Orange', 'Purple', 'Brown', 'Yellow', 'Maroon', 'Lime', 'Green', 'Magenta', 'Olive'.`` 
 | *(On Monochrome displays colors will be converted to 'White')*
 | # Required by 'oled_display' plugin
+
 oled_text1_color = ``white``
 
 | # Text-1 - Text with space after to use with counter, or leave empty for counter only
 | # Required by 'oled_display' plugin
+
 oled_text_1 = ``"Photos  "``
 
 | # Text-1 - Center text on display ``'Yes' or 'No'``
 | # Required by 'oled_display' plugin
+
 oled_text_1_center = ``No``
 
 | # Text-1 Size - 19 is default if 3 x text/counters are used on the display at the same time
 | # Required by 'oled_display' plugin
+
 oled_size_1 = ``19``
 
 | # Text-1 - Move text 'Right' on display
 | # Required by 'oled_display' plugin
+
 oled_text1_right = ``0``
 
 | # Text-1 - Move text 'Down' on display
 | # Required by 'oled_display' plugin
+
 oled_text1_down = ``0``
 
 ------------------------------------
 
 | # Text-2 - Counters, Text, Date-Time - Could be either ``'Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'``
 | # Required by 'oled_display' plugin - (Also see `How to change the Date-Time format`_, when using **Date-Time**)
+
 oled_counter_type2 = ``Printed``
 
 | # Text-2 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder ``'~/.config/pibooth/oled_display/fonts/'``
 | # Required by 'oled_display' plugin
+
 oled_font_2 = ``DejaVuSerif-Bold.ttf``
 
 | # Text-2 Color - uses HTML color names. E.g. ``'White', 'Red', 'Cyan', 'Silver', 'Blue', 'Grey', 'DarkBlue', 'Black', 'LightBlue', 'Orange', 'Purple', 'Brown', 'Yellow', 'Maroon', 'Lime', 'Green', 'Magenta', 'Olive'.`` 
 | *(On Monochrome displays colors will be converted to 'White')*
 | # Required by 'oled_display' plugin
+
 oled_text2_color = ``white``
 
 | # Text-2 - Text with space after to use with counter, or leave empty for counter only
 | # Required by 'oled_display' plugin
+
 oled_text_2 = ``"Printed "``
 
 | # Text-2 - Center text on display ``'Yes' or 'No'``
 | # Required by 'oled_display' plugin
+
 oled_text_2_center = ``No``
 
 | # Text-2 Size - 19 is default if 3 x text/counters are used on the display at the same time
 | # Required by 'oled_display' plugin
+
 oled_size_2 = ``19``
 
 | # Text-2 - Move text 'Right' on display
 | # Required by 'oled_display' plugin
+
 oled_text2_right = ``0``
 
 | # Text-2 - Move text 'Down' on display
 | # Required by 'oled_display' plugin
+
 oled_text2_down = ``23``
 
 
@@ -587,35 +632,43 @@ oled_text2_down = ``23``
 
 | # Text-3, Counter, Date-Time - Could be either ``'Taken_Photo', 'Printed', 'Forgotten', 'Remaining_Duplicates', 'Date-Time', 'Empty', 'Text_Only'``
 | # Required by 'oled_display' plugin - (Also see `How to change the Date-Time format`_, when using **Date-Time**)
+
 oled_counter_type3 = ``Remaining_Duplicates``
 
 | # Text-3 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder ``'~/.config/pibooth/oled_display/fonts/'``
 | # Required by 'oled_display' plugin
+
 oled_font_3 = ``DejaVuSerif-Bold.ttf``
 
 | # Text-3 Color - uses HTML color names. E.g. ``'White', 'Red', 'Cyan', 'Silver', 'Blue', 'Grey', 'DarkBlue', 'Black', 'LightBlue', 'Orange', 'Purple', 'Brown', 'Yellow', 'Maroon', 'Lime', 'Green', 'Magenta', 'Olive'.``
 | *(On Monochrome displays colors will be converted to 'White')*
 | # Required by 'oled_display' plugin
+
 oled_text3_color = ``white``
 
 | # Text-3 - Text with space after to use with counter, or leave empty for counter only
 | # Required by 'oled_display' plugin
+
 oled_text_3 = ``"Remain "``
 
 | # Text-3 - Center text on display ``'Yes' or 'No'``
 | # Required by 'oled_display' plugin
+
 oled_text_3_center = ``No``
 
 | # Text-3 Size - 19 is default if 3 x text/counters are used on the display at the same time
 | # Required by 'oled_display' plugin
+
 oled_size_3 = ``19``
 
 | # Text-3 - Move text 'Right' on display
 | # Required by 'oled_display' plugin
+
 oled_text3_right = ``0``
 
 | # Text-3 - Move text 'Down' on display
 | # Required by 'oled_display' plugin
+
 oled_text3_down = ``46``
 
 
@@ -628,6 +681,7 @@ How to change the Date-Time format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | See all the Date-Time format codes in the following file `Date-Time_Format_Codes.rst`_ 
+
 You can also find the file **Date-Time_Format_Codes.rst** in your local pibooth config folder ``~/.config/pibooth/oled_display/``
 
 * Choose Date_Time in the menu - (If you leave the text field empty, the Default will be used = **%H:%M:%S**).
@@ -642,18 +696,22 @@ How to make your own Logo and States
 
 | You can provide your own logo to the Display. 
 | *(Default is the Pibooth logo in resolutions 128x32 or 128x64).* 
+
 * logo path = ``~/.config/pibooth/oled_display/logo/``
 
 | If you are using an OLED display with other resolution than already supplied,
+
 you need to make a new image and put it in the OLED logo folder.
 You can find logo folder at this path ``~/.config/pibooth/oled_display/logo/``
 
 | already provided display resolutions:
 | ``128 x 32 pixels``, ``128 x 64 pixels``, ``128 x 128 pixels``
 | ``160 x 128 pixels``, ``192 x 64 pixels``, ``256 x 64 pixels``
+
 ``256 x 128 pixels``, ``256 x 256 pixels``, ``320 x 240 pixels``
 
 | You can convert images with the free `GIMP`_ or online services like (`this page`_).
+
 If you have an monochrome display with the resolution 128x64, you can convert a image to that resolution (in 8-bit mode). 
 
 ----------------------------------------------------
@@ -662,15 +720,18 @@ How to add Animated Gif
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 | You can add Animated Gif in the folder ``~/.config/pibooth/oled_display/logo/``
+
 An choose **Yes** in **Logo instead of text** in the Pibooth Menu
 
 On Monochrome displays (black & white) you need the Animated Gif to have a Black bagground. The reason for that is that the luma.oled drivers converts transperent to white color, when using ``color mode 1``.
 
 | Some Animated Gifs with transperent bagground work, but in general they don´t.
 | So do some test with Animated Gif´s in the same resolution or less as your display. 
+
 All images will be centered automatic on the display. 
 
 | ?. Can i use an Animated Gif with colors on an Monochrome display = **Yes**
+
 But they are not always showing correct, as they will be converted to Black and White or grayscale.
 
 ----------------------------------------------------
@@ -689,9 +750,11 @@ How to install the second display plugin "pibooth_oled_display_2.py"
 * You can activate the plugin by adding the path to the file, to custom plugins in the config.cfg file under [GENERAL].
 
 | # Path to custom plugin(s) not installed with pip (list of quoted paths accepted)
+
 ``plugins = '~/.config/pibooth/oled_display/pibooth_oled_display_2.py'``
 
 | * Now you will have an extra plugin option in pibooth settings, with 
+
 **Oled display 2 - (Setup)** and **Oled display 2 - (modify)**
 
 * Go to the menu and setup your new second display. If you are using I2c, you new display 2 need its own I2c addresses (**standard 0x3d**). 
@@ -716,6 +779,7 @@ Setup 2 x SPI OLED displays - (Showing seperate things on each display)
 =======================================================================
 
 | **I dont know if it work, as i have not testet it yet. But it should work.** 
+
 *And if it work, it will only work if you have the CS PIN on the displays*.
 
 * Both the displays uses the same PINs/GPIOs, except the CS (Chip Select) PIN
@@ -730,6 +794,7 @@ Can i use SPI1 ? (e.g.SPI and SPI1 together on the pi)
 ======================================================
 
 | **The short answer is no. I tryed, but with no luck**
+
 *I dont think it is suported by the luma.oled drivers.*
 
 * So only SPI (SPI0) can be used.
@@ -738,6 +803,7 @@ Setup 2 x OLED displays - (Showing the same things on each display)
 ===================================================================
 
 | If you want to show the exact same things on 2 or more displays, you dont need the second plugin.
+
 * On the I2c displays, you just use the same port address (0x3c etc.), and wire them to the same GPIO PINs.
 * On the SPI displays, you just use the same CS port address (CE0 etc.), and wire them to the same GPIO PINs.
 
@@ -747,9 +813,11 @@ How to use a OLED displays with only 6 pins I2c/SPI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **SPI** Most 6 PINs displays works out of the box with SPI. 
+
 * but unfortunately you can only use one display in pibooth, as there is no CS pin on the display.
 
 | **I2c** Can be used with some soldering tricks on the back of the displays, and some extra component.
+
 * It also works when using 2 displays in pibooth.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/6PIN_SPI_I2C.png
@@ -757,10 +825,12 @@ How to use a OLED displays with only 6 pins I2c/SPI
    :alt:  Change 6PIN SPI to I2c
 
 | To choose I2c port address, you need to solder a wire from
+
 * DC >> VCC = for I2C address 0x3c
 * DC >> GND = for I2C address 0x3d
 
 | You will also need to make a "pull-up and reset circuit" or "reset pull-up circuit."
+
 So you need a 10k resistor, and a 47nf or 100nf capacitor (Ceramic or Electrolytic)
 
 * Reset pin >> 10k resistor >> VCC
