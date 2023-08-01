@@ -18,8 +18,8 @@ class CustomInstallCommand(install):
         install.run(self)
 
         # Custom file copying script
-        source_dir = os.path.join(HERE, 'pibooth_oled_display')
-        destination_dir = os.path.expanduser('~/.config/pibooth/')
+        source_dir = os.path.join(HERE, 'pibooth_oled_display', 'oled_display')
+        destination_dir = os.path.expanduser('~/.config/pibooth/oled_display')
 
         print("Source directory: ", source_dir)
         print("Destination directory: ", destination_dir)
@@ -27,7 +27,14 @@ class CustomInstallCommand(install):
         if not os.path.exists(destination_dir):
             os.makedirs(destination_dir)
 
+        # Define ignored files and directories
+        ignored_items = ['__pycache__', '__init__.py', 'pibooth_oled_display.py']
+
         for root, dirs, files in os.walk(source_dir):
+            # Don't copy undesired files and directories
+            dirs[:] = [d for d in dirs if d not in ignored_items]
+            files = [f for f in files if f not in ignored_items]
+            
             for file_name in files:
                 source_path = os.path.join(root, file_name)
                 destination_path = source_path.replace(source_dir, destination_dir)
@@ -36,6 +43,7 @@ class CustomInstallCommand(install):
                 
                 os.makedirs(os.path.dirname(destination_path), exist_ok=True)
                 shutil.copy(source_path, destination_path)
+
 
 
 def main():
