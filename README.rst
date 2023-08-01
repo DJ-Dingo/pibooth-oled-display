@@ -2,7 +2,7 @@
 pibooth-oled-display
 ====================
 
-|PythonVersions| |PypiPackage| |Downloads|
+|PythonVersions|
 
 ``pibooth-oled-display`` is a plugin for the `pibooth`_ application.
 
@@ -866,10 +866,3 @@ By using this pull-up and reset circuit, you are ensuring that the OLED display 
    :target: https://www.python.org/downloads
    :alt: Python 3.6+
 
-.. |PypiPackage| image:: 
-   :target: 
-   :alt: PyPi package
-
-.. |Downloads| image:: 
-   :target: 
-   :alt: PyPi downloads
