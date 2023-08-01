@@ -17,6 +17,7 @@ pibooth-oled-display
 | **Features**
 | It can show up to 3 lines of **Text**, with or without **Counters**, with numbers of 
 | ``Photos Taken``, ``Printed Photos``, ``Forgotten Photos``, ``Remaining Duplicates``, 
+
 Or ``Date-Time``, ``Text_Only`` or an ``Empty`` line.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/main_oled.png
@@ -24,11 +25,14 @@ Or ``Date-Time``, ``Text_Only`` or an ``Empty`` line.
    :alt: OLED display examples
 
 | And Image or Animated Gif with your own **Logo**, like **Pibooth Logo**, 
+
 and a option for images for each `States`_
 
 .. Note:: Text / Counters can be ``Sized``, ``Centered``, or moved ``Right`` or ``Down``, to match the display. Changes can be made in the `Pibooth Menu`_ or in the `config.cfg`_ file.
 
-| **Don't be scared by this long manual, it´s there to cover all the defferent OLED displays on the marked. If you only have an 3v3 I2c OLED display all you need is 4 wires to your Pi, and installing the plugin.**
+| **Don't be scared by this long manual, it´s there to cover all the defferent OLED displays on the marked. If you only have an 3v3 I2c 
+
+OLED display all you need is 4 wires to your Pi, and installing the plugin.**
 
 -----------------------------------------------------------
 
