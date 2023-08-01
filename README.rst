@@ -56,6 +56,7 @@ Hardware
 Testet OLED Displays
 ^^^^^^^^^^^^^^^^^^^^
 * supported displays
+
 =============== ========================== =========== ===== =====
 OLED displays    Display Resolutions         TESTET     SPI   I2C
 =============== ========================== =========== ===== =====
@@ -785,6 +786,7 @@ Setup 2 x SPI OLED displays - (Showing seperate things on each display)
 * Both the displays uses the same PINs/GPIOs, except the CS (Chip Select) PIN
 * On display 1. Put a wire from the CS PIN to GPIO 8 (pin24) to choose CE0.
 * On display 2. Put a wire from the CS PIN to GPIO 7 (pin26) to choose CS1. 
+
 **Check online for more info about your displays on how to set them up.**
 
 * According to LUMA.oled driver documentation, you should choose **port 0** for display 1 and **port 1** for display 2.
@@ -835,7 +837,7 @@ So you need a 10k resistor, and a 47nf or 100nf capacitor (Ceramic or Electrolyt
 
 * Reset pin >> 10k resistor >> VCC
 * Reset pin >> 47nF or 100nF capacitor (condensator) >> GND (Ground)
-..
+
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Reset_pull-up_circuit.jpg
    :align: center
    :alt:  Reset pull-up circuit
