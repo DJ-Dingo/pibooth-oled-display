@@ -23,6 +23,8 @@ __version__ = "2.0.1"
 cache_dir = os.path.expanduser('~/.config/pibooth/')
 fonts_dir = os.path.join(cache_dir, 'oled_display/fonts/')
 logos_dir = os.path.join(cache_dir, 'oled_display/logo/')
+states_dir = os.path.join(cache_dir, 'oled_display/states/')
+
 
 def update_json_file_2(filename, data):
     """
@@ -36,41 +38,24 @@ def update_json_file_2(filename, data):
     with open(file_path, 'w') as f:
         json.dump(data, f)
 
-def list_fonts_2(directory, *extension):
+
+def list_files_2(directory, *extensions):
     """
-    This function lists all files in fonts directory.
+    This function lists all files in a given directory.
+    If extensions are provided, only files with those extensions are listed.
     :param directory: The directory to scan
-    :param extension: Extension 
+    :param extensions: Extensions to filter by
     :return: A list of all files in the directory
     """
-    return [file for file in os.listdir(directory) if file.endswith(extension) and os.path.isfile(os.path.join(directory, file))]
+    if extensions:
+        return [file for file in os.listdir(directory) if file.endswith(extensions) and os.path.isfile(os.path.join(directory, file))]
+    else:
+        return [file for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 
-def list_logos_2(directory):
-    """
-    This function lists all files in logos directory.
-    :param directory: The directory to scan
-    :return: A list of all files in the logos directory
-    """
-    return [file for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
-
-def get_fonts():
-    # Ensure the directory exists
-    if not os.path.exists(fonts_dir):
-        os.makedirs(fonts_dir)
-    # Now it's safe to list the files in the directory
-    return list_fonts(fonts_dir, '.ttf', '.otf')
-
-def get_logos():
-    # Ensure the directory exists
-    if not os.path.exists(logos_dir):
-        os.makedirs(logos_dir)
-    # Now it's safe to list the files in the directory
-    return list_logos(logos_dir)
-
-# Get the list of all default font names
-fonts = get_fonts()
-# Get the list of all logo names
-logos = get_logos()
+# Get the list of all font names and logo names
+fonts_2 = list_files_2(fonts_dir, '.ttf', '.otf')
+logos_2 = list_files_2(logos_dir)
+states_2 = list_files_2(states_dir)
 
 # Create and update JSON files with the fonts and logos
 update_json_file_2('fonts_2_cache.json', fonts_2)
@@ -399,9 +384,9 @@ def write_text_to_oled_2(app, cfg):
         app.image2 = Image.new(app.color2_mode, (app.device2.width, app.device2.height))
         app.draw2 = ImageDraw.Draw(app.image2)
         # Load a font.
-        font_1 = ImageFont.truetype(os.path.join(app.fonts_path, app.font2_1), app.size2_1)
-        font_2 = ImageFont.truetype(os.path.join(app.fonts_path, app.font2_2), app.size2_2)
-        font_3 = ImageFont.truetype(os.path.join(app.fonts_path, app.font2_3), app.size2_3)
+        font_1 = ImageFont.truetype(os.path.join(app.fonts2_path, app.font2_1), app.size2_1)
+        font_2 = ImageFont.truetype(os.path.join(app.fonts2_path, app.font2_2), app.size2_2)
+        font_3 = ImageFont.truetype(os.path.join(app.fonts2_path, app.font2_3), app.size2_3)
 
         # Show logo Yes/No
         y = app.showlogo2.split()
