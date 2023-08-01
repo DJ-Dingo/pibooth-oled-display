@@ -109,7 +109,7 @@ package_data={
                                           'states/preview/origin/*', 
                                           'states/printer/origin/*', 
                                           'states/processing/origin/*']
-}
+},
         options={
             'bdist_wheel':
                 {'universal': True}
