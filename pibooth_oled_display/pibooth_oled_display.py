@@ -64,6 +64,8 @@ def list_files(directory, *extensions):
 # Get the list of all font names and logo names
 fonts = list_files(fonts_dir, '.ttf', '.otf')
 logos = list_files(logos_dir)
+states = list_files(states_dir)
+
 
 # Create and update JSON files with the fonts and logos
 update_json_file('fonts_1_cache.json', fonts)
