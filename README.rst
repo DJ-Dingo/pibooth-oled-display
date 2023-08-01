@@ -18,7 +18,7 @@ pibooth-oled-display
 | ``Photos Taken``, ``Printed Photos``, ``Forgotten Photos``, ``Remaining Duplicates``, 
 Or ``Date-Time``, ``Text_Only`` or an ``Empty`` line.
 
-.. image:: https://github.com/DJ-Dingo/pibooth-oled-i2c-spi/blob/master/templates/main_oled.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/main_oled.png
    :align: center
    :alt: OLED display examples
 
