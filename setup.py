@@ -37,16 +37,6 @@ class CustomInstallCommand(install):
                 os.makedirs(os.path.dirname(destination_path), exist_ok=True)
                 shutil.copy(source_path, destination_path)
 
-def package_files(directory):
-    paths = []
-    for (path, directories, filenames) in os.walk(directory):
-        for filename in filenames:
-            paths.append(os.path.join('..', path, filename))
-    return paths
-
-# Collect all the paths under 'states' directory
-state_files = package_files('pibooth_oled_display/oled_display/states')
-
 
 def main():
     setup(
@@ -100,10 +90,26 @@ def main():
         
         include_package_data=True,
         packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
-        package_data={
-            'pibooth_oled_display': ['*.json', '*.txt'],
-            'pibooth_oled_display.oled_display': ['logo/*', 'fonts/*', '*.py'] + state_files
-        },
+package_data={
+    'pibooth_oled_display': ['*.json', '*.txt'],
+    'pibooth_oled_display.oled_display': ['logo/*', 'fonts/*', '*.py',
+                                          'states/capture/*', 
+                                          'states/choose/*', 
+                                          'states/failure/*', 
+                                          'states/finished/*', 
+                                          'states/layout/*', 
+                                          'states/preview/*', 
+                                          'states/printer/*', 
+                                          'states/processing/*',
+                                          'states/capture/origin/*', 
+                                          'states/choose/origin/*', 
+                                          'states/failure/origin/*', 
+                                          'states/finished/origin/*', 
+                                          'states/layout/origin/*', 
+                                          'states/preview/origin/*', 
+                                          'states/printer/origin/*', 
+                                          'states/processing/origin/*']
+}
         options={
             'bdist_wheel':
                 {'universal': True}
