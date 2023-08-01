@@ -37,6 +37,16 @@ class CustomInstallCommand(install):
                 os.makedirs(os.path.dirname(destination_path), exist_ok=True)
                 shutil.copy(source_path, destination_path)
 
+def package_files(directory):
+    paths = []
+    for (path, directories, filenames) in os.walk(directory):
+        for filename in filenames:
+            paths.append(os.path.join('..', path, filename))
+    return paths
+
+# Collect all the paths under 'states' directory
+state_files = package_files('pibooth_oled_display/oled_display/states')
+
 
 def main():
     setup(
@@ -83,11 +93,16 @@ def main():
             'pibooth>=2.0.3',
             'luma.oled>=3.12.0'
         ],
+
+
+
+
+        
         include_package_data=True,
-        packages=['pibooth_oled_display'],
+        packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
         package_data={
             'pibooth_oled_display': ['*.json', '*.txt'],
-            'pibooth_oled_display.oled_display': ['states/*', 'logo/*', 'fonts/*', '*.py']
+            'pibooth_oled_display.oled_display': ['logo/*', 'fonts/*', '*.py'] + state_files
         },
         options={
             'bdist_wheel':
