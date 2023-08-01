@@ -9,11 +9,9 @@ from setuptools.command.install import install
 import shutil
 import os
 
-
 HERE = osp.abspath(osp.dirname(__file__))
 sys.path.insert(0, HERE)
-from pibooth_oled_display import pibooth_oled_display as plugin   # nopep8 : import shall be done after adding setup to paths
-
+from pibooth_oled_display import pibooth_oled_display as plugin
 
 class CustomInstallCommand(install):
     def run(self):
@@ -42,7 +40,7 @@ class CustomInstallCommand(install):
 
 def main():
     setup(
-        name=plugin.__name__,
+        name="pibooth_oled_display",
         version=plugin.__version__,
         description=plugin.__doc__,
         long_description=open(osp.join(HERE, 'README.rst'), encoding='utf-8').read(),
@@ -79,16 +77,14 @@ def main():
             'pibooth plugin',
             'luma.oled',
             'oled'
-            
         ],
-        py_modules=['pibooth_oled_display'],
         python_requires=">=3.6",
         install_requires=[
             'pibooth>=2.0.3',
             'luma.oled>=3.12.0'
         ],
         include_package_data=True,
-        packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
+        packages=['pibooth_oled_display'],
         package_data={
             'pibooth_oled_display': ['*.json', '*.txt'],
             'pibooth_oled_display.oled_display': ['states/*', 'logo/*', 'fonts/*', '*.py']
@@ -97,13 +93,12 @@ def main():
             'bdist_wheel':
                 {'universal': True}
         },
-        zip_safe=False,  # Don't install the lib as an .egg zipfile
-        entry_points={'pibooth': ["pibooth_oled_display = pibooth_oled_display"]},
+        zip_safe=False,
+        entry_points={'pibooth': ["pibooth_oled_display = pibooth_oled_display.pibooth_oled_display"]},
         cmdclass={
             'install': CustomInstallCommand,
         },
     )
-
 
 if __name__ == '__main__':
     main()
