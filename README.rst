@@ -855,7 +855,7 @@ By using this pull-up and reset circuit, you are ensuring that the OLED display 
 .. _`pibooth`: https://pypi.org/project/pibooth
 .. _`pibooth_oled_display`: 
 .. _`official Raspberry Pi documentation`: https://www.raspberrypi.com/documentation/
-.. _`Date-Time_Format_Codes.rst`: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/pibooth-oled-display/oled_display/Date-Time_Format_Codes.rst
+.. _`Date-Time_Format_Codes.rst`: https://github.com/DJ-Dingo/pibooth-oled-display/blob/master/pibooth_oled_display/oled_display/Date-Time_Format_Codes.rst
 .. _`this page`: https://online-converting.com/image/
 .. _`Download Here`: https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/templates/xcf_files
 .. _`GIMP`: https://www.gimp.org/
