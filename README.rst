@@ -688,7 +688,7 @@ Also look at `How to add Animated Gif`_ as logo.
 Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
 * Logo path = ``~/.config/pibooth/oled_display/logo/``
 
-If you add an images with the same name as some of the default images, only the user images will be showing.
+If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
 
 | **STATES** choose **Yes** in the Pibooth Menu under **Show state pictures** 
 | *(Default States images are already provided with these display resolutions):*
@@ -697,7 +697,7 @@ If you add an images with the same name as some of the default images, only the 
 
 ``256 x 128 pixels`` ``256 x 256 pixels`` ``320 x 240 pixels``
 
-| Add new png States images in the same resolution as your display ( or lower) to folders in this folder
+| Add new ``png`` States images in the same resolution as your display ( or lower) to each folders in this folder
 
 Logo path = ``~/.config/pibooth/oled_display/states/``
 
@@ -705,7 +705,7 @@ Logo path = ``~/.config/pibooth/oled_display/states/``
 
 There are 8 folders, and you need 11 png images with the static names "folder and resolution".
 Here is an examble on how you should name your states images if you have an display with resolution 128 x 64. 
-You should make images with the same resolution as you display and use static names with resolution as below, and put them in every folder under each states.
+You should make images with the same resolution as you display and use the static names with resolution as below, and put them in every folder under each states. examples : ``processing_128x32.png`` ``processing_128x64.png``
 
 | `states/capture/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture>`_  ``capture_128x64.png``
 | `states/choose/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose>`_ ``choose_128x128.png``
