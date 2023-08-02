@@ -715,13 +715,13 @@ you should make images with the same resolution and static names as below, and p
 | *layout needs 4 images named like this*
 | *states/layout/*, ``layout1_128x64.png``, ``layout2_128x64.png``, ``layout3_128x64.png``, ``layout4_128x64.png``
 | *states/preview/*, ``preview_128x64.png``
-| *states/printer/*, ``printer_128x64.png``
+| states/printer/, ``printer_128x64.png``
 | *states/processing/*, ``processing_128x64.png``
 
 You can see the origial gimp files in the origin folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
 
-| `states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_, ``capture_128x64.xcf``
-| *states/choose/origin/*, 
+| `states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_ ``capture_128x64.xcf``
+| *states/choose/origin/*
 | *states/failure/origin/*, 
 | *states/finished/origin/*, 
 | *states/layout/origin/*, 
