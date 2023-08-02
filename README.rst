@@ -680,12 +680,12 @@ Remember to set the size of the text to match the display, after you set your Da
 How to show your own Logo and States images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| **LOGO** choose **Yes** in the Pibooth Menu under **Logo instead of text** 
+| **LOGO** - choose **Yes** in the Pibooth Menu under **Logo instead of text** 
 | *(Default Logo is the Pibooth logo in resolutions 128x32 or 128x64).* 
 
 Also look at `How to add Animated Gif`_ as logo.
 
-| Add a new Logo or Animated gif, same resolution as your disply ( or lower).
+| Add a new Logo or Animated gif, same resolution as your display ( or lower).
 
 * Logo path = ``~/.config/pibooth/oled_display/logo/``
 
@@ -693,7 +693,7 @@ Also look at `How to add Animated Gif`_ as logo.
 
 If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
 
-| **STATES** choose **Yes** in the Pibooth Menu under **Show state pictures** 
+| **STATES** - choose **Yes** in the Pibooth Menu under **Show state pictures** 
 | *(Default States images are already provided with these display resolutions):*
 | ``128 x 32 pixels`` ``128 x 64 pixels`` ``128 x 128 pixels``
 | ``160 x 128 pixels`` ``192 x 64 pixels`` ``256 x 64 pixels``
