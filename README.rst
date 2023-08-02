@@ -734,7 +734,7 @@ examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 `states/processing/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing/origin>`_ ``processing_128x64.xcf``
 
 | If you are using an OLED display with other resolution than already supplied,
-you need to make a new images and put it in the OLED states folder or display will be empty if activated.
+you need to make a new images and put it in each states folder or display will be empty if states is activated.
 
 | You can convert images with the free `GIMP`_ or online services like (`this page`_).
 
