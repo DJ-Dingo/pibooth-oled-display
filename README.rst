@@ -666,7 +666,9 @@ How to use date-time / logo / Animated Gif
 How to change the Date-Time format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| See all the Date-Time format codes in the following file `Date-Time_Format_Codes.rst`_ 
+| See all the Date-Time format codes in the following file 
+
+`Date-Time_Format_Codes.rst`_ 
 
 You can also find the file **Date-Time_Format_Codes.rst** in your local pibooth config folder ``~/.config/pibooth/oled_display/``
 
