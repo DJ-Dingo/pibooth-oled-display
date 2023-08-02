@@ -85,15 +85,7 @@ Install
 -------
 ::
 
-    Manual install - Download the zip or clone the repository
-    unzip and install  
-    sudo apt-get update
-    pip3 install luma.oled
-    Add the file "pibooth_oled_display.py" to the config.cfg
-
-    Download the "oled_Display" folder with all 3 folders and files
-    and place the "oled_display" folder including subfolders, in ~/.config/pibooth/
-    https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/oled_display
+   New version comming soon, dont install before this install info is updated
 
 
 --------------------------------------
