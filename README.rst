@@ -698,11 +698,11 @@ If you add an images with the same name and File extension(s) as some of the def
 
 ``256 x 128 pixels`` ``256 x 256 pixels`` ``320 x 240 pixels``
 
-| Add new ``png`` States images, same resolution as your display ( or lower) to each folders.
+| Add new ``png`` States images, same resolution as your display, to each folders.
 
 * States path = ``~/.config/pibooth/oled_display/states/``
 
-**When adding a new states images, it will automatic be used instead of the default images**
+**When adding a new states images, it will automatic be used instead of the default.**
 
 There are 8 folders, and you need 11 png images with the static names "folder and resolution".
 Here is an examble on how you should name your states images if you have an display with resolution 128 x 64. 
