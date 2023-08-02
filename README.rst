@@ -685,7 +685,8 @@ How to show your own Logo and States images
 
 Also look at `How to add Animated Gif`_ as logo.
 
-Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
+| Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
+
 * Logo path = ``~/.config/pibooth/oled_display/logo/``
 
 If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
