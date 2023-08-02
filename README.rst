@@ -687,14 +687,17 @@ Remember to set the size of the text to match the display, after you set your Da
 How to show your own Logo and States images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| *LOGO* choose **Yes** in **Logo instead of text** in the Pibooth Menu
+| **LOGO** choose **Yes** in **Logo instead of text** in the Pibooth Menu
 | *(Default Logo is the Pibooth logo in resolutions 128x32 or 128x64).* 
-| *(Also look at `How to add Animated Gif`_ as logo)*
+
+Also look at `How to add Animated Gif`_ as logo.
 
 Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
 * Logo path = ``~/.config/pibooth/oled_display/logo/``
 
-| *STATES* choose **Yes** in **Show state pictures** in the Pibooth Menu
+If you add an images with the same name as some of the default images, only the user images will be showing in the menu.
+
+| **STATES** choose **Yes** in **Show state pictures** in the Pibooth Menu
 | *(Default States images are already provided with these display resolutions):*
 | ``128 x 32 pixels``, ``128 x 64 pixels``, ``128 x 128 pixels``
 | ``160 x 128 pixels``, ``192 x 64 pixels``, ``256 x 64 pixels``
@@ -704,9 +707,11 @@ Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
 Add new png States images in the same resolution ( or lower) to folders in this folder
 * Logo path = ``~/.config/pibooth/oled_display/states/``
 
+**When adding a new states images, it will automatic be used instead of the default images**
+
 There are 8 folders, and you need 11 png images with the static names "folder and resolution".
-Here is an examble on how you should name your states images ff you have an display with resolution 128 x 64
-you should make images with the same resolution and static names as below, and put it in every folder under states.
+Here is an examble on how you should name your states images if you have an display with resolution 128 x 64. 
+You should make images with the same resolution as you display and use static names as below, and put it in every folder under each states.
 
 | `states/capture/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture>`_  ``capture_128x64.png``
 | `states/choose/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose>`_ ``choose_128x128.png``
@@ -716,9 +721,9 @@ you should make images with the same resolution and static names as below, and p
 | `states/layout/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/layout>`_ ``layout1_128x64.png``, ``layout2_128x64.png``, ``layout3_128x64.png``, ``layout4_128x64.png``
 | `states/preview/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview>`_ ``preview_128x64.png``
 | `states/printer/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/printer>`_ ``printer_128x64.png``
-| `states/processing/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing>`_ ``processing_128x64.png``
+`states/processing/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing>`_ ``processing_128x64.png``
 
-You can see the origial gimp files in the origin folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
+You can see the origial gimp files in the **origin** folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
 
 | `states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_ ``capture_128x64.xcf``
 | `states/choose/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose/origin>`_
@@ -728,10 +733,10 @@ You can see the origial gimp files in the origin folder `Here <https://github.co
 | `states/layout/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/layout/origin>`_
 | `states/preview/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview/origin>`_
 | `states/printer/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/printer/origin>`_
-| `states/processing/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing/origin>`_
+`states/processing/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing/origin>`_
 
 | If you are using an OLED display with other resolution than already supplied,
-| you need to make a new images and put it in the OLED states folder or display will be empty if activated.
+you need to make a new images and put it in the OLED states folder or display will be empty if activated.
 
 | You can convert images with the free `GIMP`_ or online services like (`this page`_).
 
