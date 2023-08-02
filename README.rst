@@ -693,6 +693,8 @@ Also look at `How to add Animated Gif`_ as logo.
 
 If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
 
+..
+
 | **STATES** - choose **Yes** in the Pibooth Menu under **Show state pictures** 
 | *(Default States images are already provided with these display resolutions):*
 | ``128 x 32 pixels`` ``128 x 64 pixels`` ``128 x 128 pixels``
