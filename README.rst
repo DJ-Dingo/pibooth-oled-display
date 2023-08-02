@@ -30,7 +30,7 @@ and a option for images for each `States`_
 
 .. Note:: Text / Counters can be ``Sized``, ``Centered``, or moved ``Right`` or ``Down``, to match the display. Changes can be made in the `Pibooth Menu`_ or in the `config.cfg`_ file.
 
-**Don't be scared by this long manual, it´s there to cover all the defferent OLED displays on the marked. If you only have an 3v3 I2c 
+**Don't be scared by this long manual, it´s there to cover all the different OLED displays on the marked. If you only have an 3v3 I2c 
 OLED display all you need is 4 wires to your Pi, and installing the plugin.**
 
 -----------------------------------------------------------
@@ -101,7 +101,7 @@ Enabling I2c interface on the Raspberry Pi
 There are two methods to enable I2c.
  
 
-| (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on I2c**).
+| (**Be aware that newer Raspberry PI OS systems can have a different way to turn on I2c**).
 
 I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the I2C interface on your specific version of the Raspberry Pi.
 
@@ -174,7 +174,7 @@ Enabling SPI interface on the Raspberry Pi
 
 There are two methods to adjust the settings.
 
-| (**Be aware that newer Raspberry PI OS systems can have a defferent way to turn on SPI**).
+| (**Be aware that newer Raspberry PI OS systems can have a different way to turn on SPI**).
 
 I recommend checking the `official Raspberry Pi documentation`_ or the latest resources provided by the Raspberry Pi community. They will provide the most accurate instructions for configuring the SPI interface on your specific version of the Raspberry Pi.
 
@@ -689,7 +689,7 @@ Also look at `How to add Animated Gif`_ as logo.
 
 * Logo path = ``~/.config/pibooth/oled_display/logo/``
 
-(pibooth-oled-display support many defferent image type extensions)
+(pibooth-oled-display support many different image type extensions)
 
 If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
 
