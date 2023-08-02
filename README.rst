@@ -372,9 +372,9 @@ Look at `How to show your own Logo and States images`_.
 
 | These states are showing on the display, if **Show state pictures** is activated
 
-| ``´choose´``, ``´chosen´``, ``´preview´``, ``´capture´``
+| ``´choose´`` ``´chosen´`` ``´preview´`` ``´capture´``
 
-``´processing´``, ``´print´``, ``´finish´``, ``´failsafe´``
+``´processing´`` ``´print´`` ``´finish´`` ``´failsafe´``
 
 
 States description
