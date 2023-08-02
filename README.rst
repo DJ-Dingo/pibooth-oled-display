@@ -777,9 +777,9 @@ How to install the second display plugin "pibooth_oled_display_2.py"
 ====================================================================
 
 * The extra plugin for display 2 **"pibooth_oled_display_2.py"** is already in the folder ``~/.config/pibooth/oled_display/``
-* You can activate the plugin by adding the path to the file, to custom plugins in the config.cfg file under [GENERAL].
+* You can activate the plugin by adding path to the file, to custom plugins in the config.cfg file under [GENERAL].
 
-Open the config.cfg with this command
+Open the config.cfg with this command, and find ``plugins = ``
 ::
 
    $ pibooth --config
