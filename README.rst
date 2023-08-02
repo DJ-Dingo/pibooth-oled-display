@@ -684,28 +684,56 @@ Remember to set the size of the text to match the display, after you set your Da
 
 ----------------------------------------------------
 
-How to make your own Logo and States
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to show your own Logo and States images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| You can provide your own logo to the Display. 
-| *(Default is the Pibooth logo in resolutions 128x32 or 128x64).* 
+| *LOGO* choose **Yes** in **Logo instead of text** in the Pibooth Menu
+| *(Default Logo is the Pibooth logo in resolutions 128x32 or 128x64).* 
+| *(Also look at `How to add Animated Gif`_ as logo)*
 
-* logo path = ``~/.config/pibooth/oled_display/logo/``
+Add a new Logo or Animated gif in the same resolution ( or lower) to this folder
+* Logo path = ``~/.config/pibooth/oled_display/logo/``
 
-| If you are using an OLED display with other resolution than already supplied,
-
-you need to make a new image and put it in the OLED logo folder.
-You can find logo folder at this path ``~/.config/pibooth/oled_display/logo/``
-
-| already provided display resolutions:
+| *STATES* choose **Yes** in **Show state pictures** in the Pibooth Menu
+| *(Default States images are already provided with these display resolutions):*
 | ``128 x 32 pixels``, ``128 x 64 pixels``, ``128 x 128 pixels``
 | ``160 x 128 pixels``, ``192 x 64 pixels``, ``256 x 64 pixels``
 
 ``256 x 128 pixels``, ``256 x 256 pixels``, ``320 x 240 pixels``
 
+Add new png States images in the same resolution ( or lower) to folders in this folder
+* Logo path = ``~/.config/pibooth/oled_display/states/``
+
+There are 8 folders, and you need 11 png images with the static names "folder and resolution".
+Here is an examble on how you should name your states images ff you have an display with resolution 128 x 64
+you should make images with the same resolution and static names as below, and put it in every folder under states.
+
+| 'states/capture/*', capture_128x64.png
+| 'states/choose/*', choose_128x128.png
+| 'states/failure/*', failure_128x64.png
+| 'states/finished/*', finished_128x64.png
+| *layout needs 4 images named like this*
+| 'states/layout/*', layout1_128x64.png, layout2_128x64.png, layout3_128x64.png, layout4_128x64.png
+| 'states/preview/*', preview_128x64.png
+| 'states/printer/*', printer_128x64.png
+| 'states/processing/*', processing_128x64.png
+
+You can see the origial gimp files in the origin folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
+'states/capture/origin/*', 
+'states/choose/origin/*', 
+'states/failure/origin/*', 
+'states/finished/origin/*', 
+'states/layout/origin/*', 
+'states/preview/origin/*', 
+'states/printer/origin/*', 
+'states/processing/origin/*'
+
+| If you are using an OLED display with other resolution than already supplied,
+| you need to make a new images and put it in the OLED states folder or display will be empty if activated.
+
 | You can convert images with the free `GIMP`_ or online services like (`this page`_).
 
-If you have an monochrome display with the resolution 128x64, you can convert a image to that resolution (in 8-bit mode). 
+If you have an monochrome display with the resolution 128x64, you can convert or make an image to that resolution (in 8-bit mode). 
 
 ----------------------------------------------------
 
