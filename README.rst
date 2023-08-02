@@ -720,7 +720,7 @@ you should make images with the same resolution and static names as below, and p
 
 You can see the origial gimp files in the origin folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
 
-| *`states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_*, ``capture_128x64.xcf``
+| `states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_, ``capture_128x64.xcf``
 | *states/choose/origin/*, 
 | *states/failure/origin/*, 
 | *states/finished/origin/*, 
