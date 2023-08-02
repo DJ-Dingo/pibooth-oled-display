@@ -708,7 +708,9 @@ If you add an images with the same name and File extension(s) as some of the def
 
 There are 8 folders, and you need 11 ``.png`` images with the static names "folder and resolution".
 Here is an examble on how you should name your states images if you have an display with resolution 128 x 64. 
-You should make images with the same resolution as you display and use the static names with resolution as below, and put them in every folder under each states. examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
+You should make images with the same resolution as you display and use the static names with resolution as below, and put them in every folder under each states. 
+
+examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 
 | `states/capture/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture>`_  ``capture_128x64.png``
 | `states/choose/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose>`_ ``choose_128x128.png``
