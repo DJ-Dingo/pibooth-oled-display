@@ -46,7 +46,7 @@ Hardware
 ^^^^^^^^
 
 * 1 x Raspberry Pi 3 Model B (or higher).
-* 1 x I2c safe Logic Level Converter (**Only if you are using 5v displays**).  
+* 1 x I2c safe Logic Level Converter (**If you are using 5v displays**).  
 * 1 x OLED-display, with **I2c** or **SPI** (See the list of `Testet OLED Displays`_).
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/128x64.png
