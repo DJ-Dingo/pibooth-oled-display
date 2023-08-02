@@ -697,8 +697,9 @@ If you add an images with the same name as some of the default images, only the 
 
 ``256 x 128 pixels`` ``256 x 256 pixels`` ``320 x 240 pixels``
 
-Add new png States images in the same resolution ( or lower) to folders in this folder
-* Logo path = ``~/.config/pibooth/oled_display/states/``
+| Add new png States images in the same resolution as your display ( or lower) to folders in this folder
+
+Logo path = ``~/.config/pibooth/oled_display/states/``
 
 **When adding a new states images, it will automatic be used instead of the default images**
 
