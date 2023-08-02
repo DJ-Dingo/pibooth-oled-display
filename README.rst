@@ -698,9 +698,9 @@ If you add an images with the same name and File extension(s) as some of the def
 
 ``256 x 128 pixels`` ``256 x 256 pixels`` ``320 x 240 pixels``
 
-| Add new ``png`` States images in the same resolution as your display ( or lower) to each folders in this folder
+| Add new ``png`` States images, same resolution as your display ( or lower) to each folders.
 
-Logo path = ``~/.config/pibooth/oled_display/states/``
+* States path = ``~/.config/pibooth/oled_display/states/``
 
 **When adding a new states images, it will automatic be used instead of the default images**
 
