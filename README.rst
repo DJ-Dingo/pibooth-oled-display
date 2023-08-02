@@ -708,26 +708,26 @@ There are 8 folders, and you need 11 png images with the static names "folder an
 Here is an examble on how you should name your states images ff you have an display with resolution 128 x 64
 you should make images with the same resolution and static names as below, and put it in every folder under states.
 
-| '*states/capture/*', capture_128x64.png
-| '*states/choose/*', choose_128x128.png
-| '*states/failure/*', failure_128x64.png
-| '*states/finished/*', finished_128x64.png
-| **layout needs 4 images named like this*
-| '*states/layout/*', layout1_128x64.png, layout2_128x64.png, layout3_128x64.png, layout4_128x64.png
-| '*states/preview/*', preview_128x64.png
-| '*states/printer/*', printer_128x64.png
-| '*states/processing/*', processing_128x64.png
+| *states/capture/*, ``capture_128x64.png``
+| *states/choose/*, ``choose_128x128.png``
+| *states/failure/*, ``failure_128x64.png``
+| *states/finished/*, ``finished_128x64.png``
+| *layout needs 4 images named like this*
+| *states/layout/*, ``layout1_128x64.png``, ``layout2_128x64.png``, ``layout3_128x64.png``, ``layout4_128x64.png``
+| *states/preview/*, ``preview_128x64.png``
+| *states/printer/*, ``printer_128x64.png``
+| *states/processing/*, ``processing_128x64.png``
 
 You can see the origial gimp files in the origin folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
 
-'*states/capture/origin/*', 
-'*states/choose/origin/*', 
-'*states/failure/origin/*', 
-'*states/finished/origin/*', 
-'*states/layout/origin/*', 
-'*states/preview/origin/*', 
-'*states/printer/origin/*', 
-'*states/processing/origin/*'
+| *`states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_*, ``capture_128x64.xcf``
+| *states/choose/origin/*, 
+| *states/failure/origin/*, 
+| *states/finished/origin/*, 
+| *states/layout/origin/*, 
+| *states/preview/origin/*, 
+| *states/printer/origin/*, 
+| *states/processing/origin/*
 
 | If you are using an OLED display with other resolution than already supplied,
 | you need to make a new images and put it in the OLED states folder or display will be empty if activated.
@@ -786,7 +786,6 @@ How to install the second display plugin "pibooth_oled_display_2.py"
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/add_extra_oled_display_2.png
    :align: center
    :alt:  Add an extra OLED display settings
-
 
 
 Setup 2 x I2c OLED displays - (Showing seperate things on each display)
