@@ -367,21 +367,13 @@ States images
    :alt:  OLED State pictures
 
 | If you need to change states images or add missing resolutions to fit your display
-| you can upload them to each folder in states = ``~/.config/pibooth/oled_display/states/``
-| Every state PNG images has a unik name, with the ``folder_width x height`` in the name.
 
-if you are using a display with 128x64, the filename for capture etc. should be **capture_128x64.png**
-
-| The States files for defferent resolutions that are already in the plugin.
-| ``128 x 32 pixels``, ``128 x 64 pixels``, ``128 x 128 pixels``
-| ``160 x 128 pixels``, ``192 x 64 pixels``, ``256 x 64 pixels``
-
-``256 x 128 pixels``, ``256 x 256 pixels``, ``320 x 240 pixels``
+Look at `How to show your own Logo and States images`_, to see how to make you own.
 
 | These states are showing on the display, if **Show state pictures** is activated
 
 ``´choose´, ´chosen´, ´preview´, ´capture´, ´processing´, ´print´, ´finish´, ´failsafe´``
-Look at `How to show your own Logo and States images`_ to see how to make you own.
+
 
 States description
 ^^^^^^^^^^^^^^^^^^
