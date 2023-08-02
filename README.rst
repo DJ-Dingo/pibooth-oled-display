@@ -702,7 +702,7 @@ If you add an images with the same name and File extension(s) as some of the def
 
 * States path = ``~/.config/pibooth/oled_display/states/``
 
-**When adding a new states images, it will automatic be used instead of the default.**
+**When adding a new states images, it will automatic be used instead of default.**
 
 There are 8 folders, and you need 11 png images with the static names "folder and resolution".
 Here is an examble on how you should name your states images if you have an display with resolution 128 x 64. 
