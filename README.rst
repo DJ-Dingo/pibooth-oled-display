@@ -368,11 +368,11 @@ States images
 
 | If you need to change states images or add missing resolutions to fit your display
 
-Look at `How to show your own Logo and States images`_, to see how to make you own.
+Look at `How to show your own Logo and States images`_.
 
 | These states are showing on the display, if **Show state pictures** is activated
 
-``´choose´, ´chosen´, ´preview´, ´capture´, ´processing´, ´print´, ´finish´, ´failsafe´``
+``´choose´``, ``´chosen´``, ``´preview´``, ``´capture´``, ``´processing´``, ``´print´``, ``´finish´``, ``´failsafe´``
 
 
 States description
