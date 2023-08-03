@@ -15,10 +15,8 @@ pibooth-oled-display
 (parallel mode will not be suported). 
 
 | **Features**
-| It can show up to 3 lines of **Text**, with or without **Counters**, with numbers of 
-| ``Photos Taken``, ``Printed Photos``, ``Forgotten Photos``, ``Remaining Duplicates``, 
 
-Or ``Date-Time``, ``Text_Only`` or an ``Empty`` line.
+It can show up to 3 lines of **Text**, with or without **Counters**, with numbers of ``Photos Taken``, ``Printed Photos``, ``Forgotten Photos``, ``Remaining Duplicates``. Or ``Date-Time``, ``Text_Only`` or an ``Empty`` line.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/main_oled.png
    :align: center
