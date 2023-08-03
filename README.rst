@@ -788,6 +788,8 @@ How to add your own Fonts
 
 only the user Fonts will be showing in the menu.
 
+You can download free fonts online, on sites like `fontspace.com <https://www.fontspace.com/>`_
+
 **When adding new fonts, you need to restart Pibooth to load them into the fonts database**
 
 ----------------------------------------------------
