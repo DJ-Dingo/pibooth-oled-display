@@ -53,7 +53,7 @@ Hardware
 
 Testet OLED Displays
 ^^^^^^^^^^^^^^^^^^^^
-* supported displays
+* Here is the list of supported displays by the luma.oled driver
 
 =============== ========================== =========== ===== =====
 OLED displays    Display Resolutions         TESTET     SPI   I2C
