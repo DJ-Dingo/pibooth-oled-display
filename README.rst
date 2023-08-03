@@ -776,19 +776,19 @@ But they are not always showing correct, as they will be converted to Black and 
 ----------------------------------------------------
 
 
-How to add your own fonts
+How to add your own Fonts
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| You can add new fonts to your local oled_display fonts folder.
+| You can add new Fonts to your local oled_display Fonts folder.
 
 ``~/.config/pibooth/oled_display/fonts/``
 
 * Supported font types are ´´.ttf´´ or ´´otf´´ 
 
-| Fonts will be added as extra font in the fonts database automatic.
+| Fonts will be added as extra font in the Fonts database automatic.
 | If you add fonts that has the same name as some of the default fonts, 
 
-only the user fonts will be showing in the menu.
+only the user Fonts will be showing in the menu.
 
 **When adding new fonts, you need to restart Pibooth to load them into the fonts database**
 
