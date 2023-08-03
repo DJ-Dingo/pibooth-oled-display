@@ -670,7 +670,7 @@ How to change the Date-Time format
 
 `Date-Time_Format_Codes.rst`_ 
 
-You can also find the file **Date-Time_Format_Codes.rst** in your local pibooth config folder ``~/.config/pibooth/oled_display/``
+You can also find the file **Date-Time_Format_Codes.rst** in your local pibooth config folder ``~/.config/pibooth/oled_display/`` after you run the plugin the first time.
 
 * Choose Date_Time in the menu - (If you leave the text field empty, the Default will be used = **%H:%M:%S**).
 * Or use semething like this **%d/%m - %H:%M:%S** in the text field to display the date and time.
@@ -804,7 +804,7 @@ How to use 2 x OLED displays at the same time
 How to install the second display plugin "pibooth_oled_display_2.py"
 ====================================================================
 
-* The extra plugin for display 2 **"pibooth_oled_display_2.py"** is already in the folder ``~/.config/pibooth/oled_display/``
+* The extra plugin for display 2 **"pibooth_oled_display_2.py"** is automatic in the folder ``~/.config/pibooth/oled_display/`` after you run the plugin the first time.
 * You can activate the plugin by adding path to the file, to custom plugins in the config.cfg file under [GENERAL].
 
 Open the config.cfg with this command, and find the line "plugins ="
