@@ -660,7 +660,7 @@ oled_text3_down = ``46``
 
 ----------------------------------------------------
 
-How to use date-time / logo / Animated Gif
+How to use Date-Time / Logo / Animated Gif
 ------------------------------------------
 
 How to change the Date-Time format
@@ -694,6 +694,9 @@ Also look at `How to add Animated Gif`_ as logo.
 | (pibooth-oled-display support many different image type extensions)
 
 If you add an images with the same name and File extension(s) as some of the default images, only the user images will be showing.
+
+**When adding new Logo, you need to restart Pibooth to load it into the logo database**
+
 
 
 | **STATES** - choose **Yes** in the Pibooth Menu under **Show state pictures** 
@@ -744,6 +747,9 @@ you need to make a new images and put it in each states folder or display will b
 
 If you have an monochrome display with the resolution 128x64, you can convert or make an image to that resolution (in 8-bit mode). 
 
+**When adding new States images, you need to restart Pibooth to load them into the States database**
+
+
 ----------------------------------------------------
 
 How to add Animated Gif
@@ -763,6 +769,28 @@ All images will be centered automatic on the display.
 | ?. Can i use an Animated Gif with colors on an Monochrome display = **Yes**
 
 But they are not always showing correct, as they will be converted to Black and White or grayscale.
+
+**When adding new Animated Gif, you need to restart Pibooth to load them into the Logo database**
+
+
+----------------------------------------------------
+
+
+How to add your own fonts
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| You can add new fonts to your local oled_display fonts folder.
+
+``~/.config/pibooth/oled_display/fonts/``
+
+* Supported font types are ´´.ttf´´ or ´´otf´´ 
+
+| Fonts will be added as extra font in the fonts database automatic.
+| If you add fonts that has the same name as some of the default fonts, 
+
+only the user fonts will be showing in the menu.
+
+**When adding new fonts, you need to restart Pibooth to load them into the fonts database**
 
 ----------------------------------------------------
 
