@@ -757,9 +757,11 @@ Examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 | `states/preview/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview/origin>`_ ``preview_128x64.xcf``
 
 | `states/printer/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/printer/origin>`_ ``printer_128x64.xcf``
+
 `states/processing/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing/origin>`_ ``processing_128x64.xcf``
 
 | If you are using an OLED display with other resolution than already supplied,
+
 you need to make a new images and put it in each states folder or display will be empty if states is activated.
 
 | You can convert images with the free `GIMP`_ or online services like (`this page`_).
@@ -781,6 +783,7 @@ An choose **Yes** in **Logo instead of text** in the Pibooth Menu
 On Monochrome displays (black & white) you need the Animated Gif to have a Black bagground. The reason for that is that the luma.oled drivers converts transperent to white color, when using ``color mode 1``.
 
 | Some Animated Gifs with transperent bagground work, but in general they don´t.
+
 | So do some test with Animated Gif´s in the same resolution or less as your display. 
 
 All images will be centered automatic on the display. 
@@ -805,6 +808,7 @@ How to add your own Fonts
 * Supported font types are ´´.ttf´´ or ´´otf´´ 
 
 | Fonts will be added as extra font in the Fonts database automatic.
+
 | If you add fonts that has the same name as some of the default fonts, 
 
 only the user Fonts will be showing in the menu.
