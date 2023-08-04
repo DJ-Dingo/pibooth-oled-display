@@ -718,13 +718,20 @@ Examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 
 | List of file names for a display with 128x64 resolution
 | `states/capture/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture>`_  ``capture_128x64.png``
+
 | `states/choose/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose>`_ ``choose_128x128.png``
+
 | `states/failure/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/failure>`_ ``failure_128x64.png``
+
 | `states/finished/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/finished>`_ ``finished_128x64.png``
+
 | **layout needs 4 ``.png`` images named like this**
 | `states/layout/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/layout>`_ ``layout1_128x64.png``, ``layout2_128x64.png``, ``layout3_128x64.png``, ``layout4_128x64.png``
+
 | `states/preview/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview>`_ ``preview_128x64.png``
+
 | `states/printer/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/printer>`_ ``printer_128x64.png``
+
 `states/processing/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing>`_ ``processing_128x64.png``
 
 | You can see the origial gimp files in the **origin** folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
