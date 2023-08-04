@@ -514,7 +514,7 @@ oled_states_pictures = ``Yes``
 
 | # Required by 'oled_display' plugin
 
-| # See `How to show your own Logo Animated Gif`_ and `How to show your own Logo`_)
+| # See `How to show your own Logo`_ and `How to show your own Animated Gif`_
 
 oled_showlogo = ``No``
 
@@ -705,8 +705,8 @@ If you add an images with the same name and File extension(s) as some of the def
 
 ----------------------------------------------------
 
-How to show your own Logo Animated Gif
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to show your own Animated Gif
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | You can add Animated Gif in the folder ``~/.config/pibooth/oled_display/logo/``
 
