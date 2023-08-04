@@ -10,7 +10,7 @@ pibooth-oled-display
    :align: center
    :alt: I2c 3v3 OLED display simple setup x 2
 
-| Add a small OLED display (**Monochrome or Color**) through **I2c** or **SPI**. 
+| Add 1 or 2 small OLED display (**Monochrome or Color**) through **I2c** or **SPI**. 
 
 (parallel mode will not be suported). 
 
