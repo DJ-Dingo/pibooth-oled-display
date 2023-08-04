@@ -511,7 +511,10 @@ OLED DISPLAY - (MODIFY) - config.cfg
 oled_states_pictures = ``Yes``
 
 | # Show Logo or Animated Gif (instead of text) - ``'Yes' or 'No'``
-| # Required by 'oled_display' plugin - (Also see `How to add Animated Gif`_ )
+
+| # Required by 'oled_display' plugin - (Also see `How to show your own Logo Animated Gif`_ )
+
+| # (Also see `How to show your own Logo`_)
 
 oled_showlogo = ``No``
 
@@ -533,17 +536,21 @@ oled_animated_fps = ``15``
 oled_counter_type1 = ``Taken_Photo``
 
 | # Text-1 Font - You can add more fonts 'Truetype(.ttf)' or 'Opentype(.otf)', in the folder ``'~/.config/pibooth/oled_display/fonts/'``
+
 | # Required by 'oled_display' plugin
 
 oled_font_1 = ``DejaVuSerif-Bold.ttf``
 
-| # Text-1 Color - uses HTML color names. E.g. ``'White', 'Red', 'Cyan', 'Silver', 'Blue', 'Grey', 'DarkBlue', 'Black', 'LightBlue', 'Orange', 'Purple', 'Brown', 'Yellow', 'Maroon', 'Lime', 'Green', 'Magenta', 'Olive'.`` 
+| # Text-1 Color - uses HTML color names. E.g. ``'White', 'Red', 'Cyan', 'Silver', 'Blue', 'Grey', 'DarkBlue', 'Black', 'LightBlue', 'Orange', 'Purple', 'Brown', 'Yellow', 'Maroon', 'Lime', 'Green', 'Magenta', 'Olive'.``
+
 | *(On Monochrome displays colors will be converted to 'White')*
+
 | # Required by 'oled_display' plugin
 
 oled_text1_color = ``white``
 
 | # Text-1 - Text with space after to use with counter, or leave empty for counter only
+
 | # Required by 'oled_display' plugin
 
 oled_text_1 = ``"Photos  "``
@@ -677,8 +684,8 @@ Remember to set the size of the text to match the display, after you set your Da
 
 ----------------------------------------------------
 
-How to show your own Logo and States images
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to show your own Logo
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **LOGO** - choose **Yes** in the Pibooth Menu under **Logo instead of text** 
 
@@ -696,7 +703,34 @@ If you add an images with the same name and File extension(s) as some of the def
 
 **When adding new Logo, you need to restart Pibooth to load it into the logo database. If you delete a user logo that is still in the configuration a default PiBooth Logo will be showing on the display**
 
+----------------------------------------------------
 
+How to show your own Logo Animated Gif
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| You can add Animated Gif in the folder ``~/.config/pibooth/oled_display/logo/``
+
+An choose **Yes** in **Logo instead of text** in the Pibooth Menu
+
+On Monochrome displays (black & white) you need the Animated Gif to have a Black bagground. The reason for that is that the luma.oled drivers converts transperent to white color, when using ``color mode 1``.
+
+| Some Animated Gifs with transperent bagground work, but in general they don´t.
+
+| So do some test with Animated Gif´s in the same resolution or less as your display. 
+
+All images will be centered automatic on the display. 
+
+| ?. Can i use an Animated Gif with colors on an Monochrome display = **Yes**
+
+But they are not always showing correct, as they will be converted to Black and White or grayscale.
+
+**When adding new Animated Gif, you need to restart Pibooth to load them into the Logo database. If you delete a user Animated that is still in the configuration a default PiBooth Logo will be showing on the display****
+
+
+----------------------------------------------------
+
+How to show your own States images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **STATES** - choose **Yes** in the Pibooth Menu under **Show state pictures** 
 
@@ -772,31 +806,6 @@ If you have an monochrome display with the resolution 128x64, you can convert or
 
 
 ----------------------------------------------------
-
-How to add Animated Gif
-^^^^^^^^^^^^^^^^^^^^^^^
-
-| You can add Animated Gif in the folder ``~/.config/pibooth/oled_display/logo/``
-
-An choose **Yes** in **Logo instead of text** in the Pibooth Menu
-
-On Monochrome displays (black & white) you need the Animated Gif to have a Black bagground. The reason for that is that the luma.oled drivers converts transperent to white color, when using ``color mode 1``.
-
-| Some Animated Gifs with transperent bagground work, but in general they don´t.
-
-| So do some test with Animated Gif´s in the same resolution or less as your display. 
-
-All images will be centered automatic on the display. 
-
-| ?. Can i use an Animated Gif with colors on an Monochrome display = **Yes**
-
-But they are not always showing correct, as they will be converted to Black and White or grayscale.
-
-**When adding new Animated Gif, you need to restart Pibooth to load them into the Logo database. If you delete a user Animated that is still in the configuration a default PiBooth Logo will be showing on the display****
-
-
-----------------------------------------------------
-
 
 How to add your own Fonts
 ^^^^^^^^^^^^^^^^^^^^^^^^^
