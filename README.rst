@@ -366,7 +366,7 @@ States images
 
 | If you need to change states images or add missing resolutions to fit your display
 
-Look at `How to show your own Logo and States images`_.
+Look at `How to show your own States images`_.
 
 | These states are showing on the display, if **Show state pictures** is activated
 
