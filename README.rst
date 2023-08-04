@@ -512,9 +512,9 @@ oled_states_pictures = ``Yes``
 
 | # Show Logo or Animated Gif (instead of text) - ``'Yes' or 'No'``
 
-| # Required by 'oled_display' plugin - (Also see `How to show your own Logo Animated Gif`_ )
+| # Required by 'oled_display' plugin
 
-| # (Also see `How to show your own Logo`_)
+| # (Also see `How to show your own Logo Animated Gif`_ and `How to show your own Logo`_)
 
 oled_showlogo = ``No``
 
