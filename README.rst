@@ -691,7 +691,7 @@ How to show your own Logo
 
 | *(Default Logo is the Pibooth logo in resolutions 128x32 or 128x64).* 
 
-Also look at `How to add Animated Gif`_ as logo.
+Also look at `How to show your own Animated Gif`_ as logo.
 
 | Add a new Logo or Animated gif, same resolution as your display ( or lower).
 
