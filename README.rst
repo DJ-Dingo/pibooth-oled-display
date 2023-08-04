@@ -681,6 +681,7 @@ How to show your own Logo and States images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | **LOGO** - choose **Yes** in the Pibooth Menu under **Logo instead of text** 
+
 | *(Default Logo is the Pibooth logo in resolutions 128x32 or 128x64).* 
 
 Also look at `How to add Animated Gif`_ as logo.
@@ -698,8 +699,11 @@ If you add an images with the same name and File extension(s) as some of the def
 
 
 | **STATES** - choose **Yes** in the Pibooth Menu under **Show state pictures** 
+
 | *(Default States images are already provided with these display resolutions):*
+
 | ``128 x 32 pixels`` ``128 x 64 pixels`` ``128 x 128 pixels``
+
 | ``160 x 128 pixels`` ``192 x 64 pixels`` ``256 x 64 pixels``
 
 ``256 x 128 pixels`` ``256 x 256 pixels`` ``320 x 240 pixels``
@@ -717,6 +721,7 @@ You should make images with the same resolution as you display and use the stati
 Examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 
 | List of file names for a display with 128x64 resolution
+
 | `states/capture/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture>`_  ``capture_128x64.png``
 
 | `states/choose/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose>`_ ``choose_128x128.png``
@@ -726,6 +731,7 @@ Examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 | `states/finished/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/finished>`_ ``finished_128x64.png``
 
 | **layout needs 4 ``.png`` images named like this**
+
 | `states/layout/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/layout>`_ ``layout1_128x64.png``, ``layout2_128x64.png``, ``layout3_128x64.png``, ``layout4_128x64.png``
 
 | `states/preview/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview>`_ ``preview_128x64.png``
@@ -735,13 +741,21 @@ Examples : 128x32 = ``processing_128x32.png`` 128x64 = ``processing_128x64.png``
 `states/processing/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing>`_ ``processing_128x64.png``
 
 | You can see the origial gimp files in the **origin** folder `Here <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states>`_ under each folder.
+
 | `states/capture/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/capture/origin>`_ ``capture_128x64.xcf``
+
 | `states/choose/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/choose/origin>`_ ``choose_128x64.xcf``
+
 | `states/failure/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/failure/origin>`_ ``failure_128x64.xcf``
+
 | `states/finished/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/finished/origin>`_ ``finished_128x64.xcf``
+
 | **Layout has 4 ``.xcf`` files, inside each folder for your resolution** 
+
 | `states/layout/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/layout/origin>`_ ``layout1_128x64.xcf`` ``layout2_128x64.xcf`` ``layout3_128x64.xcf`` ``layout4_128x64.xcf``
+
 | `states/preview/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/preview/origin>`_ ``preview_128x64.xcf``
+
 | `states/printer/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/printer/origin>`_ ``printer_128x64.xcf``
 `states/processing/origin/ <https://github.com/DJ-Dingo/pibooth-oled-display/tree/master/pibooth_oled_display/oled_display/states/processing/origin>`_ ``processing_128x64.xcf``
 
