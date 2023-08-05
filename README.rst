@@ -2,7 +2,7 @@
 pibooth-oled-display
 ====================
 
-|PythonVersions|
+|PythonVersions| |PypiPackage| |Downloads|
 
 ``pibooth-oled-display`` is a plugin for the `pibooth`_ application.
 
