@@ -961,3 +961,10 @@ By using this pull-up and reset circuit, you are ensuring that the OLED display 
    :target: https://www.python.org/downloads
    :alt: Python 3.6+
 
+.. |PypiPackage| image:: https://badge.fury.io/py/pibooth-oled-display.svg
+   :target: https://pypi.org/project/pibooth-oled-display
+   :alt: PyPi package
+
+.. |Downloads| image:: https://img.shields.io/pypi/dm/pibooth-oled-display?color=purple
+   :target: https://pypi.org/project/pibooth-oled-display
+   :alt: PyPi downloads
