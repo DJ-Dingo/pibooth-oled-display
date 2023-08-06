@@ -736,7 +736,7 @@ All images will be centered automatic on the display.
 
 But they are not always showing correct, as they will be converted to Black and White or grayscale.
 
-**When adding new Animated Gif, you need to restart Pibooth to load them into the Logo database. If you delete a user Animated that is still in the configuration a default Pibooth Logo will be showing on the display****
+**When adding new Animated Gif, you need to restart Pibooth to load them into the Logo database. If you delete a user Animated that is still in the configuration a default Pibooth Logo will be showing on the display**
 
 
 ----------------------------------------------------
@@ -814,7 +814,7 @@ you need to make a new images and put it in each states folder or display will b
 
 If you have an monochrome display with the resolution 128x64, you can convert or make an image to that resolution (in 8-bit mode). 
 
-**When adding new States images, you need to restart Pibooth to load them into the States database. If you delete a user State image the default Pibooth States images will be showing on the display****
+**When adding new States images, you need to restart Pibooth to load them into the States database. If you delete a user State image the default Pibooth States images will be showing on the display**
 
 
 ----------------------------------------------------
@@ -836,7 +836,7 @@ only the user Fonts will be showing in the menu.
 
 You can download free fonts online, on sites like `fontspace.com <https://www.fontspace.com/>`_
 
-**When adding new fonts, you need to restart Pibooth to load them into the fonts database. If you delete a user Font that is still in the configuration the default Font 'DejaVuSerif-Bold.ttf' will be used on the display****
+**When adding new fonts, you need to restart Pibooth to load them into the fonts database. If you delete a user Font that is still in the configuration the default Font 'DejaVuSerif-Bold.ttf' will be used on the display**
 
 ----------------------------------------------------
 
