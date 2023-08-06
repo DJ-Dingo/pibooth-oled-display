@@ -56,10 +56,10 @@ Hardware
 * 1 x I2c safe Logic Level Converter (**If you are using 5v displays**).  
 * 1 x OLED-display, with **I2c** or **SPI** (See the list of `Testet OLED Displays`_).
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/0-91-0-96-1-3-OLED.png
-   :align: center
+.. |image5| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/0-91-0-96-1-3-OLED.png
    :alt: OLED display
 
+|image5|
 
 Testet OLED Displays
 ^^^^^^^^^^^^^^^^^^^^
@@ -158,9 +158,10 @@ You can find it writing this command in the command line:
 In this case the address of the display is **0x3C**.
 
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/i2cdetect-y1.png
-   :align: center
+.. |image7| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/i2cdetect-y1.png
    :alt: Detect I2C Address
+
+|image7|
 
 How to change I2c address
 ^^^^^^^^^^^^^^^^^^^^^^^^^
