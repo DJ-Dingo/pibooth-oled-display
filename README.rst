@@ -32,7 +32,7 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
    :alt: OLED display examples
 
 .. |image3| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A04_Shopping%20Card.gif
-   :width: 80%
+   :width: 60%
    :alt: OLED display examples
 
 |image1| |image2| |image3|
