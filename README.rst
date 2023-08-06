@@ -6,7 +6,7 @@ pibooth-oled-display
 
 ``pibooth-oled-display`` is a plugin for the `pibooth`_ application.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Pibooth_OLED-I2c_3V_Sketch5_bb.png
+.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Pibooth_OLED-I2c_3V3_main.png
    :align: center
    :alt: I2c 3v3 OLED display simple setup x 2
 
