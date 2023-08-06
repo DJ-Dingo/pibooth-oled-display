@@ -30,7 +30,10 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
 .. |image2| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A03_Beer.gif
    :alt: OLED display examples
 
-|image1| |image2|
+.. |image3| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A04_Shopping%20Card.gif
+   :alt: OLED display examples
+
+|image1| |image2| |image3|
 
 There is also an option for showing your own or default pibooth state images for each `States`_
 
