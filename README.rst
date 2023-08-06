@@ -277,10 +277,10 @@ I2c wire - (5v displays)
 
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/level_converter.png
-   :align: center
+.. |image9| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/level_converter.png
    :alt: I2c wire - (5v displays) 4-channel Logic Level converter
 
+|image9|
 
 **IMPORTANT CHECK YOUR DISPLAY FOR THE RIGHT CONNECTION**
 
@@ -945,10 +945,11 @@ So you need a 10k resistor, and a 47nf or 100nf capacitor (Ceramic or Electrolyt
 * Reset pin >> 10k resistor >> VCC
 * Reset pin >> 47nF or 100nF capacitor (condensator) >> GND (Ground)
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Reset_pull-up_circuit.jpg
-   :align: left
+.. |image11| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Reset_pull-up_circuit.jpg
    :width: 20%
    :alt:  Reset pull-up circuit
+
+|image11|
 
 The purpose of this circuit is to provide a stable voltage level and proper reset functionality for the Reset pin of the OLED display. The 10k resistor connected between the Reset pin and VCC is the pull-up resistor, which ensures that the Reset pin remains at a high logic level when it is not actively driven low.
 
