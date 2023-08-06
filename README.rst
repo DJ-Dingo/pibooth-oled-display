@@ -22,7 +22,7 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
    :align: center
    :alt: OLED display examples
 
-| And Image or Animated Gif with your own **Logo**, like **Pibooth Logo**, 
+| And show Image or Animated Gif with your own **Logo**, like **Pibooth Logo**, 
 
 .. |image1| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A01_Pibooth_128x64.gif
    :alt: OLED display examples
@@ -32,7 +32,7 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
 
 |image1| |image2|
 
-and a option for images for each `States`_
+There is also an option for showing your own or default pibooth state images for each `States`_
 
 .. Note:: Text / Counters can be ``Sized``, ``Centered``, or moved ``Right`` or ``Down``, to match the display. Changes can be made in the `Pibooth Menu`_ or in the `config.cfg`_ file.
 
