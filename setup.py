@@ -55,7 +55,8 @@ def main():
         python_requires=">=3.6",
         install_requires=[
             'pibooth>=2.0.3',
-            'luma.oled>=3.12.0'
+            'luma.oled>=3.12.0',
+            'setuptools'
         ],
         include_package_data=True,
         packages=['pibooth_oled_display', 'pibooth_oled_display.oled_display'],
