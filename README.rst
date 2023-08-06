@@ -67,16 +67,16 @@ Testet OLED Displays
 * Here is the list of supported displays by the luma.oled driver
 
 =============== ========================== =========== ===== =====
-OLED displays    Display Resolutions         TESTET     SPI   I2C
+OLED displays    Display Resolutions         TESTED     SPI   I2C
 =============== ========================== =========== ===== =====
 - sh1106        128x64                     **Working**     X     X
 - ssd1306       128x32, 128x64             **Working**     X     X
-- ssd1309                                  not testet
-- ssd1322                                  not testet
-- ssd1325                                  not testet
-- ssd1327                                  not testet
-- ssd1331                                  not testet
-- ssd1362                                  not testet
+- ssd1309                                  not tested
+- ssd1322                                  not tested
+- ssd1325                                  not tested
+- ssd1327                                  not tested
+- ssd1331                                  not tested
+- ssd1362                                  not tested
 =============== ========================== =========== ===== =====
 
 | **SPI** are a little faster than **I2c**, but also uses more wires to the raspberry pi.
