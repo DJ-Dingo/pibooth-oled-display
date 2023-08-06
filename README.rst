@@ -61,7 +61,6 @@ Hardware
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/0-91-0-96-1-3-OLED.png
    :align: center
-   :width: 90%
    :alt: OLED display
 
 Testet OLED Displays
