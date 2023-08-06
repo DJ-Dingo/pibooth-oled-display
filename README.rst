@@ -24,14 +24,15 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
 
 | And Image or Animated Gif with your own **Logo**, like **Pibooth Logo**, 
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A01_Pibooth_128x64.gif
+.. |image1| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A01_Pibooth_128x64.gif
    :align: left
    :alt: OLED display examples
 
-.. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A03_Beer.gif
+.. |image2| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A03_Beer.gif
    :align: right
    :alt: OLED display examples
 
+|image1| |image2|
 
 and a option for images for each `States`_
 
