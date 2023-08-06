@@ -94,7 +94,7 @@ Install
 -------
 ::
 
-   New version comming soon, dont install before this install info is updated
+   $ pip3 install pibooth-oled-display
 
 
 --------------------------------------
