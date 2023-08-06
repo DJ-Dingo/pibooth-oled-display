@@ -25,11 +25,9 @@ It can show up to 3 lines of **Text**, with or without **Counters**, with number
 | And Image or Animated Gif with your own **Logo**, like **Pibooth Logo**, 
 
 .. |image1| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A01_Pibooth_128x64.gif
-   :align: left
    :alt: OLED display examples
 
 .. |image2| image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/pibooth_oled_display/oled_display/logo/A03_Beer.gif
-   :align: right
    :alt: OLED display examples
 
 |image1| |image2|
