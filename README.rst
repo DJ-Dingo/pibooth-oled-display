@@ -947,7 +947,7 @@ So you need a 10k resistor, and a 47nf or 100nf capacitor (Ceramic or Electrolyt
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/Reset_pull-up_circuit.jpg
    :align: left
-   :width: 70%
+   :height: 70%
    :alt:  Reset pull-up circuit
 
 The purpose of this circuit is to provide a stable voltage level and proper reset functionality for the Reset pin of the OLED display. The 10k resistor connected between the Reset pin and VCC is the pull-up resistor, which ensures that the Reset pin remains at a high logic level when it is not actively driven low.
