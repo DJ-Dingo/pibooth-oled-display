@@ -57,7 +57,7 @@ Hardware
 * 1 x OLED-display, with **I2c** or **SPI** (See the list of `Testet OLED Displays`_).
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/0-91-0-96-1-3-OLED.png
-   :align: left
+   :align: center
    :alt: OLED display
 
 
@@ -159,7 +159,7 @@ In this case the address of the display is **0x3C**.
 
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/i2cdetect-y1.png
-   :align: left
+   :align: center
    :alt: Detect I2C Address
 
 How to change I2c address
@@ -277,7 +277,7 @@ I2c wire - (5v displays)
 Since the Raspberry Pi GPIO only handle 3.3v, it will therefore be a good idea to use a **Logic Level Converter** when using 5v to power the display, so you don't fryed your pi.
 
 .. image:: https://raw.githubusercontent.com/DJ-Dingo/pibooth-oled-display/master/templates/level_converter.png
-   :align: left
+   :align: center
    :alt: I2c wire - (5v displays) 4-channel Logic Level converter
 
 
