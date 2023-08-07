@@ -61,7 +61,7 @@ Hardware
 
 |image5|
 
-Testet OLED Displays
+Tested OLED Displays
 ^^^^^^^^^^^^^^^^^^^^
 
 * Here is the list of supported displays by the luma.oled driver
