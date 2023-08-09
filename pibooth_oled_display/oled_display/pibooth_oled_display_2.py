@@ -18,7 +18,7 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "2.0.2"
+__version__ = "2.0.3"
 # Github "DJ-Dingo", Kenneth Nicholas Jørgensen - Display 2
 
 
@@ -53,6 +53,14 @@ for subdir in user_states_subdirs:
     ensure_directory(os.path.join(user_states_dir, subdir))
 
 
+def get_script_version(filepath):
+    """Extract the VERSION variable from a script."""
+    with open(filepath, 'r') as f:
+        for line in f:
+            if line.startswith("VERSION"):
+                return line.split('=')[1].strip().strip('\"\'')
+    return None  # Return None if version is not found
+
 def copy_files_to_config():
     dst_dir = os.path.expanduser('~/.config/pibooth/oled_display/')
     os.makedirs(dst_dir, exist_ok=True)  # Create destination directory if it doesn't exist
@@ -63,8 +71,13 @@ def copy_files_to_config():
         src_file = pkg_resources.resource_filename('pibooth_oled_display', f'oled_display/{file}')
         dst_file = os.path.join(dst_dir, file)
 
-        if not os.path.exists(dst_file):
+        # If dst_file doesn't exist or its version is different from src_file's, copy src_file over
+        if not os.path.exists(dst_file) or get_script_version(src_file) != get_script_version(dst_file):
             shutil.copy(src_file, dst_file)
+            LOGGER.warning("Overwrote local version of '%s' due to version mismatch. Local: %s, Package: %s",
+                           file,
+                           get_script_version(dst_file),
+                           get_script_version(src_file))
 
 # Call the function
 copy_files_to_config()
