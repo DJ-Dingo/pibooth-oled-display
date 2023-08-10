@@ -57,7 +57,7 @@ def get_script_version(filepath):
     """Extract the VERSION variable from a script."""
     with open(filepath, 'r') as f:
         for line in f:
-            if line.startswith("VERSION"):
+            if line.startswith("__version__"):
                 return line.split('=')[1].strip().strip('\"\'')
     return None  # Return None if version is not found
 
@@ -70,6 +70,18 @@ def copy_files_to_config():
     for file in files_to_copy:
         src_file = pkg_resources.resource_filename('pibooth_oled_display', f'oled_display/{file}')
         dst_file = os.path.join(dst_dir, file)
+
+        src_version = get_script_version(src_file)
+        dst_version = get_script_version(dst_file)
+
+        LOGGER.info("Source (package) script version: %s", src_version)
+        LOGGER.info("Destination (local) script version: %s", dst_version)
+
+        should_copy = not os.path.exists(dst_file) or src_version != dst_version
+        LOGGER.info("Should copy? %s", should_copy)
+
+        if should_copy:
+            shutil.copy(src_file, dst_file)
 
         # If dst_file doesn't exist or its version is different from src_file's, copy src_file over
         if not os.path.exists(dst_file) or get_script_version(src_file) != get_script_version(dst_file):
