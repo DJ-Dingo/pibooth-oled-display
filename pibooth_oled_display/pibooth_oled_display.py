@@ -480,17 +480,29 @@ def draw_text(app, counter, right, down, text, font, color, center=False):
 
     app.draw.text((right, down), final_text, font=font, fill=color)
 
+HAS_LOGGED = False
 
 def write_text_to_oled(app, cfg):
     """Method called to write text or image on the display
     """
+    global HAS_LOGGED
     try:
         # Show logo Yes/No
         y = app.showlogo.split()
         if "No" in y:
-            # Create blank image for drawing.
-            app.image = Image.new(app.color_mode, (app.device.width, app.device.height))
-            app.draw = ImageDraw.Draw(app.image)
+            try:
+                # Create blank image for drawing.
+                app.image = Image.new(app.color_mode, (app.device.width, app.device.height))
+                app.draw = ImageDraw.Draw(app.image)
+            except Exception as e:
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 1: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
+
             # Try to load the fonts, if any of them fails, load a default font
             try:
                 if app.font_1 not in _fonts:
@@ -588,7 +600,13 @@ def write_text_to_oled(app, cfg):
                     app.gif_thread = GifThread(app.device, _logos[app.logos], app.color_mode, app.animated_fps)
                     app.gif_thread.start()
             except Exception as e:
-                LOGGER.warning("OLED display")
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 1: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
 
     except OSError:
         pass
