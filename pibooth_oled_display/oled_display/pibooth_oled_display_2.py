@@ -55,11 +55,16 @@ for subdir in user_states_subdirs:
 
 def get_script_version(filepath):
     """Extract the VERSION variable from a script."""
+    if not os.path.exists(filepath):
+        return None
     with open(filepath, 'r') as f:
         for line in f:
-            if line.startswith("__version__"):
+            if line.startswith("__version__"):  # For .py files
                 return line.split('=')[1].strip().strip('\"\'')
+            elif '.. version::' in line:  # For .rst files
+                return line.split('::')[1].strip()
     return None  # Return None if version is not found
+
 
 def copy_files_to_config():
     dst_dir = os.path.expanduser('~/.config/pibooth/oled_display/')
@@ -74,26 +79,24 @@ def copy_files_to_config():
         src_version = get_script_version(src_file)
         dst_version = get_script_version(dst_file)
 
-        LOGGER.info("Source (package) script version: %s", src_version)
-        LOGGER.info("Destination (local) script version: %s", dst_version)
+        #LOGGER.info("Checking file: %s", file)
+        #LOGGER.info("Source (package) script version: %s", src_version)
+        #LOGGER.info("Destination (local) script version: %s", dst_version)
 
         should_copy = not os.path.exists(dst_file) or src_version != dst_version
-        LOGGER.info("Should copy? %s", should_copy)
+        #LOGGER.info("Should copy? %s", should_copy)
 
+        old_version = get_script_version(dst_file)
+        
         if should_copy:
             shutil.copy(src_file, dst_file)
-
-        # If dst_file doesn't exist or its version is different from src_file's, copy src_file over
-        if not os.path.exists(dst_file) or get_script_version(src_file) != get_script_version(dst_file):
-            shutil.copy(src_file, dst_file)
-            LOGGER.warning("Overwrote local version of '%s' due to version mismatch. Local: %s, Package: %s",
-                           file,
-                           get_script_version(dst_file),
-                           get_script_version(src_file))
+            LOGGER.warning("Overwrote local version of")
+            LOGGER.warning("'%s' ", file)
+            LOGGER.warning("due to version mismatch or file not found")
+            LOGGER.warning("Local: %s, Package: %s", old_version, get_script_version(src_file))
 
 # Call the function
 copy_files_to_config()
-
 
 def update_json_file_2(filename, data):
     """
