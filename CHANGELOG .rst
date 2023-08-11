@@ -3,8 +3,8 @@ Changelog
 
 Version 2.0.3 (??/??/2023)
 --------------------------
-- Improvement: Version camprerison between package and local files in /.config/pibooth/oled_display/ folder. To do an 'AutoUpdate' of files like Date-Time_Format_Codes.rst and pibooth_oled_display_2.py installed in the local config folder if they are older than packages version.
-- Removed: Removed clear() in pibooth_cleanup, as it sometimes gave an wierd error in terminal when        closing Pibooth. It´s not a bug, but anooring
+- Improvement: Version camprerison between package and local files in /.config/pibooth/oled_display/ folder. Then do an 'AutoUpdate' of files like Date-Time_Format_Codes.rst and pibooth_oled_display_2.py installed in the local config folder if they are older than packages version.
+- Removed: clear() in pibooth_cleanup, as it sometimes gave an wierd error in terminal when        closing Pibooth. It´s not a bug, but anooring
 - Added: DESCRIPTION for use with Pypi.
 
 Version 2.0.2 (05/08/2023)
@@ -12,7 +12,7 @@ Version 2.0.2 (05/08/2023)
 - Stable release: Tested for every imaginable situation, and user challenges.
 - Improvement: New way of using user files. If missing user fonts or logo files (named in confin.cfg), default logo or font will be used. Loggin to terminal to inform user about missing files.
 - Removed: gimp files under install, can be downloaded on github
-- Moved: Default font, logo, states files from user folders to install dir  
+- Moved: Default font, logo, states files from user folders to packages folder
 - Bug Fix: Making instal more smooth
 
 Version 2.0.1 (30/07/2023)
@@ -26,7 +26,7 @@ Version 2.0.0 (17/07/2023)
 ----------------------------
 - Feature: Added support for 2 x displays an Center text on display.
 - Improvement: Make the plugin more stable when running 2 displays.
-- Remove: Removed text option 4
+- Remove: text option 4, to prevent too long a config.cfg file
 - Bug Fix: Jumping text and counters on display
 
 Version 1.0.0 (02/08/2021)
