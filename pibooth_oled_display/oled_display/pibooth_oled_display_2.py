@@ -481,17 +481,29 @@ def draw_text_2(app, counter, right, down, text, font, color, center=False):
 
     app.draw2.text((right, down), final_text, font=font, fill=color)
 
+HAS_LOGGED = False
 
 def write_text_to_oled_2(app, cfg):
     """Method called to write text or image on the display
     """
+    global HAS_LOGGED
     try:
         # Show logo Yes/No
         y = app.showlogo2.split()
         if "No" in y:
-            # Create blank image for drawing.
-            app.image2 = Image.new(app.color2_mode, (app.device2.width, app.device2.height))
-            app.draw2 = ImageDraw.Draw(app.image2)
+            try:
+                # Create blank image for drawing.
+                app.image2 = Image.new(app.color2_mode, (app.device2.width, app.device2.height))
+                app.draw2 = ImageDraw.Draw(app.image2)
+            except Exception as e:
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 2: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
+
             # Try to load the fonts, if any of them fails, load a default font
             try:
                 if app.font2_1 not in _fonts2:
@@ -589,7 +601,13 @@ def write_text_to_oled_2(app, cfg):
                     app.gif_thread2 = GifThread2(app.device2, _logos2[app.logos2], app.color2_mode, app.animated_fps2)
                     app.gif_thread2.start()
             except Exception as e:
-                LOGGER.warning("OLED display")
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 2: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
 
     except OSError:
         pass
