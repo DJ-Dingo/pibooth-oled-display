@@ -510,7 +510,7 @@ def write_text_to_oled_2(app, cfg):
             try:
                 if app.font2_1 not in _fonts2:
                     LOGGER.warning("")
-                    LOGGER.warning("OLED display 1")
+                    LOGGER.warning("OLED display 2")
                     LOGGER.warning(f"{app.font2_1} for Font 1 not found,")
                     LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                     LOGGER.warning("Please update the font in the configuration.")
@@ -520,7 +520,7 @@ def write_text_to_oled_2(app, cfg):
                     font2_1 = ImageFont.truetype(_fonts2[app.font2_1], app.size2_1)
             except IOError:
                 LOGGER.warning("")
-                LOGGER.warning("OLED display 1 - You removed a font")
+                LOGGER.warning("OLED display 2 - You removed a font")
                 LOGGER.warning(f"{app.font2_1} for Font 1 not found,")
                 LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                 LOGGER.warning("Please update the font in the configuration.")
@@ -529,7 +529,7 @@ def write_text_to_oled_2(app, cfg):
             try:
                 if app.font2_2 not in _fonts2:
                     LOGGER.warning("")
-                    LOGGER.warning("OLED display 1")
+                    LOGGER.warning("OLED display 2")
                     LOGGER.warning(f"{app.font2_2} for Font 2 not found,")
                     LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                     LOGGER.warning("Please update the font in the configuration.")
@@ -539,7 +539,7 @@ def write_text_to_oled_2(app, cfg):
                     font2_2 = ImageFont.truetype(_fonts2[app.font2_2], app.size2_2)
             except IOError:
                 LOGGER.warning("")
-                LOGGER.warning("OLED display 1 - You removed a font")
+                LOGGER.warning("OLED display 2 - You removed a font")
                 LOGGER.warning(f"{app.font2_2} for Font 2 not found,")
                 LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                 LOGGER.warning("Please update the font in the configuration.")
@@ -548,7 +548,7 @@ def write_text_to_oled_2(app, cfg):
             try:
                 if app.font2_3 not in _fonts2:
                     LOGGER.warning("")
-                    LOGGER.warning("OLED display 1")
+                    LOGGER.warning("OLED display 2")
                     LOGGER.warning(f"{app.font2_3} for Font 3 not found,")
                     LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                     LOGGER.warning("Please update the font in the configuration.")
@@ -558,7 +558,7 @@ def write_text_to_oled_2(app, cfg):
                     font2_3 = ImageFont.truetype(_fonts2[app.font2_3], app.size2_3)
             except IOError:
                 LOGGER.warning("")
-                LOGGER.warning("OLED display 1 - You removed a font")
+                LOGGER.warning("OLED display 2 - You removed a font")
                 LOGGER.warning(f"{app.font2_3} for Font 3 not found,")
                 LOGGER.warning("using default font DejaVuSerif-Bold.ttf.")
                 LOGGER.warning("Please update the font in the configuration.")
