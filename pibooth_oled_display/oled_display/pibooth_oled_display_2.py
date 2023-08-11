@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-"""Plugin to handle small OLED display I2c or SPI."""
+DESCRIPTION = ("Pibooth Plugin to manage small OLED displays (via I2c or SPI). "
+              "Show various counters (e.g., photos taken), display time-date, "
+              "text, logos, and animated GIFs.")
 import os
 import json
 import glob
@@ -977,6 +979,5 @@ def pibooth_cleanup(app):
     try:
         if hasattr(app, 'gif_thread2') and app.gif_thread2.is_alive():
             app.gif_thread2.stop()
-            clear()
     except OSError:
         pass
