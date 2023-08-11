@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 2.0.3 (??/??/2023)
+--------------------------
+- Improvement: Version camprerison between package and local files in /.config/pibooth/oled_display/ folder. To make 'autoUpdate' of files like Date-Time_Format_Codes.rst and pibooth_oled_display_2.py installed in the local folder when new versions comes out.
+- Removed: Removed clear() in pibooth_cleanup, as it sometimes gave an wierd error in terminal when        closing Pibooth. It´s not a bug, but anooring
+- Added: DESCRIPTION for use with Pypi.
+
 Version 2.0.2 (05/08/2023)
 --------------------------
 - Stable release: Tested for every imaginable situation, and user challenges.
