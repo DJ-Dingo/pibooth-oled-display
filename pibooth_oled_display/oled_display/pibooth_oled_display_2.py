@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
-DESCRIPTION = ("Pibooth Plugin to manage small OLED displays (via I2c or SPI). "
-              "Show various counters (e.g., photos taken), display time-date, "
-              "text, logos, and animated GIFs.")
+"""
+Pibooth Plugin to manage small OLED displays (via I2c or SPI).
+Show various counters (e.g., photos taken), display time-date, 
+text, logos, and animated GIFs.
+"""
 import os
 import json
 import glob
