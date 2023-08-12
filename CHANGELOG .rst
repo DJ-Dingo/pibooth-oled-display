@@ -4,7 +4,7 @@ Changelog
 Version 2.0.3 (??/??/2023)
 --------------------------
 - Improvement: Version comparison between package and local files in '~/.config/pibooth/oled_display/' folder. Now it do an 'AutoUpdate' of the files 'Date-Time_Format_Codes.rst' and 'pibooth_oled_display_2.py' installed in the local pibooth config folder, if the version are older than the packages version.
-- Improvement: Do an INFO log in terminal, If OLED display is not connected to the Pi.
+- Improvement: Do a WARNING log in terminal, If OLED display is not connected to the Pi.
 - Removed: 'clear()' in pibooth_cleanup, as it sometimes gave an wierd error in terminal when        closing Pibooth. It´s not a bug, but anooring
 - Added: New docstring for more info on the plugin in Pypi search.
 
