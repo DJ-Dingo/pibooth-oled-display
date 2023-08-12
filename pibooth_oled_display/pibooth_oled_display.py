@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Plugin to handle small OLED display I2c or SPI."""
+"""Pibooth Plugin to manage small OLED displays (via I2c or SPI). Show various counters (e.g., photos taken), display time-date, text, logos, and animated GIFs."""
 import os
 import json
 import glob
@@ -18,7 +18,7 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "2.0.2"
+__version__ = "2.0.3"
 # Github "DJ-Dingo", Kenneth Nicholas Jørgensen - Display 1
 
 
@@ -53,6 +53,19 @@ for subdir in user_states_subdirs:
     ensure_directory(os.path.join(user_states_dir, subdir))
 
 
+def get_script_version(filepath):
+    """Extract the VERSION variable from a script."""
+    if not os.path.exists(filepath):
+        return None
+    with open(filepath, 'r') as f:
+        for line in f:
+            if line.startswith("__version__"):  # For .py files
+                return line.split('=')[1].strip().strip('\"\'')
+            elif '.. version::' in line:  # For .rst files
+                return line.split('::')[1].strip()
+    return None  # Return None if version is not found
+
+
 def copy_files_to_config():
     dst_dir = os.path.expanduser('~/.config/pibooth/oled_display/')
     os.makedirs(dst_dir, exist_ok=True)  # Create destination directory if it doesn't exist
@@ -63,8 +76,24 @@ def copy_files_to_config():
         src_file = pkg_resources.resource_filename('pibooth_oled_display', f'oled_display/{file}')
         dst_file = os.path.join(dst_dir, file)
 
-        if not os.path.exists(dst_file):
+        src_version = get_script_version(src_file)
+        dst_version = get_script_version(dst_file)
+
+        #LOGGER.info("Checking file: %s", file)
+        #LOGGER.info("Source (package) script version: %s", src_version)
+        #LOGGER.info("Destination (local) script version: %s", dst_version)
+
+        should_copy = not os.path.exists(dst_file) or src_version != dst_version
+        #LOGGER.info("Should copy? %s", should_copy)
+
+        old_version = get_script_version(dst_file)
+        
+        if should_copy:
             shutil.copy(src_file, dst_file)
+            LOGGER.warning("Overwrote local version of")
+            LOGGER.warning("'%s' ", file)
+            LOGGER.warning("due to version mismatch or file not found")
+            LOGGER.warning("Local: %s, Package: %s", old_version, get_script_version(src_file))
 
 # Call the function
 copy_files_to_config()
@@ -451,17 +480,29 @@ def draw_text(app, counter, right, down, text, font, color, center=False):
 
     app.draw.text((right, down), final_text, font=font, fill=color)
 
+HAS_LOGGED = False
 
 def write_text_to_oled(app, cfg):
     """Method called to write text or image on the display
     """
+    global HAS_LOGGED
     try:
         # Show logo Yes/No
         y = app.showlogo.split()
         if "No" in y:
-            # Create blank image for drawing.
-            app.image = Image.new(app.color_mode, (app.device.width, app.device.height))
-            app.draw = ImageDraw.Draw(app.image)
+            try:
+                # Create blank image for drawing.
+                app.image = Image.new(app.color_mode, (app.device.width, app.device.height))
+                app.draw = ImageDraw.Draw(app.image)
+            except Exception as e:
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 1: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
+
             # Try to load the fonts, if any of them fails, load a default font
             try:
                 if app.font_1 not in _fonts:
@@ -559,7 +600,13 @@ def write_text_to_oled(app, cfg):
                     app.gif_thread = GifThread(app.device, _logos[app.logos], app.color_mode, app.animated_fps)
                     app.gif_thread.start()
             except Exception as e:
-                LOGGER.warning("OLED display")
+                if not HAS_LOGGED:
+                    LOGGER.warning("")
+                    LOGGER.warning(f"OLED display 1: ERROR")
+                    LOGGER.warning("Can't find device")
+                    LOGGER.warning("Please check your wires to the display")
+                    LOGGER.warning("")
+                    HAS_LOGGED = True
 
     except OSError:
         pass
@@ -929,6 +976,5 @@ def pibooth_cleanup(app):
     try:
         if hasattr(app, 'gif_thread') and app.gif_thread.is_alive():
             app.gif_thread.stop()
-            clear()
     except OSError:
         pass
